@@ -10,7 +10,7 @@ import projetoIntegrador.model.dao.ProductDAO;
 import projetoIntegrador.model.entity.Product;
 
 
-public class ProdutosController {
+public class ProductController {
     
     //private final ProductDAO produtosDAO = new ProductDAO();
 

@@ -5,27 +5,24 @@
  */
 package projetoIntegrador.view;
 
-import java.awt.Dimension;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import projetoIntegrador.model.entity.chamaTela;
 
 /**
  *
  * @author fabi0
  */
-public class InicialView extends javax.swing.JFrame {
+public class InitialView extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaInicialView
      */
-    public InicialView() {
+    public InitialView() {
         initComponents();
-        
+
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -291,58 +288,53 @@ public class InicialView extends javax.swing.JFrame {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
         //chamaTela.telaCliente();
-        ClientesView novaJanela = new ClientesView();
-        
-        
-      jDesktopPane1.add(novaJanela);
+        CustomerView novaJanela = new CustomerView();
+
+        jDesktopPane1.add(novaJanela);
         novaJanela.setVisible(true);
-       try {
+        try {
             novaJanela.setMaximum(true);
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InitialView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
 
-       
+
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-             ProdutosView novaJanela = new ProdutosView();
-        
-        
-      jDesktopPane1.add(novaJanela);
+        ProductView novaJanela = new ProductView();
+
+        jDesktopPane1.add(novaJanela);
         novaJanela.setVisible(true);
-       try {
+        try {
             novaJanela.setMaximum(true);
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InitialView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-       VendasView novaJanela = new VendasView();
-        
-        
-      jDesktopPane1.add(novaJanela);
+        SaleView novaJanela = new SaleView();
+
+        jDesktopPane1.add(novaJanela);
         novaJanela.setVisible(true);
-       try {
+        try {
             novaJanela.setMaximum(true);
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InitialView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        RelatorioSinteticoView novaJanela = new RelatorioSinteticoView();
-        
-        
-      jDesktopPane1.add(novaJanela);
+        SyntheticReportView novaJanela = new SyntheticReportView();
+
+        jDesktopPane1.add(novaJanela);
         novaJanela.setVisible(true);
-       try {
+        try {
             novaJanela.setMaximum(true);
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InitialView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jLabel6MouseClicked
 
@@ -363,25 +355,27 @@ public class InicialView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InicialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InitialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InicialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InitialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InicialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InitialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InicialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InitialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                InicialView inicialView = new InicialView();
+                InitialView inicialView = new InitialView();
                 inicialView.setExtendedState(6);
                 inicialView.setVisible(true);
-                //new InicialView().setVisible(true);
-                
+                //new InitialView().setVisible(true);
+
             }
         });
     }

@@ -13,7 +13,7 @@ import projetoIntegrador.model.entity.Customer;
  *
  * @author Luciana Alves
  */
-public class ClienteController {
+public class CustomerController {
     private CustomerDAO customerDAO = new CustomerDAO();
 
     public void searchCustomer(String nome) {  
