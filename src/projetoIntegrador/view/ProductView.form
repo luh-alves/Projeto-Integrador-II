@@ -128,25 +128,25 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="DatadeNasc4" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblValorUnitario" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                          <Component id="TxtdNome9" min="-2" pref="96" max="-2" attributes="0"/>
+                          <Component id="txtValorUnitario" min="-2" pref="96" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="Nome" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNomeProduto" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="TxtdNome" max="32767" attributes="0"/>
+                                  <Component id="txtNomeProduto" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="TxtdNome7" min="-2" pref="134" max="-2" attributes="0"/>
-                              <Component id="DatadeNasc2" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtQuantidadeProduto" min="-2" pref="134" max="-2" attributes="0"/>
+                              <Component id="lblQuantidadeProduto" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -158,18 +158,18 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Nome" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="DatadeNasc2" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="lblNomeProduto" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="lblQuantidadeProduto" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="TxtdNome" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="TxtdNome7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="txtNomeProduto" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="txtQuantidadeProduto" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="DatadeNasc4" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="TxtdNome9" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="lblValorUnitario" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtValorUnitario" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="43" max="32767" attributes="0"/>
               </Group>
@@ -177,7 +177,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="TxtdNome">
+        <Component class="javax.swing.JTextField" name="txtNomeProduto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="12" style="0"/>
@@ -185,10 +185,10 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtdNomeActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeProdutoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="Nome">
+        <Component class="javax.swing.JLabel" name="lblNomeProduto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -197,7 +197,7 @@
             <Property name="text" type="java.lang.String" value="Nome do Produto:*"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="DatadeNasc2">
+        <Component class="javax.swing.JLabel" name="lblQuantidadeProduto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -205,7 +205,7 @@
             <Property name="text" type="java.lang.String" value="Quantidade:*"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TxtdNome7">
+        <Component class="javax.swing.JTextField" name="txtQuantidadeProduto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="12" style="0"/>
@@ -213,10 +213,10 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtdNome7ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtQuantidadeProdutoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="DatadeNasc4">
+        <Component class="javax.swing.JLabel" name="lblValorUnitario">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -224,7 +224,7 @@
             <Property name="text" type="java.lang.String" value="Valor Unitario:*"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TxtdNome9">
+        <Component class="javax.swing.JTextField" name="txtValorUnitario">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="12" style="0"/>
@@ -232,7 +232,7 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtdNome9ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtValorUnitarioActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -257,17 +257,17 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonSalvar" min="-2" pref="128" max="-2" attributes="0"/>
+                  <Component id="btnSalvarProduto" min="-2" pref="128" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonExcluir1" min="-2" pref="128" max="-2" attributes="0"/>
+                  <Component id="btnAdicionar" min="-2" pref="128" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="jButtonEditar" min="-2" pref="136" max="-2" attributes="0"/>
+                  <Component id="btnEditarProduto" min="-2" pref="136" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonExcluir" min="-2" pref="128" max="-2" attributes="0"/>
+                  <Component id="btnExcluirProduto" min="-2" pref="128" max="-2" attributes="0"/>
                   <EmptySpace pref="319" max="32767" attributes="0"/>
                   <Component id="TextFieldProcurar" min="-2" pref="199" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ok" min="-2" pref="123" max="-2" attributes="0"/>
+                  <Component id="btnBuscarProduto" min="-2" pref="123" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -278,14 +278,14 @@
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                          <Component id="jButtonSalvar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="jButtonExcluir1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="btnSalvarProduto" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="btnAdicionar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="jButtonEditar" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btnEditarProduto" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="TextFieldProcurar" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="ok" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                          <Component id="jButtonExcluir" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="btnBuscarProduto" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btnExcluirProduto" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -294,7 +294,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButtonSalvar">
+        <Component class="javax.swing.JButton" name="btnSalvarProduto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -302,10 +302,10 @@
             <Property name="text" type="java.lang.String" value="Salvar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSalvarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarProdutoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonExcluir">
+        <Component class="javax.swing.JButton" name="btnExcluirProduto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -313,10 +313,10 @@
             <Property name="text" type="java.lang.String" value="Excluir"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonExcluirActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExcluirProdutoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonEditar">
+        <Component class="javax.swing.JButton" name="btnEditarProduto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -324,7 +324,7 @@
             <Property name="text" type="java.lang.String" value="Editar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEditarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarProdutoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="TextFieldProcurar">
@@ -339,7 +339,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextFieldProcurarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="ok">
+        <Component class="javax.swing.JButton" name="btnBuscarProduto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -347,7 +347,7 @@
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonExcluir1">
+        <Component class="javax.swing.JButton" name="btnAdicionar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -355,7 +355,7 @@
             <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonExcluir1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -367,7 +367,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable3">
+        <Component class="javax.swing.JTable" name="tblAdicionar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="12" style="0"/>

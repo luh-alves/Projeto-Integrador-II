@@ -91,11 +91,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonSalvar" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnFinalizarVenda" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="jButtonEditar" min="-2" pref="136" max="-2" attributes="0"/>
+                      <Component id="btnEditarVenda" min="-2" pref="136" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                      <Component id="jButtonExcluir" min="-2" pref="128" max="-2" attributes="0"/>
+                      <Component id="btnExcluirVenda" min="-2" pref="128" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -106,10 +106,10 @@
                       <EmptySpace pref="29" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                              <Component id="jButtonSalvar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="jButtonEditar" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="btnFinalizarVenda" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="btnEditarVenda" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jButtonExcluir" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="btnExcluirVenda" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -117,7 +117,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButtonSalvar">
+            <Component class="javax.swing.JButton" name="btnFinalizarVenda">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="0"/>
@@ -125,10 +125,10 @@
                 <Property name="text" type="java.lang.String" value="Finalizar Venda"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSalvarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFinalizarVendaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonExcluir">
+            <Component class="javax.swing.JButton" name="btnExcluirVenda">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="0"/>
@@ -136,10 +136,10 @@
                 <Property name="text" type="java.lang.String" value="Excluir"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonExcluirActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExcluirVendaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonEditar">
+            <Component class="javax.swing.JButton" name="btnEditarVenda">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="0"/>
@@ -147,7 +147,7 @@
                 <Property name="text" type="java.lang.String" value="Editar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEditarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarVendaActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -162,17 +162,17 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="NomeCliente" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNomeClienteVenda" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="TxtNomeCliente" min="-2" pref="242" max="-2" attributes="0"/>
+                                      <Component id="txtNomeClienteVenda" min="-2" pref="242" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                                      <Component id="CadastrarCliente" min="-2" pref="145" max="-2" attributes="0"/>
+                                      <Component id="btnCadastrarClienteVenda" min="-2" pref="145" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="107" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="CPFCliente1" min="-2" pref="57" max="-2" attributes="0"/>
+                              <Component id="lblProdutoVenda" min="-2" pref="57" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -180,15 +180,15 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Quantidade" min="-2" max="-2" attributes="0"/>
-                          <Component id="TxtQuantidade" min="-2" pref="102" max="-2" attributes="0"/>
+                          <Component id="lblQuantidadeProdutoVenda" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtQuantidadeProdutoVenda" min="-2" pref="102" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TxtCPF1" min="-2" pref="242" max="-2" attributes="0"/>
+                          <Component id="txtProdutoVenda" min="-2" pref="242" max="-2" attributes="0"/>
                           <EmptySpace pref="343" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -198,24 +198,24 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="NomeCliente" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="lblNomeClienteVenda" min="-2" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="TxtNomeCliente" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="CadastrarCliente" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="txtNomeClienteVenda" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="btnCadastrarClienteVenda" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="CPFCliente1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="Quantidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblProdutoVenda" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblQuantidadeProdutoVenda" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="TxtQuantidade" min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="txtQuantidadeProdutoVenda" min="-2" pref="27" max="-2" attributes="0"/>
                       <EmptySpace pref="179" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
-                          <Component id="TxtCPF1" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="txtProdutoVenda" min="-2" pref="27" max="-2" attributes="0"/>
                           <EmptySpace pref="166" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -223,12 +223,12 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="TxtCPF1">
+            <Component class="javax.swing.JTextField" name="txtProdutoVenda">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="2"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="CPFCliente1">
+            <Component class="javax.swing.JLabel" name="lblProdutoVenda">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="0"/>
@@ -236,15 +236,15 @@
                 <Property name="text" type="java.lang.String" value="Produto:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="TxtNomeCliente">
+            <Component class="javax.swing.JTextField" name="txtNomeClienteVenda">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="2"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtNomeClienteActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeClienteVendaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="NomeCliente">
+            <Component class="javax.swing.JLabel" name="lblNomeClienteVenda">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="0"/>
@@ -252,7 +252,7 @@
                 <Property name="text" type="java.lang.String" value="Nome do Cliente:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="Quantidade">
+            <Component class="javax.swing.JLabel" name="lblQuantidadeProdutoVenda">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="0"/>
@@ -260,12 +260,12 @@
                 <Property name="text" type="java.lang.String" value="Quantidade:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="TxtQuantidade">
+            <Component class="javax.swing.JTextField" name="txtQuantidadeProdutoVenda">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="2"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="CadastrarCliente">
+            <Component class="javax.swing.JButton" name="btnCadastrarClienteVenda">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="0"/>
@@ -298,13 +298,13 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="TxtQuantidade1" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
-                                      <Component id="Quantidade1" alignment="0" min="-2" pref="76" max="-2" attributes="0"/>
+                                      <Component id="txtVlalorDaVenda" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
+                                      <Component id="lblValorDaVenda" alignment="0" min="-2" pref="76" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel1" min="-2" pref="566" max="-2" attributes="0"/>
+                                  <Component id="lblCarrinho" min="-2" pref="566" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -326,11 +326,11 @@
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lblCarrinho" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace pref="376" max="32767" attributes="0"/>
-                          <Component id="Quantidade1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblValorDaVenda" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TxtQuantidade1" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="txtVlalorDaVenda" min="-2" pref="27" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -361,7 +361,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="lblCarrinho">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="0"/>
@@ -370,7 +370,7 @@
                 <Property name="text" type="java.lang.String" value="Carrinho"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="Quantidade1">
+            <Component class="javax.swing.JLabel" name="lblValorDaVenda">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="12" style="0"/>
@@ -378,7 +378,7 @@
                 <Property name="text" type="java.lang.String" value="Valor Total:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="TxtQuantidade1">
+            <Component class="javax.swing.JTextField" name="txtVlalorDaVenda">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="2"/>
               </Properties>
