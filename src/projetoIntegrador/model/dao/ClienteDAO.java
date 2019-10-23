@@ -13,32 +13,32 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import projetoIntegrador.model.database.Database;
-import projetoIntegrador.model.entity.Customer;
+import projetoIntegrador.model.entity.Cliente;
 
 /**
  *
  * @author Luciana Alves
  */
-public class CustomerDAO {
+public class ClienteDAO {
 
     private static final String TABLE_NAME = "cliente";
     private Statement statement = Database.getInstance();
 
-    public List<Customer> findCustomerByName( String name) {
+    public List<Cliente> findCustomerByName( String name) {
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE nome LIKE '%" + name + "%'";
-        List<Customer> customers = new ArrayList<>();
+        List<Cliente> customers = new ArrayList<>();
         try {
             ResultSet rs = statement.executeQuery(query);
 
             while (rs.next()) {
                 String nome = rs.getString("nome");
                
-                Customer customer = new Customer();              
+                Cliente customer = new Cliente();              
                 customer.setNome(nome);
                 customers.add(customer);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CustomerDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return customers;
     }

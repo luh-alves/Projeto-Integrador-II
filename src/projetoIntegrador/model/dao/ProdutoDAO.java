@@ -13,14 +13,14 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import projetoIntegrador.model.database.Database;
-import projetoIntegrador.model.entity.Product;
+import projetoIntegrador.model.entity.Produto;
 
-public class ProductDAO {
+public class ProdutoDAO {
 
     private static final String TABLE_NAME = "produto";
     //private Statement statement = Database.getInstance();
 
-    public static void salvarProduto(Product produto) {
+    public static void salvarProduto(Produto produto) {
 //        String query = "INSERT INTO " + TABLE_NAME
 //                + " (nome, quantidade, valor) VALUES ("
 //                + "'" + produto.getNome() + "', "
@@ -32,13 +32,13 @@ public class ProductDAO {
 //        try {
 //            statement.execute(query);
 //        } catch (SQLException ex) {
-//            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
 //        }
     }
 
-    public static List<Product> listAllProducts() {
+    public static List<Produto> listAllProducts() {
         String query = "SELECT * FROM " + TABLE_NAME;
-        List<Product> products = new ArrayList<>();
+        List<Produto> products = new ArrayList<>();
         Statement instrucaoSQL = null;
         
 //        try {
@@ -52,7 +52,7 @@ public class ProductDAO {
 //                double valor = rs.getDouble("valor");
 //                int id = rs.getInt("id");
 //
-//                Product product = new Product();
+//                Produto product = new Produto();
 //                product.setId(id);
 //                product.setNome(nome);
 //                product.setQuantidade(quantidade);
@@ -61,7 +61,7 @@ public class ProductDAO {
 //                products.add(product);
 //            }
 //        } catch (SQLException ex) {
-//            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
 //        }
         return products;
     }

@@ -7,17 +7,17 @@ package projetoIntegrador.view;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import projetoIntegrador.controller.CustomerController;
+import projetoIntegrador.controller.ClienteController;
 
 /**
  *
  * @author fabiana.vsilva6
  */
-public class SaleView extends javax.swing.JInternalFrame {
+public class VendaView extends javax.swing.JInternalFrame {
 
-    CustomerController clienteController = new CustomerController();
+    ClienteController clienteController = new ClienteController();
     
-    public SaleView() {
+    public VendaView() {
         initComponents();
         setupTxtNomeCliente();
         

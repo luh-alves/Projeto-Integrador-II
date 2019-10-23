@@ -12,13 +12,13 @@ import java.util.List;
  *
  * @author Luciana Alves
  */
-public class Sale {
+public class Venda {
 
     private int id;
     private Date dataVenda;
     private double total;
-    private Customer cliente;
-    private List<Product> products;
+    private Cliente cliente;
+    private List<Produto> products;
 
     public int getId() {
         return id;
@@ -44,19 +44,19 @@ public class Sale {
         this.total = total;
     }
 
-    public Customer getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public void setCliente(Customer cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    public List<Product> getProducts() {
+    public List<Produto> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(List<Produto> products) {
         this.products = products;
     }
 

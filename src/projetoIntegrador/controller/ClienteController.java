@@ -6,19 +6,19 @@
 package projetoIntegrador.controller;
 
 import java.util.List;
-import projetoIntegrador.model.dao.CustomerDAO;
-import projetoIntegrador.model.entity.Customer;
+import projetoIntegrador.model.dao.ClienteDAO;
+import projetoIntegrador.model.entity.Cliente;
 
 /**
  *
  * @author Luciana Alves
  */
-public class CustomerController {
-    private CustomerDAO customerDAO = new CustomerDAO();
+public class ClienteController {
+    private ClienteDAO customerDAO = new ClienteDAO();
 
     public void searchCustomer(String nome) {  
         
-         List<Customer> cust = customerDAO.findCustomerByName(nome);
+         List<Cliente> cust = customerDAO.findCustomerByName(nome);
          System.out.println(cust);
 
     }

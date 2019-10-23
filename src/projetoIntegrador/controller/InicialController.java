@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetoIntegrador.model.dao;
+package projetoIntegrador.controller;
 
 /**
  *
  * @author Luciana Alves
  */
-public class AddressDAO {
+public class InicialController {
     
 }

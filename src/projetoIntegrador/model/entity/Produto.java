@@ -5,7 +5,7 @@
  */
 package projetoIntegrador.model.entity;
 
-public class Product {
+public class Produto {
 
     private int id;
     private String nome;

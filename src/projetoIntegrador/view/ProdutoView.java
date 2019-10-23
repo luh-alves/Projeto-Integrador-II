@@ -5,17 +5,17 @@
  */
 package projetoIntegrador.view;
 
-import projetoIntegrador.controller.ProductController;
+import projetoIntegrador.controller.ProdutoController;
 /**
  *
  * @author fabiana.vsilva6
  */
-public class ProductView extends javax.swing.JInternalFrame {
+public class ProdutoView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ProdutosView1
      */
-    public ProductView() {
+    public ProdutoView() {
         initComponents();
     }
 

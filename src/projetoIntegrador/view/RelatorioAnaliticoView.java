@@ -9,12 +9,12 @@ package projetoIntegrador.view;
  *
  * @author fabiana.vsilva6
  */
-public class AnalyticalReportView extends javax.swing.JInternalFrame {
+public class RelatorioAnaliticoView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form RelatorioAnaliticoView
      */
-    public AnalyticalReportView() {
+    public RelatorioAnaliticoView() {
         initComponents();
     }
 

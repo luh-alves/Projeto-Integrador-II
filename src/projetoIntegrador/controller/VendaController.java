@@ -9,6 +9,6 @@ package projetoIntegrador.controller;
  *
  * @author Luciana Alves
  */
-public class AnalyticalReportController {
+public class VendaController {
     
 }

@@ -6,25 +6,25 @@
 package projetoIntegrador.controller;
 
 import java.util.List;
-import projetoIntegrador.model.dao.ProductDAO;
-import projetoIntegrador.model.entity.Product;
+import projetoIntegrador.model.dao.ProdutoDAO;
+import projetoIntegrador.model.entity.Produto;
 
 
-public class ProductController {
+public class ProdutoController {
     
-    //private final ProductDAO produtosDAO = new ProductDAO();
+    //private final ProdutoDAO produtosDAO = new ProdutoDAO();
 
     public static void salvarProduto(String nome, String quantidade, String valor) {
-        final Product produto = new Product();
+        final Produto produto = new Produto();
         produto.setNome(nome);
         produto.setQuantidade(Integer.parseInt(quantidade));
         produto.setValor(Double.parseDouble(valor));
         
         
-        ProductDAO.salvarProduto(produto);
+        ProdutoDAO.salvarProduto(produto);
     }
     
-    public static List<Product> getProducts(){
-        return ProductDAO.listAllProducts();
+    public static List<Produto> getProducts(){
+        return ProdutoDAO.listAllProducts();
     }
 }

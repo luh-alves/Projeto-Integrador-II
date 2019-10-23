@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Luciana Alves
  */
-public class Customer {
+public class Cliente {
     
     private int id;
     private String nome;
@@ -20,7 +20,7 @@ public class Customer {
     private String email;
     private String telefone;
     private String estadoCivil;
-    private Address endereco;
+    private String endereco;
     private Date dataNascimento;
     
           
@@ -85,11 +85,11 @@ public class Customer {
         this.estadoCivil = estadoCivil;
     }
 
-    public Address getEndereco() {
+    public String getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Address endereco) {
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 

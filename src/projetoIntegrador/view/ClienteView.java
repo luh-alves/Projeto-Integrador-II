@@ -9,12 +9,12 @@ package projetoIntegrador.view;
  *
  * @author fabiana.vsilva6
  */
-public class CustomerView extends javax.swing.JInternalFrame {
+public class ClienteView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ClientesView1
      */
-    public CustomerView() {
+    public ClienteView() {
         initComponents();
     }
 

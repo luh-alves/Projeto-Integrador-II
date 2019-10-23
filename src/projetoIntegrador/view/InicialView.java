@@ -13,12 +13,12 @@ import java.util.logging.Logger;
  *
  * @author fabi0
  */
-public class InitialView extends javax.swing.JFrame {
+public class InicialView extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaInicialView
      */
-    public InitialView() {
+    public InicialView() {
         initComponents();
 
     }
@@ -288,53 +288,53 @@ public class InitialView extends javax.swing.JFrame {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
         //chamaTela.telaCliente();
-        CustomerView novaJanela = new CustomerView();
+        ClienteView novaJanela = new ClienteView();
 
         jDesktopPane1.add(novaJanela);
         novaJanela.setVisible(true);
         try {
             novaJanela.setMaximum(true);
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(InitialView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        ProductView novaJanela = new ProductView();
+        ProdutoView novaJanela = new ProdutoView();
 
         jDesktopPane1.add(novaJanela);
         novaJanela.setVisible(true);
         try {
             novaJanela.setMaximum(true);
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(InitialView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        SaleView novaJanela = new SaleView();
+        VendaView novaJanela = new VendaView();
 
         jDesktopPane1.add(novaJanela);
         novaJanela.setVisible(true);
         try {
             novaJanela.setMaximum(true);
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(InitialView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        SyntheticReportView novaJanela = new SyntheticReportView();
+        RelatorioSinteticoView novaJanela = new RelatorioSinteticoView();
 
         jDesktopPane1.add(novaJanela);
         novaJanela.setVisible(true);
         try {
             novaJanela.setMaximum(true);
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(InitialView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jLabel6MouseClicked
 
@@ -355,14 +355,18 @@ public class InitialView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InitialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InitialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InitialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InitialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicialView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -371,10 +375,10 @@ public class InitialView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                InitialView inicialView = new InitialView();
+                InicialView inicialView = new InicialView();
                 inicialView.setExtendedState(6);
                 inicialView.setVisible(true);
-                //new InitialView().setVisible(true);
+                //new InicialView().setVisible(true);
 
             }
         });

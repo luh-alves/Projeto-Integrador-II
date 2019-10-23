@@ -9,12 +9,12 @@ package projetoIntegrador.view;
  *
  * @author fabiana.vsilva6
  */
-public class SyntheticReportView extends javax.swing.JInternalFrame {
+public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form RelatorioSinteticoView1
      */
-    public SyntheticReportView() {
+    public RelatorioSinteticoView() {
         initComponents();
     }
 
