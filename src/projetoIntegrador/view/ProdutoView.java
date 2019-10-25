@@ -24,25 +24,25 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
     public void limparFormulario(){
 
-        TxtdNome.setText("");
-        TxtdNome7.setText("");
-        TxtdNome9.setText("");
+        txtNomeProduto.setText("");
+        txtQuantidadeProduto.setText("");
+        txtValorUnitario.setText("");
 
     }
 
     public void desabilitarFormulario(){
 
-        TxtdNome.setEditable(false);
-        TxtdNome7.setEditable(false);
-        TxtdNome9.setEditable(false);
+        txtNomeProduto.setEditable(false);
+        txtQuantidadeProduto.setEditable(false);
+        txtValorUnitario.setEditable(false);
 
     }
 
     public void habitarFormulario(){
 
-        TxtdNome.setEditable(true);
-        TxtdNome7.setEditable(true);
-        TxtdNome9.setEditable(true);
+        txtNomeProduto.setEditable(true);
+        txtQuantidadeProduto.setEditable(true);
+        txtValorUnitario.setEditable(true);
 
     }
 
