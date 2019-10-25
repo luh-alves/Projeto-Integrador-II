@@ -11,11 +11,14 @@ package projetoIntegrador.view;
  */
 public class ClienteView extends javax.swing.JInternalFrame {
 
+    private final InicialView inicialView;
+
     /**
      * Creates new form ClientesView1
      */
-    public ClienteView() {
+    public ClienteView(InicialView inicialView) {
         initComponents();
+        this.inicialView = inicialView;
     }
 
     /**

@@ -14,13 +14,7 @@ import projetoIntegrador.model.entity.Cliente;
  * @author Luciana Alves
  */
 public class ClienteController {
+
     private ClienteDAO customerDAO = new ClienteDAO();
-
-    public void searchCustomer(String nome) {  
-        
-         List<Cliente> cust = customerDAO.findCustomerByName(nome);
-         System.out.println(cust);
-
-    }
 
 }

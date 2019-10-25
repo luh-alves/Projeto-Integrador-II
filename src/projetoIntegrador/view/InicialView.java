@@ -285,10 +285,8 @@ public class InicialView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClientesMouseClicked
-        // TODO add your handling code here:
-        //chamaTela.telaCliente();
-        ClienteView novaJanela = new ClienteView();
+    public void mostrarTelaCliente(){
+        ClienteView novaJanela = new ClienteView(this);
 
         jDesktopPane1.add(novaJanela);
         novaJanela.setVisible(true);
@@ -297,11 +295,13 @@ public class InicialView extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
+    }
+    
+    private void lblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClientesMouseClicked
+        mostrarTelaCliente();
     }//GEN-LAST:event_lblClientesMouseClicked
 
-    private void lblProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void lblProdutosMouseClicked(java.awt.event.MouseEvent evt) {                                     
         ProdutoView novaJanela = new ProdutoView();
 
         jDesktopPane1.add(novaJanela);
@@ -312,10 +312,10 @@ public class InicialView extends javax.swing.JFrame {
             Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    }//GEN-LAST:event_lblProdutosMouseClicked
+    }                                        
 
-    private void lblVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        VendaView novaJanela = new VendaView();
+    private void lblVendasMouseClicked(java.awt.event.MouseEvent evt) {                                     
+        VendaView novaJanela = new VendaView(this);
 
         jDesktopPane1.add(novaJanela);
         novaJanela.setVisible(true);
@@ -324,9 +324,9 @@ public class InicialView extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_lblVendasMouseClicked
+    }                                      
 
-    private void lblRelatoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+    private void lblRelatoriosMouseClicked(java.awt.event.MouseEvent evt) {                                     
         RelatorioSinteticoView novaJanela = new RelatorioSinteticoView();
 
         jDesktopPane1.add(novaJanela);
@@ -336,7 +336,7 @@ public class InicialView extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_lblRelatoriosMouseClicked
+    }                                          
 
     /**
      * @param args the command line arguments
