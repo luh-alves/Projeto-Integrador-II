@@ -35,16 +35,16 @@ public class InicialView extends javax.swing.JFrame {
         Fundo = new javax.swing.JPanel();
         jPanelEsquerda = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lblClientes = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lblProdutos = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        lblVendas = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        lblRelatorios = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        lblSaudacao = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
@@ -58,13 +58,13 @@ public class InicialView extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 51, 153));
 
-        jLabel2.setFont(new java.awt.Font("Comfortaa Light", 1, 13)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Clientes");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblClientes.setFont(new java.awt.Font("Comfortaa Light", 1, 13)); // NOI18N
+        lblClientes.setForeground(new java.awt.Color(255, 255, 255));
+        lblClientes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblClientes.setText("Clientes");
+        lblClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                lblClientesMouseClicked(evt);
             }
         });
 
@@ -72,24 +72,24 @@ public class InicialView extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                .addComponent(lblClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
 
         jPanel3.setBackground(new java.awt.Color(0, 51, 153));
 
-        jLabel3.setFont(new java.awt.Font("Comfortaa Light", 1, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Produtos");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblProdutos.setFont(new java.awt.Font("Comfortaa Light", 1, 13)); // NOI18N
+        lblProdutos.setForeground(new java.awt.Color(255, 255, 255));
+        lblProdutos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblProdutos.setText("Produtos");
+        lblProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                lblProdutosMouseClicked(evt);
             }
         });
 
@@ -99,26 +99,26 @@ public class InicialView extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))
+                .addComponent(lblProdutos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 47, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jPanel4.setBackground(new java.awt.Color(0, 51, 153));
 
-        jLabel4.setFont(new java.awt.Font("Comfortaa Light", 1, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Vendas");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblVendas.setFont(new java.awt.Font("Comfortaa Light", 1, 13)); // NOI18N
+        lblVendas.setForeground(new java.awt.Color(255, 255, 255));
+        lblVendas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblVendas.setText("Vendas");
+        lblVendas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                lblVendasMouseClicked(evt);
             }
         });
 
@@ -128,26 +128,26 @@ public class InicialView extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
+                .addComponent(lblVendas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 47, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jPanel5.setBackground(new java.awt.Color(0, 51, 153));
 
-        jLabel6.setFont(new java.awt.Font("Comfortaa Light", 1, 13)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Relatórios");
-        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblRelatorios.setFont(new java.awt.Font("Comfortaa Light", 1, 13)); // NOI18N
+        lblRelatorios.setForeground(new java.awt.Color(255, 255, 255));
+        lblRelatorios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRelatorios.setText("Relatórios");
+        lblRelatorios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel6MouseClicked(evt);
+                lblRelatoriosMouseClicked(evt);
             }
         });
 
@@ -157,13 +157,13 @@ public class InicialView extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
+                .addComponent(lblRelatorios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 47, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
+                .addComponent(lblRelatorios, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
         );
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetoIntegrador/view/img/startech.png"))); // NOI18N
@@ -199,10 +199,10 @@ public class InicialView extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 153));
 
-        jLabel5.setBackground(new java.awt.Color(0, 0, 204));
-        jLabel5.setFont(new java.awt.Font("Comfortaa Light", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Bem Vindo");
+        lblSaudacao.setBackground(new java.awt.Color(0, 0, 204));
+        lblSaudacao.setFont(new java.awt.Font("Comfortaa Light", 1, 12)); // NOI18N
+        lblSaudacao.setForeground(new java.awt.Color(255, 255, 255));
+        lblSaudacao.setText("Bem Vindo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -210,12 +210,12 @@ public class InicialView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblSaudacao, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+            .addComponent(lblSaudacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
         );
 
         jPanel6.setBackground(new java.awt.Color(0, 51, 102));
@@ -285,7 +285,7 @@ public class InicialView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void lblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClientesMouseClicked
         // TODO add your handling code here:
         //chamaTela.telaCliente();
         ClienteView novaJanela = new ClienteView();
@@ -299,9 +299,9 @@ public class InicialView extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_lblClientesMouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void lblProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         ProdutoView novaJanela = new ProdutoView();
 
         jDesktopPane1.add(novaJanela);
@@ -312,9 +312,9 @@ public class InicialView extends javax.swing.JFrame {
             Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_lblProdutosMouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void lblVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         VendaView novaJanela = new VendaView();
 
         jDesktopPane1.add(novaJanela);
@@ -324,9 +324,9 @@ public class InicialView extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_lblVendasMouseClicked
 
-    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+    private void lblRelatoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         RelatorioSinteticoView novaJanela = new RelatorioSinteticoView();
 
         jDesktopPane1.add(novaJanela);
@@ -336,7 +336,7 @@ public class InicialView extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jLabel6MouseClicked
+    }//GEN-LAST:event_lblRelatoriosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -367,10 +367,6 @@ public class InicialView extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -388,11 +384,6 @@ public class InicialView extends javax.swing.JFrame {
     private javax.swing.JPanel Fundo;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -400,5 +391,10 @@ public class InicialView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanelEsquerda;
+    private javax.swing.JLabel lblClientes;
+    private javax.swing.JLabel lblProdutos;
+    private javax.swing.JLabel lblRelatorios;
+    private javax.swing.JLabel lblSaudacao;
+    private javax.swing.JLabel lblVendas;
     // End of variables declaration//GEN-END:variables
 }

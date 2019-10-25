@@ -128,25 +128,25 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="Endereco" min="-2" max="-2" attributes="0"/>
-                              <Component id="TxtEndereco" max="32767" attributes="0"/>
-                              <Component id="Telefone" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="TextFieldTelefone" alignment="0" min="-2" pref="333" max="-2" attributes="0"/>
+                              <Component id="lblEndereco" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEndereco" max="32767" attributes="0"/>
+                              <Component id="lblBairro" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtBairro" alignment="0" min="-2" pref="333" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="Endereco1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNumero" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="TxtEmail1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtCidade" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="Email1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblCidade" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="TxtEndereco1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtNumero" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               </Group>
@@ -156,25 +156,25 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="Nome" min="-2" pref="85" max="-2" attributes="0"/>
-                                      <Component id="TxtdNome" min="-2" pref="220" max="-2" attributes="0"/>
+                                      <Component id="lblNomeCliente" min="-2" pref="85" max="-2" attributes="0"/>
+                                      <Component id="txtNomeCliente" min="-2" pref="220" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace pref="78" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="TxtCPF" min="-2" pref="220" max="-2" attributes="0"/>
-                                      <Component id="CPF" min="-2" pref="85" max="-2" attributes="0"/>
+                                      <Component id="txtCPFCliente" min="-2" pref="220" max="-2" attributes="0"/>
+                                      <Component id="lblCPFCliente" min="-2" pref="85" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="DatadeNasc" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jDateChooser1" min="-2" pref="242" max="-2" attributes="0"/>
+                                      <Component id="lblDataNascimento" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dateNascimento" min="-2" pref="242" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="TxtEmail" max="32767" attributes="0"/>
+                                      <Component id="txtEmailCliente" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
-                                          <Component id="Email" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblEmailCliente" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -183,24 +183,24 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="TxtdNome1" max="32767" attributes="0"/>
+                                          <Component id="txtTelefone1" max="32767" attributes="0"/>
                                           <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="Nome3" min="-2" pref="85" max="-2" attributes="0"/>
-                                              <Component id="TxtdNome3" min="-2" pref="200" max="-2" attributes="0"/>
-                                              <Component id="Nome1" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+                                              <Component id="lblCEP" min="-2" pref="85" max="-2" attributes="0"/>
+                                              <Component id="txtCEP" min="-2" pref="200" max="-2" attributes="0"/>
+                                              <Component id="lbltelefone1" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="Nome2" min="-2" pref="85" max="-2" attributes="0"/>
+                                      <Component id="lblTelefone2" min="-2" pref="85" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TxtdNome2" pref="220" max="32767" attributes="0"/>
-                                          <Component id="TxtdNome4" max="32767" attributes="0"/>
-                                          <Component id="Nome4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtTelefone2" pref="220" max="32767" attributes="0"/>
+                                          <Component id="txtNacionalidade" max="32767" attributes="0"/>
+                                          <Component id="lblNacionalidade" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -215,25 +215,25 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Nome" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="CPF" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="lblNomeCliente" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="lblCPFCliente" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="TxtdNome" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="TxtCPF" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="txtNomeCliente" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="txtCPFCliente" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="Email" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblEmailCliente" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TxtEmail" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="txtEmailCliente" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="DatadeNasc" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblDataNascimento" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jDateChooser1" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="dateNascimento" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -241,54 +241,54 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="Endereco1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblNumero" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TxtEndereco1" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="txtNumero" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="Endereco" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblEndereco" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TxtEndereco" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="txtEndereco" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="Email1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblCidade" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TxtEmail1" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="txtCidade" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="Telefone" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblBairro" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TextFieldTelefone" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="txtBairro" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="15" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="Nome3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblCEP" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TxtdNome3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="txtCEP" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="Nome4" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblNacionalidade" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TxtdNome4" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="txtNacionalidade" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="Nome1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lbltelefone1" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TxtdNome1" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="txtTelefone1" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="Nome2" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblTelefone2" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                          <Component id="TxtdNome2" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="txtTelefone2" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -297,7 +297,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="TxtdNome">
+        <Component class="javax.swing.JTextField" name="txtNomeCliente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="12" style="0"/>
@@ -305,10 +305,10 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtdNomeActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeClienteActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="Nome">
+        <Component class="javax.swing.JLabel" name="lblNomeCliente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -317,7 +317,7 @@
             <Property name="text" type="java.lang.String" value="Nome:*"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="CPF">
+        <Component class="javax.swing.JLabel" name="lblCPFCliente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -325,7 +325,7 @@
             <Property name="text" type="java.lang.String" value="Cpf:*"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TxtCPF">
+        <Component class="javax.swing.JTextField" name="txtCPFCliente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="12" style="0"/>
@@ -333,10 +333,10 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtCPFActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCPFClienteActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="DatadeNasc">
+        <Component class="javax.swing.JLabel" name="lblDataNascimento">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -344,17 +344,17 @@
             <Property name="text" type="java.lang.String" value="Data de nascimento:*"/>
           </Properties>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+        <Component class="com.toedter.calendar.JDateChooser" name="dateNascimento">
         </Component>
-        <Component class="javax.swing.JTextField" name="TxtEmail">
+        <Component class="javax.swing.JTextField" name="txtEmailCliente">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtEmailActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmailClienteActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="Email">
+        <Component class="javax.swing.JLabel" name="lblEmailCliente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -362,7 +362,7 @@
             <Property name="text" type="java.lang.String" value="Email:*"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="Telefone">
+        <Component class="javax.swing.JLabel" name="lblBairro">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -370,17 +370,17 @@
             <Property name="text" type="java.lang.String" value="Bairro:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TextFieldTelefone">
+        <Component class="javax.swing.JTextField" name="txtBairro">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TxtEndereco">
+        <Component class="javax.swing.JTextField" name="txtEndereco">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="Endereco">
+        <Component class="javax.swing.JLabel" name="lblEndereco">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -411,13 +411,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelSexo" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSexo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbSexo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabelSexo1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblEstadoCivil" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbEstadoCivil" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -427,12 +427,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="jLabelSexo1" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblEstadoCivil" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                              <Component id="cmbEstadoCivil" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelSexo" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblSexo" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                              <Component id="cmbSexo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -441,7 +441,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabelSexo">
+            <Component class="javax.swing.JLabel" name="lblSexo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="0"/>
@@ -449,7 +449,7 @@
                 <Property name="text" type="java.lang.String" value="Sexo:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="cmbSexo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="0"/>
@@ -468,7 +468,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelSexo1">
+            <Component class="javax.swing.JLabel" name="lblEstadoCivil">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="0"/>
@@ -476,7 +476,7 @@
                 <Property name="text" type="java.lang.String" value="Estado Civil:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox2">
+            <Component class="javax.swing.JComboBox" name="cmbEstadoCivil">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="0"/>
@@ -497,15 +497,15 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="TxtEndereco1">
+        <Component class="javax.swing.JTextField" name="txtNumero">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtEndereco1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="Endereco1">
+        <Component class="javax.swing.JLabel" name="lblNumero">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -513,15 +513,15 @@
             <Property name="text" type="java.lang.String" value="N&#xfa;mero:*"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TxtEmail1">
+        <Component class="javax.swing.JTextField" name="txtCidade">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtEmail1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCidadeActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="Email1">
+        <Component class="javax.swing.JLabel" name="lblCidade">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -529,7 +529,7 @@
             <Property name="text" type="java.lang.String" value="Cidade:*"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="Nome1">
+        <Component class="javax.swing.JLabel" name="lbltelefone1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -538,7 +538,7 @@
             <Property name="text" type="java.lang.String" value="Telefone 1:*"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TxtdNome1">
+        <Component class="javax.swing.JTextField" name="txtTelefone1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="12" style="0"/>
@@ -546,7 +546,7 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="Nome2">
+        <Component class="javax.swing.JLabel" name="lblTelefone2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -555,7 +555,7 @@
             <Property name="text" type="java.lang.String" value="Telefone 2:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TxtdNome2">
+        <Component class="javax.swing.JTextField" name="txtTelefone2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="12" style="0"/>
@@ -563,7 +563,7 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TxtdNome3">
+        <Component class="javax.swing.JTextField" name="txtCEP">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="12" style="0"/>
@@ -571,7 +571,7 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="Nome3">
+        <Component class="javax.swing.JLabel" name="lblCEP">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -580,7 +580,7 @@
             <Property name="text" type="java.lang.String" value="CEP:*"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="Nome4">
+        <Component class="javax.swing.JLabel" name="lblNacionalidade">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -589,7 +589,7 @@
             <Property name="text" type="java.lang.String" value="Nacionalidade:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TxtdNome4">
+        <Component class="javax.swing.JTextField" name="txtNacionalidade">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="12" style="0"/>
@@ -630,17 +630,17 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonSalvar" min="-2" pref="128" max="-2" attributes="0"/>
+                  <Component id="btnSalvarCliente" min="-2" pref="128" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonExcluir1" min="-2" pref="128" max="-2" attributes="0"/>
+                  <Component id="btnAdicionarCliente" min="-2" pref="128" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="jButtonEditar" min="-2" pref="136" max="-2" attributes="0"/>
+                  <Component id="btnEditarCliente" min="-2" pref="136" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonExcluir" min="-2" pref="128" max="-2" attributes="0"/>
+                  <Component id="btnExcluirCliente" min="-2" pref="128" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="TextFieldProcurar" min="-2" pref="199" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ok" min="-2" pref="123" max="-2" attributes="0"/>
+                  <Component id="btnBuscarCliente" min="-2" pref="123" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -651,14 +651,14 @@
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                          <Component id="jButtonSalvar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="jButtonExcluir1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="btnSalvarCliente" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="btnAdicionarCliente" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButtonEditar" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btnEditarCliente" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="TextFieldProcurar" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="ok" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                          <Component id="jButtonExcluir" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="btnBuscarCliente" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btnExcluirCliente" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="19" max="32767" attributes="0"/>
@@ -667,7 +667,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButtonSalvar">
+        <Component class="javax.swing.JButton" name="btnSalvarCliente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -675,10 +675,10 @@
             <Property name="text" type="java.lang.String" value="Salvar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSalvarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarClienteActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonExcluir">
+        <Component class="javax.swing.JButton" name="btnExcluirCliente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -686,10 +686,10 @@
             <Property name="text" type="java.lang.String" value="Excluir"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonExcluirActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExcluirClienteActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonEditar">
+        <Component class="javax.swing.JButton" name="btnEditarCliente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -697,7 +697,7 @@
             <Property name="text" type="java.lang.String" value="Editar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEditarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarClienteActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="TextFieldProcurar">
@@ -712,7 +712,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextFieldProcurarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="ok">
+        <Component class="javax.swing.JButton" name="btnBuscarCliente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -720,7 +720,7 @@
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonExcluir1">
+        <Component class="javax.swing.JButton" name="btnAdicionarCliente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="14" style="0"/>
@@ -728,7 +728,7 @@
             <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonExcluir1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarClienteActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -740,7 +740,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable3">
+        <Component class="javax.swing.JTable" name="tblCadastroCliente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Georgia" size="12" style="0"/>

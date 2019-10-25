@@ -29,45 +29,45 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
 
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        CadastroCliente5 = new javax.swing.JLabel();
+        lblRelatorioSintetico = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         Tabela = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        Quantidade1 = new javax.swing.JLabel();
-        TxtQuantidade1 = new javax.swing.JTextField();
-        Analitico = new javax.swing.JButton();
+        lblValorTotal = new javax.swing.JLabel();
+        txtValorTotal = new javax.swing.JTextField();
+        btnGerarRelatorioAnalitico = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        Busca = new javax.swing.JTextField();
-        TipoExtrato = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<String>();
-        DataInicial = new javax.swing.JLabel();
+        txtBusca = new javax.swing.JTextField();
+        lblTipoExtrato = new javax.swing.JLabel();
+        cmbTipoExtrato = new javax.swing.JComboBox<>();
+        lblDataInicial = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        DataFinal = new javax.swing.JLabel();
+        lblDataFinal = new javax.swing.JLabel();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        ok = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         Botoes = new javax.swing.JPanel();
-        jButtonSalvar = new javax.swing.JButton();
+        btnGerarRelatorioSintetico = new javax.swing.JButton();
 
         jPanel9.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
 
         jPanel10.setBackground(new java.awt.Color(0, 51, 102));
 
-        CadastroCliente5.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
-        CadastroCliente5.setForeground(new java.awt.Color(255, 255, 255));
-        CadastroCliente5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CadastroCliente5.setText("Relatorio Sintético");
-        CadastroCliente5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblRelatorioSintetico.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        lblRelatorioSintetico.setForeground(new java.awt.Color(255, 255, 255));
+        lblRelatorioSintetico.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRelatorioSintetico.setText("Relatorio Sintético");
+        lblRelatorioSintetico.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(CadastroCliente5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblRelatorioSintetico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addComponent(CadastroCliente5, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblRelatorioSintetico, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -122,13 +122,13 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
         ));
         Tabela.setViewportView(jTable3);
 
-        Quantidade1.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        Quantidade1.setText("Valor Total:");
+        lblValorTotal.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        lblValorTotal.setText("Valor Total:");
 
-        TxtQuantidade1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtValorTotal.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
-        Analitico.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        Analitico.setText("Relatório Analítico");
+        btnGerarRelatorioAnalitico.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        btnGerarRelatorioAnalitico.setText("Relatório Analítico");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -139,15 +139,15 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Tabela, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(Analitico)
+                        .addComponent(btnGerarRelatorioAnalitico)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addContainerGap(581, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(TxtQuantidade1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Quantidade1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(19, 19, 19)))
         );
         jPanel3Layout.setVerticalGroup(
@@ -156,38 +156,38 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(Tabela, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Analitico, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addComponent(btnGerarRelatorioAnalitico, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addContainerGap(425, Short.MAX_VALUE)
-                    .addComponent(Quantidade1)
+                    .addComponent(lblValorTotal)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(TxtQuantidade1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
 
-        Busca.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        Busca.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        Busca.setText("Busca Avançada...");
+        txtBusca.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        txtBusca.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtBusca.setText("Busca Avançada...");
 
-        TipoExtrato.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        TipoExtrato.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TipoExtrato.setText("Tipo de extrato:*");
+        lblTipoExtrato.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        lblTipoExtrato.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTipoExtrato.setText("Tipo de extrato:*");
 
-        jComboBox1.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbTipoExtrato.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        cmbTipoExtrato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        DataInicial.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        DataInicial.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        DataInicial.setText("Data Inicial:");
+        lblDataInicial.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        lblDataInicial.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDataInicial.setText("Data Inicial:");
 
-        DataFinal.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        DataFinal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        DataFinal.setText("Data Final:");
+        lblDataFinal.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        lblDataFinal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDataFinal.setText("Data Final:");
 
-        ok.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        ok.setText("Buscar");
+        btnBuscar.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        btnBuscar.setText("Buscar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -197,49 +197,49 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(137, 137, 137)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbTipoExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(DataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(DataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(ok, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Busca, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(TipoExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblTipoExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(257, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ok, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbTipoExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(DataInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                        .addComponent(lblDataInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(DataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(80, 80, 80))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(Busca, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(45, 45, 45)
-                    .addComponent(TipoExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTipoExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(147, Short.MAX_VALUE)))
         );
 
@@ -247,11 +247,11 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
         Botoes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Botoes.setForeground(new java.awt.Color(204, 204, 204));
 
-        jButtonSalvar.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jButtonSalvar.setText("Gerar Relatorio Sintetico");
-        jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
+        btnGerarRelatorioSintetico.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        btnGerarRelatorioSintetico.setText("Gerar Relatorio Sintetico");
+        btnGerarRelatorioSintetico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalvarActionPerformed(evt);
+                btnGerarRelatorioSinteticoActionPerformed(evt);
             }
         });
 
@@ -261,14 +261,14 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
             BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BotoesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonSalvar)
+                .addComponent(btnGerarRelatorioSintetico)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BotoesLayout.setVerticalGroup(
             BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BotoesLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGerarRelatorioSintetico, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -304,24 +304,18 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+    private void btnGerarRelatorioSinteticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioSinteticoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSalvarActionPerformed
+    }//GEN-LAST:event_btnGerarRelatorioSinteticoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Analitico;
     private javax.swing.JPanel Botoes;
-    private javax.swing.JTextField Busca;
-    private javax.swing.JLabel CadastroCliente5;
-    private javax.swing.JLabel DataFinal;
-    private javax.swing.JLabel DataInicial;
-    private javax.swing.JLabel Quantidade1;
     private javax.swing.JScrollPane Tabela;
-    private javax.swing.JLabel TipoExtrato;
-    private javax.swing.JTextField TxtQuantidade1;
-    private javax.swing.JButton jButtonSalvar;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnGerarRelatorioAnalitico;
+    private javax.swing.JButton btnGerarRelatorioSintetico;
+    private javax.swing.JComboBox<String> cmbTipoExtrato;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JPanel jPanel1;
@@ -329,6 +323,12 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTable jTable3;
-    private javax.swing.JButton ok;
+    private javax.swing.JLabel lblDataFinal;
+    private javax.swing.JLabel lblDataInicial;
+    private javax.swing.JLabel lblRelatorioSintetico;
+    private javax.swing.JLabel lblTipoExtrato;
+    private javax.swing.JLabel lblValorTotal;
+    private javax.swing.JTextField txtBusca;
+    private javax.swing.JTextField txtValorTotal;
     // End of variables declaration//GEN-END:variables
 }

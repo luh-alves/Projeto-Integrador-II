@@ -31,9 +31,9 @@ public class RelatorioAnaliticoView extends javax.swing.JInternalFrame {
         jTable3 = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        CadastroCliente4 = new javax.swing.JLabel();
+        lblRelatorioAnalitico = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblRelatorioAnalitico = new javax.swing.JTable();
 
         jTable3.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
@@ -79,22 +79,22 @@ public class RelatorioAnaliticoView extends javax.swing.JInternalFrame {
 
         jPanel10.setBackground(new java.awt.Color(0, 51, 102));
 
-        CadastroCliente4.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
-        CadastroCliente4.setForeground(new java.awt.Color(255, 255, 255));
-        CadastroCliente4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CadastroCliente4.setText("Relatorio Analítico");
-        CadastroCliente4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblRelatorioAnalitico.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        lblRelatorioAnalitico.setForeground(new java.awt.Color(255, 255, 255));
+        lblRelatorioAnalitico.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRelatorioAnalitico.setText("Relatorio Analítico");
+        lblRelatorioAnalitico.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(CadastroCliente4, javax.swing.GroupLayout.DEFAULT_SIZE, 1234, Short.MAX_VALUE)
+            .addComponent(lblRelatorioAnalitico, javax.swing.GroupLayout.DEFAULT_SIZE, 1234, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addComponent(CadastroCliente4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblRelatorioAnalitico, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -109,8 +109,8 @@ public class RelatorioAnaliticoView extends javax.swing.JInternalFrame {
             .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jTable1.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblRelatorioAnalitico.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        tblRelatorioAnalitico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -167,7 +167,7 @@ public class RelatorioAnaliticoView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblRelatorioAnalitico);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,12 +190,12 @@ public class RelatorioAnaliticoView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel CadastroCliente4;
     private javax.swing.JScrollPane Tabela;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
+    private javax.swing.JLabel lblRelatorioAnalitico;
+    private javax.swing.JTable tblRelatorioAnalitico;
     // End of variables declaration//GEN-END:variables
 }

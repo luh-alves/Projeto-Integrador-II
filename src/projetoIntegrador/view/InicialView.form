@@ -129,20 +129,20 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblClientes" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel2" pref="47" max="32767" attributes="0"/>
+                          <Component id="lblClientes" pref="47" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel2">
+                <Component class="javax.swing.JLabel" name="lblClientes">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Comfortaa Light" size="13" style="1"/>
@@ -154,7 +154,7 @@
                     <Property name="text" type="java.lang.String" value="Clientes"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel2MouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblClientesMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -171,7 +171,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Component id="jLabel3" alignment="1" pref="164" max="32767" attributes="0"/>
+                          <Component id="lblProdutos" alignment="1" pref="164" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -180,7 +180,7 @@
                       <EmptySpace min="0" pref="47" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel3" min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="lblProdutos" min="-2" pref="47" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -188,7 +188,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel3">
+                <Component class="javax.swing.JLabel" name="lblProdutos">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Comfortaa Light" size="13" style="1"/>
@@ -200,7 +200,7 @@
                     <Property name="text" type="java.lang.String" value="Produtos"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel3MouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblProdutosMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -217,7 +217,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Component id="jLabel4" alignment="1" pref="184" max="32767" attributes="0"/>
+                          <Component id="lblVendas" alignment="1" pref="184" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -226,7 +226,7 @@
                       <EmptySpace min="0" pref="47" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel4" min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="lblVendas" min="-2" pref="47" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -234,7 +234,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel4">
+                <Component class="javax.swing.JLabel" name="lblVendas">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Comfortaa Light" size="13" style="1"/>
@@ -246,7 +246,7 @@
                     <Property name="text" type="java.lang.String" value="Vendas"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel4MouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblVendasMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -263,7 +263,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Component id="jLabel6" alignment="1" pref="204" max="32767" attributes="0"/>
+                          <Component id="lblRelatorios" alignment="1" pref="204" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -271,13 +271,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <EmptySpace min="0" pref="47" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Component id="jLabel6" alignment="0" pref="47" max="32767" attributes="0"/>
+                          <Component id="lblRelatorios" alignment="0" pref="47" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel6">
+                <Component class="javax.swing.JLabel" name="lblRelatorios">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Comfortaa Light" size="13" style="1"/>
@@ -289,7 +289,7 @@
                     <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel6MouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblRelatoriosMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -315,19 +315,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel5" min="-2" pref="161" max="-2" attributes="0"/>
+                      <Component id="lblSaudacao" min="-2" pref="161" max="-2" attributes="0"/>
                       <EmptySpace pref="21" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel5" alignment="1" pref="27" max="32767" attributes="0"/>
+                  <Component id="lblSaudacao" alignment="1" pref="27" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="lblSaudacao">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="0" red="0" type="rgb"/>
