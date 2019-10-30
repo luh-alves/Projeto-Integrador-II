@@ -18,7 +18,8 @@ public class Venda {
     private Date dataVenda;
     private double total;
     private Cliente cliente;
-    private List<Produto> products;
+    private List<Produto> produtos;
+    private int qdtProdutos;
 
     public int getId() {
         return id;
@@ -52,12 +53,20 @@ public class Venda {
         this.cliente = cliente;
     }
 
-    public List<Produto> getProducts() {
-        return products;
+    public List<Produto> getProdutos() {
+        return produtos;
     }
 
-    public void setProducts(List<Produto> products) {
-        this.products = products;
+    public void setProduto(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+    
+      public int getQdtProdutos() {
+        return qdtProdutos;
+    }
+
+    public void setQdtProdutos(int qdtProdutos) {
+        this.qdtProdutos = qdtProdutos;
     }
 
 }

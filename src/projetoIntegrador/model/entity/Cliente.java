@@ -12,37 +12,63 @@ import java.util.Date;
  * @author Luciana Alves
  */
 public class Cliente {
+    private static int qtdClientes;
     
     private int id;
-    private String nome;
     private String cpf;
+    private String nome;
     private String sexo;
-    private String email;
-    private String telefone;
+    private Date dataNascimento;
     private String estadoCivil;
     private String endereco;
-    private Date dataNascimento;
+    private String email;
+    private String telefone;
     
-          
+    public Cliente(){
+        qtdClientes++;
+        this.id = qtdClientes;
+    }
+    
+    public Cliente(int id, String cpf, String nome,String sexo, Date dataNascimento,String estadoCivil,String endereco, String email, String telefone){
+        this.id = id;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.sexo = sexo;
+        this.dataNascimento = dataNascimento;
+        this.estadoCivil = estadoCivil;
+        this.endereco = endereco;
+        this.email = email;
+        this.telefone = telefone;
+    }
+    
+    
+    public Cliente(String cpf, String nome,String sexo, Date dataNascimento,String estadoCivil,String endereco, String email, String telefone){
+        qtdClientes++;
+        this.id = qtdClientes;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.sexo = sexo;
+        this.dataNascimento = dataNascimento;
+        this.estadoCivil = estadoCivil;
+        this.endereco = endereco;
+        this.email = email;
+        this.telefone = telefone;
+    }
+
+     public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" + "nome=" + nome + '}';
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getCpf() {
@@ -100,9 +126,5 @@ public class Cliente {
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-    
-    
-    
-    
-    
+
 }

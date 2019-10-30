@@ -5,6 +5,8 @@
  */
 package projetoIntegrador.view;
 
+import projetoIntegrador.controller.ClienteController;
+
 /**
  *
  * @author fabiana.vsilva6
@@ -550,7 +552,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnExcluirClienteActionPerformed
 
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
-        // TODO add your handling code here:
+       if(ClienteController.salvarCliente()){
+           
+       }
     }//GEN-LAST:event_btnSalvarClienteActionPerformed
 
     private void txtCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCidadeActionPerformed
