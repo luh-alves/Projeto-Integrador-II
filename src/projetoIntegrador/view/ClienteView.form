@@ -685,16 +685,14 @@
                           <Component id="btnSalvarCliente" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="btnAdicionarCliente" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnEditarCliente" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="txtProcurar" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="btnBuscarCliente" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btnExcluirCliente" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
                               <Component id="BuscaCPF" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="BuscaNome" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnEditarCliente" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="txtProcurar" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="btnBuscarCliente" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="btnExcluirCliente" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
