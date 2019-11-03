@@ -5,6 +5,12 @@
  */
 package projetoIntegrador.view;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import projetoIntegrador.model.entity.Produto;
+import projetoIntegrador.model.entity.Venda;
+
 /**
  *
  * @author fabiana.vsilva6
@@ -14,8 +20,30 @@ public class RelatorioAnaliticoView extends javax.swing.JInternalFrame {
     /**
      * Creates new form RelatorioAnaliticoView
      */
-    public RelatorioAnaliticoView() {
+    public RelatorioAnaliticoView(Venda venda) {
         initComponents();
+
+        atualizarListaDeProdutos(venda.getProdutos());
+
+    }
+
+    private void atualizarListaDeProdutos(List<Produto> produtos) {
+        DefaultTableModel tableModel = new DefaultTableModel(0, 0);
+
+        // adicionar cabeçalho da tabela
+        String header[] = new String[]{"Produto", "Quantide", "Preço Unitário", "Total"};
+
+        // adicionar cabeçalho no modelo da tabela     
+        tableModel.setColumnIdentifiers(header);
+        //definir modelo no objeto de tabela
+        tblRelatorioAnalitico.setModel(tableModel);
+
+        // adicionar linha dinamicamente à tabela      
+        for (Produto produto : produtos) {
+            Double totalProduto = produto.getQuantidadeNaVenda() * produto.getValor();
+            tableModel.addRow(new Object[]{produto.getNome(), produto.getQuantidadeNaVenda(), produto.getValor(), totalProduto});
+        }
+
     }
 
     /**
@@ -112,59 +140,10 @@ public class RelatorioAnaliticoView extends javax.swing.JInternalFrame {
         tblRelatorioAnalitico.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         tblRelatorioAnalitico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Produto", "Quantidade", "Preço Unitário", "Total"
             }
         ));
         jScrollPane1.setViewportView(tblRelatorioAnalitico);

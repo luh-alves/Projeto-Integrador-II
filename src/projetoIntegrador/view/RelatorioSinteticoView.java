@@ -5,6 +5,9 @@
  */
 package projetoIntegrador.view;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author fabiana.vsilva6
@@ -129,6 +132,11 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
 
         btnGerarRelatorioAnalitico.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         btnGerarRelatorioAnalitico.setText("Relatório Analítico");
+        btnGerarRelatorioAnalitico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGerarRelatorioAnaliticoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -307,6 +315,40 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
     private void btnGerarRelatorioSinteticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioSinteticoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGerarRelatorioSinteticoActionPerformed
+
+    private void btnGerarRelatorioAnaliticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioAnaliticoActionPerformed
+        //criando modelo da tabela 
+        DefaultTableModel relatorioSintetico = (DefaultTableModel)jTable3.getModel();
+
+
+
+
+//Verifico se há linhas para poder editar
+        if(tblClientes.getRowCount()>0)
+        {
+            //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
+            if(tblClientes.getSelectedRow()>=0)
+            {
+                HabilitarFormulario();
+                
+                //Variável acessória para identifcar se o formulário está em modo de edição ou alteração
+                modoTela = "Editar";
+
+                //Atribuo os valores que estão na linha selecionada para a tabela
+                lblIDCliente.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 0).toString());
+                txtNome.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 1).toString());
+                txtCPF.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 2).toString());
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this,"Selecione um cliente para editar!");
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this,"Não há clientes para editar!");
+        }
+    }//GEN-LAST:event_btnGerarRelatorioAnaliticoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
