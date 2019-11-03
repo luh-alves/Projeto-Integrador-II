@@ -5,43 +5,84 @@
  */
 package projetoIntegrador.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import projetoIntegrador.model.dao.ClienteDAO;
+import static projetoIntegrador.model.dao.ClienteDAO.ConsultarClientes;
 import projetoIntegrador.model.entity.Cliente;
 
 /**
  *
- * @author Luciana Alves
+ * @author geovane.saraujo
  */
 public class ClienteController {
-    
-    public static boolean salvarCliente(String cpf, String nome,String sexo, Date dataNascimento,String estadoCivil,String endereco, String email, String telefone) {
-        Cliente cliente= new Cliente(cpf, nome, sexo, dataNascimento, estadoCivil, endereco, email, telefone);
+
+    public static boolean salvarCliente(String cpf, String nome, int sexo, Date dataNascimento, int estadoCivil, String endereco, String bairro, String cep, String numero, String cidade, String nacionalidade, String email, String telefone, String telefone2, Date dataCadastro, Date ultimaAtualizacao) {
+        Cliente cliente = new Cliente(cpf, nome, sexo, dataNascimento, estadoCivil, endereco, bairro, cep, numero, cidade, nacionalidade, email, telefone, telefone2, dataCadastro,ultimaAtualizacao);
         return ClienteDAO.salvarCliente(cliente);
     }
-    
+
     public static ArrayList<String[]> consultarClientes() {
-        ClienteDAO clienteConsultar = new ClienteDAO();
         ArrayList<String[]> ListarClientesString = new ArrayList<String[]>();
 
-        
-        
-        for (Cliente ListarCliente: clienteConsultar.ConsultarClientes()){
-            ListarClientesString.add(new String[]{String.valueOf(ListarCliente.getCpf()),
+        for (Cliente ListarCliente : ConsultarClientes()) {
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM/yyyy | HH:mm:ss");
+            ListarClientesString.add(new String[]{
+                String.valueOf(ListarCliente.getId()),
                 ListarCliente.getNome(),
+                ListarCliente.getCpf(),
                 String.valueOf(ListarCliente.getSexo()),
-                String.valueOf(ListarCliente.getDataNascimento()),
-                ListarCliente.getEstadoCivil(),
+                formato.format(ListarCliente.getDataNascimento()),
+                String.valueOf(ListarCliente.getEstadoCivil()),
                 ListarCliente.getEndereco(),
+                ListarCliente.getBairro(),
+                ListarCliente.getCep(),
+                ListarCliente.getNumero(),
+                ListarCliente.getCidade(),
+                ListarCliente.getNacionalidade(),
                 ListarCliente.getEmail(),
-                ListarCliente.getTelefone()});
+                ListarCliente.getTelefone(),
+                ListarCliente.getTelefone2(),
+               formato2.format(ListarCliente.getDataCadastro()),
+               formato2.format(ListarCliente.getUltimaAtualizacao())});
         }
         return ListarClientesString;
     }
+    
+    public static ArrayList<String[]> buscarClientes(String buscar, String modo) {
+        ArrayList<String[]> buscarClientesString = new ArrayList<String[]>();
 
-    public static boolean atualizarCliente() {
-        Cliente clienteAtualizar = new Cliente();
+        for (Cliente ListarCliente : ConsultarClientes()) {
+            if(ListarCliente.getCpf().equals(buscar) && modo.equals("BuscarCPF") || ListarCliente.getNome().equals(buscar) && modo.equals("BuscarNOME")){
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM/yyyy | HH:mm:ss");
+            buscarClientesString.add(new String[]{
+                String.valueOf(ListarCliente.getId()),
+                ListarCliente.getNome(),
+                ListarCliente.getCpf(),
+                String.valueOf(ListarCliente.getSexo()),
+                formato.format(ListarCliente.getDataNascimento()),
+                String.valueOf(ListarCliente.getEstadoCivil()),
+                ListarCliente.getEndereco(),
+                ListarCliente.getBairro(),
+                ListarCliente.getCep(),
+                ListarCliente.getNumero(),
+                ListarCliente.getCidade(),
+                ListarCliente.getNacionalidade(),
+                ListarCliente.getEmail(),
+                ListarCliente.getTelefone(),
+                ListarCliente.getTelefone2(),
+               formato2.format(ListarCliente.getDataCadastro()),
+               formato2.format(ListarCliente.getUltimaAtualizacao())});
+        }
+        }
+        return buscarClientesString;
+    }
+
+    public static boolean atualizarCliente(int ID, String nome, int sexo, Date dataNascimento, int estadoCivil, String endereco, String bairro, String cep, String numero, String cidade, String nacionalidade, String email, String telefone, String telefone2, Date ultimaAtualizacao) {
+        Cliente clienteAtualizar = new Cliente(ID, nome, sexo, dataNascimento, estadoCivil, endereco, bairro, cep, numero, cidade, nacionalidade, email, telefone, telefone2, ultimaAtualizacao);
         return ClienteDAO.atualizarCliente(clienteAtualizar);
     }
 
@@ -49,10 +90,6 @@ public class ClienteController {
         return ClienteDAO.excluirCliente(cpf);
     }
 
-    public static boolean salvarCliente() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private ClienteDAO clienteDAO = new ClienteDAO();
+    private ClienteDAO customerDAO = new ClienteDAO();
 
 }

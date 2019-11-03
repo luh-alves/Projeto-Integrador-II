@@ -38,33 +38,40 @@ public class SimulaBancoDados {
         return objBancoSimulado;
     }
 
-    public boolean salvarCliente(Cliente objCliente) {
+     public boolean salvarCliente(Cliente objCliente) {
         linhasClienteTabela.add(objCliente);
         return true;
     }
-
+    
     public ArrayList<Cliente> consultarCliente() {
         return this.linhasClienteTabela;
     }
 
-    //atulizar cliente aqui identifica o cliente pelo cpf ao encontrar o cliente no for, seta os valores para o mesmo
+    //atulizar cliente aqui identifica o cliente pelo ID ao encontrar o cliente no for, seta os valores para o mesmo
     public boolean atualizarCliente(Cliente Cliente) {
         for (Cliente listarCliente : linhasClienteTabela) {
-            if (listarCliente.getCpf().equals(Cliente.getCpf())) {
+            if (listarCliente.getId()==(Cliente.getId())) {
                 listarCliente.setNome(Cliente.getNome());
                 listarCliente.setSexo(Cliente.getSexo());
                 listarCliente.setDataNascimento(Cliente.getDataNascimento());
                 listarCliente.setEstadoCivil(Cliente.getEstadoCivil());
                 listarCliente.setEndereco(Cliente.getEndereco());
+                listarCliente.setBairro(Cliente.getBairro());
+                listarCliente.setCep(Cliente.getCep());
+                listarCliente.setNumero(Cliente.getNumero());
+                listarCliente.setCidade(Cliente.getCidade());
+                listarCliente.setNacionalidade(Cliente.getNacionalidade());
                 listarCliente.setEmail(Cliente.getEmail());
                 listarCliente.setTelefone(Cliente.getTelefone());
+                listarCliente.setTelefone2(Cliente.getTelefone2());
+                listarCliente.setUltimaAtualizacao(Cliente.getUltimaAtualizacao());
             }
         }
         return true;
     }
-
+    
     public boolean excluirCliente(String cpf) {
-
+        
         boolean clienteExiste = false;
         for (Cliente c : linhasClienteTabela) {
             Cliente clienteExcluir = null;
@@ -76,7 +83,7 @@ public class SimulaBancoDados {
                 linhasClienteTabela.remove(clienteExcluir);
                 break; //sem o break O clinete é excluído porém no console da erro e não carrega a tabela nem aperece a msg: cliente excluido
             }
-
+            
         }
         return true;
     }

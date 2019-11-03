@@ -5,6 +5,14 @@
  */
 package projetoIntegrador.view;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import projetoIntegrador.controller.ClienteController;
 
 /**
@@ -13,14 +21,17 @@ import projetoIntegrador.controller.ClienteController;
  */
 public class ClienteView extends javax.swing.JInternalFrame {
 
-    private final InicialView inicialView;
-
     /**
      * Creates new form ClientesView1
      */
-    public ClienteView(InicialView inicialView) {
+    private final InicialView inicialView;
+    
+    String modoTela = "Criar";
+    public ClienteView(InicialView InicialView) {
         initComponents();
-        this.inicialView = inicialView;
+         carregarTabela();
+        this.inicialView = InicialView;
+      
     }
 
     /**
@@ -32,6 +43,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        TipoBuscaCliente = new javax.swing.ButtonGroup();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         CadastroCliente4 = new javax.swing.JLabel();
@@ -70,11 +82,18 @@ public class ClienteView extends javax.swing.JInternalFrame {
         btnSalvarCliente = new javax.swing.JButton();
         btnExcluirCliente = new javax.swing.JButton();
         btnEditarCliente = new javax.swing.JButton();
-        TextFieldProcurar = new javax.swing.JTextField();
+        txtProcurar = new javax.swing.JTextField();
         btnBuscarCliente = new javax.swing.JButton();
         btnAdicionarCliente = new javax.swing.JButton();
+        BuscaNome = new javax.swing.JRadioButton();
+        BuscaCPF = new javax.swing.JRadioButton();
         Tabela = new javax.swing.JScrollPane();
         tblCadastroCliente = new javax.swing.JTable();
+        lblClienteID = new javax.swing.JLabel();
+
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jPanel9.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
 
@@ -114,6 +133,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
         txtNomeCliente.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
         txtNomeCliente.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtNomeCliente.setText("fdfds");
         txtNomeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeClienteActionPerformed(evt);
@@ -175,7 +195,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
         lblEstadoCivil.setText("Estado Civil:");
 
         cmbEstadoCivil.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        cmbEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Divorciado", " ", " " }));
+        cmbEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Divorciado", "", "" }));
+        cmbEstadoCivil.setLightWeightPopupEnabled(false);
+        cmbEstadoCivil.setOpaque(false);
 
         javax.swing.GroupLayout SexoLayout = new javax.swing.GroupLayout(Sexo);
         Sexo.setLayout(SexoLayout);
@@ -186,10 +208,11 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 .addComponent(lblSexo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cmbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                 .addComponent(lblEstadoCivil)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cmbEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         SexoLayout.setVerticalGroup(
             SexoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,7 +308,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtCPFCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblCPFCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -417,23 +440,46 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
 
-        TextFieldProcurar.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        TextFieldProcurar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TextFieldProcurar.setText("Procurar...");
-        TextFieldProcurar.addActionListener(new java.awt.event.ActionListener() {
+        txtProcurar.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        txtProcurar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtProcurar.setText("Procurar...");
+        txtProcurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFieldProcurarActionPerformed(evt);
+                txtProcurarActionPerformed(evt);
             }
         });
 
         btnBuscarCliente.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         btnBuscarCliente.setText("Buscar");
+        btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarClienteActionPerformed(evt);
+            }
+        });
 
         btnAdicionarCliente.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         btnAdicionarCliente.setText("Adicionar");
         btnAdicionarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdicionarClienteActionPerformed(evt);
+            }
+        });
+
+        TipoBuscaCliente.add(BuscaNome);
+        BuscaNome.setText("NOME");
+        BuscaNome.setBorder(null);
+        BuscaNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscaNomeActionPerformed(evt);
+            }
+        });
+
+        TipoBuscaCliente.add(BuscaCPF);
+        BuscaCPF.setText("CPF");
+        BuscaCPF.setBorder(null);
+        BuscaCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscaCPFActionPerformed(evt);
             }
         });
 
@@ -450,8 +496,12 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 .addComponent(btnEditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TextFieldProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(231, 231, 231)
+                .addComponent(BuscaCPF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -464,53 +514,30 @@ public class ClienteView extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSalvarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnEditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(TextFieldProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BuscaCPF)
+                            .addComponent(BuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnEditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
         tblCadastroCliente.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
         tblCadastroCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Nome:", "CPF:", "Data de cadastro:"
             }
         ));
         Tabela.setViewportView(tblCadastroCliente);
+
+        lblClienteID.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -525,6 +552,11 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 .addComponent(Tabela, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(617, 617, 617)
+                    .addComponent(lblClienteID)
+                    .addContainerGap(617, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -533,18 +565,178 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Tabela)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Tabela))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Botoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(327, 327, 327)
+                    .addComponent(lblClienteID)
+                    .addContainerGap(327, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+   public void carregarTabela() {
+        //Controlador resgata os clientes do banco de dados
+        ArrayList<String[]> listaClientes = ClienteController.consultarClientes();
+          ArrayList<String[]> BuscarClientes = ClienteController.consultarClientes();
+
+        //criar manualmente uma tabela para listar os clientes e gerencia-los
+        DefaultTableModel tabelaClientes = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int linha, int coluna) {
+                return false;
+            }
+        };
+        tabelaClientes.addColumn("ID");//0
+        tabelaClientes.addColumn("NOME");//1
+        tabelaClientes.addColumn("CPF");//2
+        tabelaClientes.addColumn("SEXO");//3
+        tabelaClientes.addColumn("DATA DE NASCIMENTO");//4
+        tabelaClientes.addColumn("ESTADO CIVIL");//5
+        tabelaClientes.addColumn("ENDERECO");//6
+        tabelaClientes.addColumn("BAIRRO");//7
+        tabelaClientes.addColumn("CEP");//8
+        tabelaClientes.addColumn("NUMERO");//9
+        tabelaClientes.addColumn("CIDADE");//10
+        tabelaClientes.addColumn("NACIONALIDADE");//11
+        tabelaClientes.addColumn("EMAIL");//12
+        tabelaClientes.addColumn("TELEFONE");//13
+        tabelaClientes.addColumn("TELEFONE");//14
+        tabelaClientes.addColumn("DATA DE CADASTRO");//15
+        tabelaClientes.addColumn("ULTIMA ATUALIZAÇÃO");//16
+        tabelaClientes.isCellEditable(0, 0);
+        tblCadastroCliente.setModel(tabelaClientes);
+
+        //remover algumas colunas da tabela, mas mantendo as informções na model para quando precisar passar para o formulario
+        for (int i = tabelaClientes.getColumnCount() - 1; i >= 0; i--) if (i != 15 && i != 2 && i != 1) tblCadastroCliente.removeColumn(tblCadastroCliente.getColumnModel().getColumn(i));
+        
+
+        //para cada cliente novo, atualizado ou excluido, atualizo a tabela
+        if(modoTela.equals("Buscar")){
+            for(String[] clientes : BuscarClientes){
+                tabelaClientes.addRow(clientes);
+            }
+        }else{
+        for (String[] clientes : listaClientes) {
+            tabelaClientes.addRow(clientes);
+        }}
+        //definindo um tamanho para cada coluna
+         tblCadastroCliente.getColumnModel().getColumn(0).setPreferredWidth(200);
+         tblCadastroCliente.getColumnModel().getColumn(1).setPreferredWidth(200);
+         tblCadastroCliente.getColumnModel().getColumn(2).setPreferredWidth(200);
+    
+    }
+    
+public void limparFormulario() {
+        txtNomeCliente.setText("");
+        txtCPFCliente.setText("");
+        dateNascimento.setDate(null);
+        txtEmailCliente.setText("");
+        cmbSexo.setSelectedIndex(0);
+        cmbEstadoCivil.setSelectedIndex(0);
+        txtEndereco.setText("");
+        txtBairro.setText("");
+        txtCidade.setText("");
+        txtCEP.setText("");
+        txtNacionalidade.setText("");
+        txtNumero.setText("");
+        txtTelefone1.setText("");
+        txtTelefone2.setText("");
+    }
+   
+     public void habilitarFormulario() {
+        txtNomeCliente.setEnabled(true);
+        txtCPFCliente.setEnabled(true);
+        dateNascimento.setEnabled(true);
+        txtEmailCliente.setEnabled(true);
+        cmbSexo.setEnabled(true);
+        cmbEstadoCivil.setEnabled(true);
+        txtEndereco.setEnabled(true);
+        txtBairro.setEnabled(true);
+        txtCidade.setEnabled(true);
+        txtCEP.setEnabled(true);
+        txtNacionalidade.setEnabled(true);
+        txtNumero.setEnabled(true);
+        txtTelefone1.setEnabled(true);
+        txtTelefone2.setEnabled(true);
+    }
+
+    public void desabilitarFormulario() {
+        txtNomeCliente.setEnabled(false);
+        txtCPFCliente.setEnabled(false);
+        dateNascimento.setEnabled(false);
+        txtEmailCliente.setEnabled(false);
+        cmbSexo.setEnabled(false);
+        cmbEstadoCivil.setEnabled(false);
+        txtEndereco.setEnabled(false);
+        txtBairro.setEnabled(false);
+        txtCidade.setEnabled(false);
+        txtCEP.setEnabled(false);
+        txtNacionalidade.setEnabled(false);
+        txtNumero.setEnabled(false);
+        txtTelefone1.setEnabled(false);
+        txtTelefone2.setEnabled(false);
+        lblClienteID.setVisible(false);
+    }
+    
+    
+    
     private void btnEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClienteActionPerformed
-        // TODO add your handling code here:
+        modoTela  = "Editar";
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        if (tblCadastroCliente.getRowCount() > 0) {
+             //verifica se o usuario selecionou uma linha, selecionado é = a 0, quando não tem nada selecionado é = -1
+            if (tblCadastroCliente.getSelectedRow() >= 0) {
+                habilitarFormulario();
+                 //passando o valores da linha selecionada
+                 lblClienteID.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 0).toString());
+                 txtNomeCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 1).toString());
+                 txtCPFCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 2).toString());
+                 cmbSexo.setSelectedIndex(Integer.parseInt(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 3).toString())); 
+                try { 
+                    dateNascimento.setDate(formato.parse(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 4).toString()));
+                } catch (ParseException ex) {
+                    Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                 cmbEstadoCivil.setSelectedIndex(Integer.parseInt(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 5).toString())); 
+                 txtEndereco.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 6).toString()); 
+                 txtBairro.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 7).toString()); 
+                 txtCEP.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 8).toString()); 
+                 txtNumero.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 9).toString()); 
+                 txtCidade.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 10).toString()); 
+                 txtNacionalidade.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 11).toString()); 
+                 txtEmailCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 12).toString()); 
+                 txtTelefone1.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 13).toString()); 
+                 txtTelefone2.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 14).toString()); 
+//        tabelaClientes.addColumn("ID");//0
+//        tabelaClientes.addColumn("NOME");//1
+//        tabelaClientes.addColumn("CPF");//2
+//        tabelaClientes.addColumn("SEXO");//3
+//        tabelaClientes.addColumn("DATA DE NASCIMENTO");//4
+//        tabelaClientes.addColumn("ESTADO CIVIL");//5
+//        tabelaClientes.addColumn("ENDERECO");//6
+//        tabelaClientes.addColumn("BAIRRO");//7
+//        tabelaClientes.addColumn("CEP");//8
+//        tabelaClientes.addColumn("NUMERO");//9
+//        tabelaClientes.addColumn("CIDADE");//10
+//        tabelaClientes.addColumn("NACIONALIDADE");//11
+//        tabelaClientes.addColumn("EMAIL");//12
+//        tabelaClientes.addColumn("TELEFONE");//13
+//        tabelaClientes.addColumn("TELEFONE");//14
+//        tabelaClientes.addColumn("DATA DE CADASTRO");//15
+//        tabelaClientes.addColumn("ULTIMA ATUALIZAÇÃO");//16
+            }else{
+                JOptionPane.showMessageDialog(this, "Selecione um cliente para editar!");
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Nenhum cliente cadastrado!");
+        }
+        habilitarFormulario();
     }//GEN-LAST:event_btnEditarClienteActionPerformed
 
     private void btnExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirClienteActionPerformed
@@ -552,9 +744,28 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnExcluirClienteActionPerformed
 
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
-       if(ClienteController.salvarCliente()){
-           
-       }
+ Date date = new Date(System.currentTimeMillis());
+        if (modoTela.equals("Criar")) {
+
+            if (ClienteController.salvarCliente(txtCPFCliente.getText(), txtNomeCliente.getText(), cmbSexo.getSelectedIndex(), dateNascimento.getDate(),cmbEstadoCivil.getSelectedIndex(), txtEndereco.getText(), txtBairro.getText(), txtCEP.getText(), txtNumero.getText(), txtCidade.getText(), txtNacionalidade.getText(), txtEmailCliente.getText(), txtTelefone1.getText(), txtTelefone2.getText(), date, date)) {
+
+                //carregar a tabela depois de salvo no banco
+                carregarTabela();
+                limparFormulario();
+                JOptionPane.showMessageDialog(this, "Novo cliente adicionado com  sucesso");
+            } else {
+                JOptionPane.showMessageDialog(this, "Erro ao salvar o cliente ");
+            }
+        } else {
+            if (ClienteController.atualizarCliente(Integer.parseInt(lblClienteID.getText()), txtNomeCliente.getText(), cmbSexo.getSelectedIndex(), dateNascimento.getDate(), cmbEstadoCivil.getSelectedIndex(), txtEndereco.getText(), txtBairro.getText(), txtCEP.getText(), txtNumero.getText(), txtCidade.getText(), txtNacionalidade.getText(), txtEmailCliente.getText(), txtTelefone1.getText(), txtTelefone2.getText(), date)) {
+                carregarTabela();
+                limparFormulario();
+                JOptionPane.showMessageDialog(this, "O cliente foi atualizado com sucesso");
+            } else {
+                JOptionPane.showMessageDialog(this, "Não foi possivel atualizar o cliente!");
+            }
+        }
+        desabilitarFormulario();
     }//GEN-LAST:event_btnSalvarClienteActionPerformed
 
     private void txtCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCidadeActionPerformed
@@ -562,12 +773,14 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtCidadeActionPerformed
 
     private void btnAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarClienteActionPerformed
-        // TODO add your handling code here:
+          modoTela = "Criar";
+        limparFormulario();
+        habilitarFormulario();
     }//GEN-LAST:event_btnAdicionarClienteActionPerformed
 
-    private void TextFieldProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldProcurarActionPerformed
+    private void txtProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProcurarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextFieldProcurarActionPerformed
+    }//GEN-LAST:event_txtProcurarActionPerformed
 
     private void txtNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeClienteActionPerformed
         // TODO add your handling code here:
@@ -585,13 +798,31 @@ public class ClienteView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCPFClienteActionPerformed
 
+    private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
+         modoTela = "Buscar";
+//       String buscar = 
+//        ArrayList<String[]> busca = ClienteController.buscarClientes(buscar, modo);
+        
+       
+    }//GEN-LAST:event_btnBuscarClienteActionPerformed
+
+    private void BuscaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscaNomeActionPerformed
+
+    private void BuscaCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaCPFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscaCPFActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Botoes;
+    private javax.swing.JRadioButton BuscaCPF;
+    private javax.swing.JRadioButton BuscaNome;
     private javax.swing.JLabel CadastroCliente4;
     private javax.swing.JPanel Sexo;
     private javax.swing.JScrollPane Tabela;
-    private javax.swing.JTextField TextFieldProcurar;
+    private javax.swing.ButtonGroup TipoBuscaCliente;
     private javax.swing.JButton btnAdicionarCliente;
     private javax.swing.JButton btnBuscarCliente;
     private javax.swing.JButton btnEditarCliente;
@@ -608,6 +839,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblCEP;
     private javax.swing.JLabel lblCPFCliente;
     private javax.swing.JLabel lblCidade;
+    private javax.swing.JLabel lblClienteID;
     private javax.swing.JLabel lblDataNascimento;
     private javax.swing.JLabel lblEmailCliente;
     private javax.swing.JLabel lblEndereco;
@@ -628,6 +860,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNacionalidade;
     private javax.swing.JTextField txtNomeCliente;
     private javax.swing.JTextField txtNumero;
+    private javax.swing.JTextField txtProcurar;
     private javax.swing.JTextField txtTelefone1;
     private javax.swing.JTextField txtTelefone2;
     // End of variables declaration//GEN-END:variables
