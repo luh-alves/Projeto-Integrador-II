@@ -62,9 +62,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
         lblEndereco = new javax.swing.JLabel();
         Sexo = new javax.swing.JPanel();
         lblSexo = new javax.swing.JLabel();
-        cmbSexo = new javax.swing.JComboBox<>();
+        cmbSexo = new javax.swing.JComboBox<String>();
         lblEstadoCivil = new javax.swing.JLabel();
-        cmbEstadoCivil = new javax.swing.JComboBox<>();
+        cmbEstadoCivil = new javax.swing.JComboBox<String>();
         txtNumero = new javax.swing.JTextField();
         lblNumero = new javax.swing.JLabel();
         txtCidade = new javax.swing.JTextField();
@@ -189,13 +189,13 @@ public class ClienteView extends javax.swing.JInternalFrame {
         lblSexo.setText("Sexo:");
 
         cmbSexo.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        cmbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Feminino", "Masculino", "Indefinido", " ", " " }));
+        cmbSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Feminino", "Masculino", "Indefinido", " ", " " }));
 
         lblEstadoCivil.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         lblEstadoCivil.setText("Estado Civil:");
 
         cmbEstadoCivil.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        cmbEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Divorciado", "", "" }));
+        cmbEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Solteiro", "Casado", "Divorciado", "", "" }));
         cmbEstadoCivil.setLightWeightPopupEnabled(false);
         cmbEstadoCivil.setOpaque(false);
 
@@ -515,13 +515,13 @@ public class ClienteView extends javax.swing.JInternalFrame {
                         .addComponent(btnSalvarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(BuscaCPF)
+                        .addComponent(BuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnEditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BuscaCPF)
-                            .addComponent(BuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
