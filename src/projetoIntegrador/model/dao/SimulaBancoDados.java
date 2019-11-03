@@ -21,7 +21,7 @@ public class SimulaBancoDados {
     public ArrayList<Produto> linhasProdutoTabela;
     public ArrayList<Venda> linhasVendaTabela;
 
-    public SimulaBancoDados() {
+    private SimulaBancoDados() {
         linhasClienteTabela = new ArrayList<Cliente>();
         linhasProdutoTabela = new ArrayList<Produto>();
         linhasVendaTabela = new ArrayList<Venda>();
@@ -137,7 +137,7 @@ public class SimulaBancoDados {
                 listarVenda.setDataVenda(venda.getDataVenda());
                 listarVenda.setTotal(venda.getTotal());
                 listarVenda.setCliente(venda.getCliente());
-                listarVenda.setProduto(venda.getProdutos());
+                listarVenda.setProdutos(venda.getProdutos());
             }
         }
         return true;

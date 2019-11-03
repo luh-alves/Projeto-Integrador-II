@@ -5,12 +5,36 @@
  */
 package projetoIntegrador.model.entity;
 
+import java.util.Objects;
+
 public class Produto {
+
+    //só para a aplicação
+    private int quantidadeNaVenda;
 
     private int id;
     private String nome;
     private double valor;
     private int quantidade;
+
+    public Produto() {
+    }
+
+    public Produto(Produto copia) {
+        this.id = copia.id;
+        this.nome = copia.nome;
+        this.valor = copia.valor;
+        this.quantidade = copia.quantidade;
+        this.quantidadeNaVenda = copia.quantidadeNaVenda;
+    }
+
+    public int getQuantidadeNaVenda() {
+        return quantidadeNaVenda;
+    }
+
+    public void setQuantidadeNaVenda(int quantidadeNaVenda) {
+        this.quantidadeNaVenda = quantidadeNaVenda;
+    }
 
     public int getId() {
         return id;
@@ -46,4 +70,27 @@ public class Produto {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.nome);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Produto other = (Produto) obj;
+        if (Objects.equals(this.nome, other.nome)) {
+            return true;
+        }
+        return false;
+    }
+
 }

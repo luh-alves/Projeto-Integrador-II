@@ -5,15 +5,9 @@
  */
 package projetoIntegrador.model.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import projetoIntegrador.model.database.Database;
 import projetoIntegrador.model.entity.Cliente;
 
 /**
@@ -21,57 +15,36 @@ import projetoIntegrador.model.entity.Cliente;
  * @author Luciana Alves
  */
 public class ClienteDAO {
-    
+
     //Salvar cliente no banco de dados simulado, apenas o objeto e se for "salvo corretamento" retorna como true nesse banco sempre i´ra retorna como true
-     public static boolean salvarCliente(Cliente objCliente) {
+    public static boolean salvarCliente(Cliente objCliente) {
         //simular uma inserção no bando de dados
         return SimulaBancoDados.getInstance().salvarCliente(objCliente);
     }
-     
-     //aqui é busca uma arrayList do tipo string do simulaBanco e manda para a view passar para a tabela
-       public static ArrayList<Cliente> ConsultarClientes() {
-        return SimulaBancoDados.getInstance().consultarCliente();
-   }
-       
-       //atulliza o cliente com enviando o objeto para o simula banco
-        public static boolean atualizarCliente(Cliente objCliente) {
-        return SimulaBancoDados.getInstance().atualizarCliente(objCliente);
-  }
-        //exclui o cliente passando o cpf(codigo de identificação) para o bancoSimulado procurar e excluir o cliente desejado 
-     public static boolean excluirCliente(String cpf) {
-       return SimulaBancoDados.getInstance().excluirCliente(cpf);
-     }
 
-     
+    //aqui é busca uma arrayList do tipo string do simulaBanco e manda para a view passar para a tabela
+    public static ArrayList<Cliente> ConsultarClientes() {
+        return SimulaBancoDados.getInstance().consultarCliente();
+    }
+
+    //atulliza o cliente com enviando o objeto para o simula banco
+    public static boolean atualizarCliente(Cliente objCliente) {
+        return SimulaBancoDados.getInstance().atualizarCliente(objCliente);
+    }
+
+    //exclui o cliente passando o cpf(codigo de identificação) para o bancoSimulado procurar e excluir o cliente desejado 
+
+    public static boolean excluirCliente(String cpf) {
+        return SimulaBancoDados.getInstance().excluirCliente(cpf);
+    }
+
     private static final String TABLE_NAME = "cliente";
 //    private Statement statement = Database.getInstance();
-
-    List<Cliente> clientes = new ArrayList<>();
-
-    public ClienteDAO() {
-        Cliente cliente1 = new Cliente();
-        cliente1.setNome("Luiz");
-        Cliente cliente2 = new Cliente();
-        cliente2.setNome("Andre");
-        Cliente cliente3 = new Cliente();
-        cliente3.setNome("Joana");
-        Cliente cliente4 = new Cliente();
-        cliente4.setNome("João");
-        Cliente cliente5 = new Cliente();
-        cliente5.setNome("Sabá");
-
-        clientes.add(cliente1);
-        clientes.add(cliente2);
-        clientes.add(cliente3);
-        clientes.add(cliente4);
-        clientes.add(cliente5);
-
-    }
 
     public List<Cliente> pesquisarClientePorNome(String name) {
 
         List<Cliente> resultado = new ArrayList<>();
-        for (Cliente cliente : clientes) {
+        for (Cliente cliente : SimulaBancoDados.getInstance().consultarCliente()) {
             if (cliente.getNome().toLowerCase().contains(name.toLowerCase())) {
                 resultado.add(cliente);
             }

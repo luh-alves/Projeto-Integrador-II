@@ -7,16 +7,6 @@ create table produto
     quantidade int not null,
     valor double not null
 );
-create table endereco
-(
-    id int  auto_increment primary key,
-    rua varchar(45),
-    complemento varchar(45),
-    cep varchar(10),
-    bairro varchar(45),
-    cidade varchar(10),
-    uf char(2)
-);
 
 create table cliente
 (

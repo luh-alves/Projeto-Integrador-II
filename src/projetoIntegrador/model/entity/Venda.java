@@ -5,6 +5,7 @@
  */
 package projetoIntegrador.model.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,8 +19,7 @@ public class Venda {
     private Date dataVenda;
     private double total;
     private Cliente cliente;
-    private List<Produto> produtos;
-    private int qdtProdutos;
+    private List<Produto> produtos = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -57,16 +57,31 @@ public class Venda {
         return produtos;
     }
 
-    public void setProduto(List<Produto> produtos) {
+    public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
-    }
-    
-      public int getQdtProdutos() {
-        return qdtProdutos;
+
     }
 
-    public void setQdtProdutos(int qdtProdutos) {
-        this.qdtProdutos = qdtProdutos;
+    public void addProduto(Produto produto) {
+        int index = produtos.indexOf(produto);
+        if (index == -1) {//Produto ainda não está na lista, então adiciona.
+            produtos.add(new Produto(produto));
+        } else {//Já está na lista, só atualiza a quantidade
+            Produto encontrado = produtos.get(index);
+            int quantidadeAtual = encontrado.getQuantidadeNaVenda();
+            int quantidadeAtualizada = quantidadeAtual + produto.getQuantidadeNaVenda();
+            encontrado.setQuantidadeNaVenda(quantidadeAtualizada);
+        }
+        total = calculaTotal();
+    }
+    
+    private double calculaTotal() {
+        double soma = 0;
+        for (int i = 0; i < produtos.size(); i++) {
+            Produto produto = produtos.get(i);
+            soma = soma + (produto.getValor() * produto.getQuantidadeNaVenda());
+        }
+        return soma;
     }
 
 }
