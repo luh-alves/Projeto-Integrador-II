@@ -81,13 +81,13 @@ public class ClienteController {
         return buscarClientesString;
     }
 
-    public static boolean atualizarCliente(int ID, String nome, int sexo, Date dataNascimento, int estadoCivil, String endereco, String bairro, String cep, String numero, String cidade, String nacionalidade, String email, String telefone, String telefone2, Date ultimaAtualizacao) {
-        Cliente clienteAtualizar = new Cliente(ID, nome, sexo, dataNascimento, estadoCivil, endereco, bairro, cep, numero, cidade, nacionalidade, email, telefone, telefone2, ultimaAtualizacao);
+    public static boolean atualizarCliente(int id, String nome, int sexo, Date dataNascimento, int estadoCivil, String endereco, String bairro, String cep, String numero, String cidade, String nacionalidade, String email, String telefone, String telefone2, Date ultimaAtualizacao) {
+        Cliente clienteAtualizar = new Cliente(id, nome, sexo, dataNascimento, estadoCivil, endereco, bairro, cep, numero, cidade, nacionalidade, email, telefone, telefone2, ultimaAtualizacao);
         return ClienteDAO.atualizarCliente(clienteAtualizar);
     }
 
-    public static boolean excluirCliente(String cpf) {
-        return ClienteDAO.excluirCliente(cpf);
+    public static boolean excluirCliente(int id) {
+        return ClienteDAO.excluirCliente(id);
     }
 
     private ClienteDAO customerDAO = new ClienteDAO();

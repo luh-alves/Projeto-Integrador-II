@@ -25,13 +25,16 @@ public class ClienteView extends javax.swing.JInternalFrame {
      * Creates new form ClientesView1
      */
     private final InicialView inicialView;
-    
+
     String modoTela = "Criar";
+
     public ClienteView(InicialView InicialView) {
         initComponents();
-         carregarTabela();
+        carregarTabela();
+        desabilitarFormulario();
+        CadastroCliente4.setVisible(false);
         this.inicialView = InicialView;
-      
+
     }
 
     /**
@@ -515,13 +518,13 @@ public class ClienteView extends javax.swing.JInternalFrame {
                         .addComponent(btnSalvarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(BuscaCPF)
+                        .addComponent(BuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnEditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BuscaCPF)
-                            .addComponent(BuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -579,10 +582,10 @@ public class ClienteView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   public void carregarTabela() {
+    public void carregarTabela() {
         //Controlador resgata os clientes do banco de dados
         ArrayList<String[]> listaClientes = ClienteController.consultarClientes();
-          ArrayList<String[]> BuscarClientes = ClienteController.consultarClientes();
+        ArrayList<String[]> BuscarClientes = ClienteController.consultarClientes();
 
         //criar manualmente uma tabela para listar os clientes e gerencia-los
         DefaultTableModel tabelaClientes = new DefaultTableModel() {
@@ -612,26 +615,30 @@ public class ClienteView extends javax.swing.JInternalFrame {
         tblCadastroCliente.setModel(tabelaClientes);
 
         //remover algumas colunas da tabela, mas mantendo as informções na model para quando precisar passar para o formulario
-        for (int i = tabelaClientes.getColumnCount() - 1; i >= 0; i--) if (i != 15 && i != 2 && i != 1) tblCadastroCliente.removeColumn(tblCadastroCliente.getColumnModel().getColumn(i));
-        
-
+        for (int i = tabelaClientes.getColumnCount() - 1; i >= 0; i--) {
+            if (i != 15 && i != 2 && i != 1) {
+                tblCadastroCliente.removeColumn(tblCadastroCliente.getColumnModel().getColumn(i));
+            }
+        }
+        JOptionPane.showMessageDialog(this, modoTela);
         //para cada cliente novo, atualizado ou excluido, atualizo a tabela
-        if(modoTela.equals("Buscar")){
-            for(String[] clientes : BuscarClientes){
+        if (modoTela.equals("Buscar")) {
+            for (String[] clientes : BuscarClientes) {
                 tabelaClientes.addRow(clientes);
             }
-        }else{
-        for (String[] clientes : listaClientes) {
-            tabelaClientes.addRow(clientes);
-        }}
+        } else {
+            for (String[] clientes : listaClientes) {
+                tabelaClientes.addRow(clientes);
+            }
+        }
         //definindo um tamanho para cada coluna
-         tblCadastroCliente.getColumnModel().getColumn(0).setPreferredWidth(200);
-         tblCadastroCliente.getColumnModel().getColumn(1).setPreferredWidth(200);
-         tblCadastroCliente.getColumnModel().getColumn(2).setPreferredWidth(200);
-    
+        tblCadastroCliente.getColumnModel().getColumn(0).setPreferredWidth(200);
+        tblCadastroCliente.getColumnModel().getColumn(1).setPreferredWidth(200);
+        tblCadastroCliente.getColumnModel().getColumn(2).setPreferredWidth(200);
+
     }
-    
-public void limparFormulario() {
+
+    public void limparFormulario() {
         txtNomeCliente.setText("");
         txtCPFCliente.setText("");
         dateNascimento.setDate(null);
@@ -647,8 +654,8 @@ public void limparFormulario() {
         txtTelefone1.setText("");
         txtTelefone2.setText("");
     }
-   
-     public void habilitarFormulario() {
+
+    public void habilitarFormulario() {
         txtNomeCliente.setEnabled(true);
         txtCPFCliente.setEnabled(true);
         dateNascimento.setEnabled(true);
@@ -663,6 +670,10 @@ public void limparFormulario() {
         txtNumero.setEnabled(true);
         txtTelefone1.setEnabled(true);
         txtTelefone2.setEnabled(true);
+        btnSalvarCliente.setEnabled(true);
+        btnEditarCliente.setEnabled(true);
+        btnExcluirCliente.setEnabled(true);
+        btnBuscarCliente.setVisible(true);
     }
 
     public void desabilitarFormulario() {
@@ -681,37 +692,55 @@ public void limparFormulario() {
         txtTelefone1.setEnabled(false);
         txtTelefone2.setEnabled(false);
         lblClienteID.setVisible(false);
+        btnSalvarCliente.setEnabled(false);
+        btnEditarCliente.setEnabled(false);
+        btnExcluirCliente.setEnabled(false);
+        btnBuscarCliente.setVisible(false);
     }
-    
-    
-    
+
+    public boolean validator() {
+        if (txtNomeCliente.getText().equals("")
+                || txtCPFCliente.getText().equals("")
+                || dateNascimento == null
+                || txtEmailCliente.getText().equals("")
+                || txtEndereco.getText().equals("")
+                || txtCidade.getText().equals("")
+                || txtCEP.getText().equals("")
+                || txtNumero.getText().equals("")
+                || txtTelefone1.getText().equals("")) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     private void btnEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClienteActionPerformed
-        modoTela  = "Editar";
+        modoTela = "Editar";
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         if (tblCadastroCliente.getRowCount() > 0) {
-             //verifica se o usuario selecionou uma linha, selecionado é = a 0, quando não tem nada selecionado é = -1
+            //verifica se o usuario selecionou uma linha, selecionado é = a 0, quando não tem nada selecionado é = -1
             if (tblCadastroCliente.getSelectedRow() >= 0) {
                 habilitarFormulario();
-                 //passando o valores da linha selecionada
-                 lblClienteID.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 0).toString());
-                 txtNomeCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 1).toString());
-                 txtCPFCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 2).toString());
-                 cmbSexo.setSelectedIndex(Integer.parseInt(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 3).toString())); 
-                try { 
+                //passando o valores da linha selecionada
+                lblClienteID.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 0).toString());
+                txtNomeCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 1).toString());
+                txtCPFCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 2).toString());
+                cmbSexo.setSelectedIndex(Integer.parseInt(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 3).toString()));
+                try {
                     dateNascimento.setDate(formato.parse(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 4).toString()));
                 } catch (ParseException ex) {
                     Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                 cmbEstadoCivil.setSelectedIndex(Integer.parseInt(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 5).toString())); 
-                 txtEndereco.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 6).toString()); 
-                 txtBairro.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 7).toString()); 
-                 txtCEP.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 8).toString()); 
-                 txtNumero.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 9).toString()); 
-                 txtCidade.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 10).toString()); 
-                 txtNacionalidade.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 11).toString()); 
-                 txtEmailCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 12).toString()); 
-                 txtTelefone1.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 13).toString()); 
-                 txtTelefone2.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 14).toString()); 
+                cmbEstadoCivil.setSelectedIndex(Integer.parseInt(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 5).toString()));
+                txtEndereco.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 6).toString());
+                txtBairro.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 7).toString());
+                txtCEP.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 8).toString());
+                txtNumero.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 9).toString());
+                txtCidade.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 10).toString());
+                txtNacionalidade.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 11).toString());
+                txtEmailCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 12).toString());
+                txtTelefone1.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 13).toString());
+                txtTelefone2.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 14).toString());
 //        tabelaClientes.addColumn("ID");//0
 //        tabelaClientes.addColumn("NOME");//1
 //        tabelaClientes.addColumn("CPF");//2
@@ -729,42 +758,67 @@ public void limparFormulario() {
 //        tabelaClientes.addColumn("TELEFONE");//14
 //        tabelaClientes.addColumn("DATA DE CADASTRO");//15
 //        tabelaClientes.addColumn("ULTIMA ATUALIZAÇÃO");//16
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "Selecione um cliente para editar!");
             }
-        }else{
-            JOptionPane.showMessageDialog(this, "Nenhum cliente cadastrado!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há cliente cadastrado!");
         }
-        habilitarFormulario();
     }//GEN-LAST:event_btnEditarClienteActionPerformed
 
     private void btnExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirClienteActionPerformed
-        // TODO add your handling code here:
+        if (tblCadastroCliente.getSelectedRowCount() > 0) {
+            //verifica se tem alguma linha selecionada
+            if (tblCadastroCliente.getSelectedRow() >= 0) {
+                //resgata o numero de linha pelo jTable
+                int numeroLinha = tblCadastroCliente.getSelectedRow();
+                //resgata o id (oculto) pelo JtableModel
+                int IDCliente = Integer.parseInt(tblCadastroCliente.getModel().getValueAt(numeroLinha, 0).toString());
+                //Verifica se foi possivel escluir o cliente e informa para o usuario se foi possivel ou não
+                if (ClienteController.excluirCliente(IDCliente)) {
+                    JOptionPane.showMessageDialog(this, "Cliente excluido com sucesso");
+                    carregarTabela();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Não foi possível excluir o cliente!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione um cliente para excluir!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Não há cliente para excluir");
+        }
     }//GEN-LAST:event_btnExcluirClienteActionPerformed
 
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
- Date date = new Date(System.currentTimeMillis());
-        if (modoTela.equals("Criar")) {
+        if (validator()) {
+            Date date = new Date(System.currentTimeMillis());
+            if (modoTela.equals("Criar")) {
 
-            if (ClienteController.salvarCliente(txtCPFCliente.getText(), txtNomeCliente.getText(), cmbSexo.getSelectedIndex(), dateNascimento.getDate(),cmbEstadoCivil.getSelectedIndex(), txtEndereco.getText(), txtBairro.getText(), txtCEP.getText(), txtNumero.getText(), txtCidade.getText(), txtNacionalidade.getText(), txtEmailCliente.getText(), txtTelefone1.getText(), txtTelefone2.getText(), date, date)) {
+                if (ClienteController.salvarCliente(txtCPFCliente.getText(), txtNomeCliente.getText(), cmbSexo.getSelectedIndex(), dateNascimento.getDate(), cmbEstadoCivil.getSelectedIndex(), txtEndereco.getText(), txtBairro.getText(), txtCEP.getText(), txtNumero.getText(), txtCidade.getText(), txtNacionalidade.getText(), txtEmailCliente.getText(), txtTelefone1.getText(), txtTelefone2.getText(), date, date)) {
 
-                //carregar a tabela depois de salvo no banco
-                carregarTabela();
-                limparFormulario();
-                JOptionPane.showMessageDialog(this, "Novo cliente adicionado com  sucesso");
+                    //carregar a tabela depois de salvo no banco
+                    carregarTabela();
+                    limparFormulario();
+                    JOptionPane.showMessageDialog(this, "Novo cliente adicionado com  sucesso");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Erro ao salvar o cliente ");
+                }
             } else {
-                JOptionPane.showMessageDialog(this, "Erro ao salvar o cliente ");
+                if (ClienteController.atualizarCliente(Integer.parseInt(lblClienteID.getText()), txtNomeCliente.getText(), cmbSexo.getSelectedIndex(), dateNascimento.getDate(), cmbEstadoCivil.getSelectedIndex(), txtEndereco.getText(), txtBairro.getText(), txtCEP.getText(), txtNumero.getText(), txtCidade.getText(), txtNacionalidade.getText(), txtEmailCliente.getText(), txtTelefone1.getText(), txtTelefone2.getText(), date)) {
+                    carregarTabela();
+                    limparFormulario();
+                    desabilitarFormulario();
+                    JOptionPane.showMessageDialog(this, "O cliente foi atualizado com sucesso");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Não foi possivel atualizar o cliente!");
+                }
             }
+            
         } else {
-            if (ClienteController.atualizarCliente(Integer.parseInt(lblClienteID.getText()), txtNomeCliente.getText(), cmbSexo.getSelectedIndex(), dateNascimento.getDate(), cmbEstadoCivil.getSelectedIndex(), txtEndereco.getText(), txtBairro.getText(), txtCEP.getText(), txtNumero.getText(), txtCidade.getText(), txtNacionalidade.getText(), txtEmailCliente.getText(), txtTelefone1.getText(), txtTelefone2.getText(), date)) {
-                carregarTabela();
-                limparFormulario();
-                JOptionPane.showMessageDialog(this, "O cliente foi atualizado com sucesso");
-            } else {
-                JOptionPane.showMessageDialog(this, "Não foi possivel atualizar o cliente!");
-            }
+            JOptionPane.showMessageDialog(this, "Não é permitido campos em brancos");
         }
-        desabilitarFormulario();
+        
+        modoTela = "Criar";
     }//GEN-LAST:event_btnSalvarClienteActionPerformed
 
     private void txtCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCidadeActionPerformed
@@ -772,7 +826,7 @@ public void limparFormulario() {
     }//GEN-LAST:event_txtCidadeActionPerformed
 
     private void btnAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarClienteActionPerformed
-          modoTela = "Criar";
+        modoTela = "Criar";
         limparFormulario();
         habilitarFormulario();
     }//GEN-LAST:event_btnAdicionarClienteActionPerformed
@@ -798,19 +852,21 @@ public void limparFormulario() {
     }//GEN-LAST:event_txtCPFClienteActionPerformed
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-         modoTela = "Buscar";
+        modoTela = "Buscar";
 //       String buscar = 
 //        ArrayList<String[]> busca = ClienteController.buscarClientes(buscar, modo);
-        
-       
+
+
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
     private void BuscaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaNomeActionPerformed
-        // TODO add your handling code here:
+        modoTela = "BuscarNome";
+        carregarTabela();
     }//GEN-LAST:event_BuscaNomeActionPerformed
 
     private void BuscaCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaCPFActionPerformed
-        // TODO add your handling code here:
+        modoTela = "BuscarCPF";
+        carregarTabela();
     }//GEN-LAST:event_BuscaCPFActionPerformed
 
 

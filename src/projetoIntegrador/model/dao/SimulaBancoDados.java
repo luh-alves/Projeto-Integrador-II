@@ -70,12 +70,12 @@ public class SimulaBancoDados {
         return true;
     }
     
-    public boolean excluirCliente(String cpf) {
+    public boolean excluirCliente(int id) {
         
         boolean clienteExiste = false;
         for (Cliente c : linhasClienteTabela) {
             Cliente clienteExcluir = null;
-            if (c.getCpf().equals(cpf)) {
+            if (c.getId()==id) {
                 clienteExcluir = c;
                 clienteExiste = true;
             }

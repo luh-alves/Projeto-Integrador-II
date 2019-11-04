@@ -20,7 +20,7 @@ public class InicialView extends javax.swing.JFrame {
      */
     public InicialView() {
         initComponents();
-
+        jPanel6.setVisible(false);
     }
 
     /**

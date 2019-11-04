@@ -38,8 +38,8 @@ public class ClienteDAO {
         return SimulaBancoDados.getInstance().atualizarCliente(objCliente);
   }
         //exclui o cliente passando o cpf(codigo de identificação) para o bancoSimulado procurar e excluir o cliente desejado 
-     public static boolean excluirCliente(String cpf) {
-       return SimulaBancoDados.getInstance().excluirCliente(cpf);
+     public static boolean excluirCliente(int id) {
+       return SimulaBancoDados.getInstance().excluirCliente(id);
      }
 
      
