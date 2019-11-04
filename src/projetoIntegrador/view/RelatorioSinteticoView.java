@@ -364,37 +364,6 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
 
     private void btnGerarRelatorioAnaliticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioAnaliticoActionPerformed
 
-<<<<<<< HEAD
-
-
-
-//Verifico se há linhas para poder editar
-//        if(tblClientes.getRowCount()>0)
-//        {
-//            //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
-//            if(tblClientes.getSelectedRow()>=0)
-//            {
-//                HabilitarFormulario();
-//                
-//                //Variável acessória para identifcar se o formulário está em modo de edição ou alteração
-//                modoTela = "Editar";
-//
-//                //Atribuo os valores que estão na linha selecionada para a tabela
-//                lblIDCliente.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 0).toString());
-//                txtNome.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 1).toString());
-//                txtCPF.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 2).toString());
-//            }
-//            else
-//            {
-//                JOptionPane.showMessageDialog(this,"Selecione um cliente para editar!");
-//            }
-//        }
-//        else
-//        {
-//            JOptionPane.showMessageDialog(this,"Não há clientes para editar!");
-//        }
-=======
->>>>>>> 6c49131eee55eea96b34b8de56b5044cd7921e21
     }//GEN-LAST:event_btnGerarRelatorioAnaliticoActionPerformed
 
 

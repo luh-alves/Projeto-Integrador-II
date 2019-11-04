@@ -10,14 +10,18 @@ import projetoIntegrador.model.dao.ProdutoDAO;
 import projetoIntegrador.model.entity.Produto;
 
 public class ProdutoController {
-    
-    public static void salvarProduto(String nome, String quantidade, String valor) {
-    final Produto produto = new Produto();
-    produto.setNome(nome);
-    produto.setQuantidade(Integer.parseInt(quantidade));
-    produto.setValor(Double.parseDouble(valor));       
-    }
+
+//    public static void salvarProduto(String nome, String quantidade, String valor) {
+//        final Produto produto = new Produto();
+//        produto.setNome(nome);
+//        produto.setQuantidade(Integer.parseInt(quantidade));
+//        produto.setValor(Double.parseDouble(valor));
+//    }
+ 
+
+
     //daqui p baixo codigo wellington 
+
     public static boolean salvar(String NomeProduto, int Quantidade, double Valor) {
 
         Produto p = new Produto(NomeProduto, Quantidade, Valor);

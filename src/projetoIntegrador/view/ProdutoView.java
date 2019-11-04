@@ -5,7 +5,12 @@
  */
 package projetoIntegrador.view;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import projetoIntegrador.controller.ProdutoController;
+import projetoIntegrador.controller.validador.Validador;
+
 /**
  *
  * @author fabiana.vsilva6
@@ -16,13 +21,45 @@ public class ProdutoView extends javax.swing.JInternalFrame {
      * Creates new form ProdutosView1
      */
     private String modoTela;
+
     public ProdutoView() {
         initComponents();
         desabilitarFormulario();
+
+        LoadTable();
+        //Oculta o ID
+        lblPID.setVisible(false);
     }
 
+    public void LoadTable() {
 
-    public void limparFormulario(){
+        ArrayList<String[]> linhasProdutos = ProdutoController.getProdutos();
+
+        //Opção 1 - Crio manualmente um modelo para a tabela e defino as colunas
+        DefaultTableModel tmCarros = new DefaultTableModel();
+        tmCarros.addColumn("ID");
+        tmCarros.addColumn("Nome do produto");
+        tmCarros.addColumn("Quantidade");
+        tmCarros.addColumn("Valor");
+
+        tblProduto.setModel(tmCarros);
+
+        //Removo a coluna da View (JTable) mas mantenho na model para armazenar o ID
+        tblProduto.removeColumn(tblProduto.getColumnModel().getColumn(0));
+
+        for (String[] c : linhasProdutos) {
+            tmCarros.addRow(c);
+        }
+
+        //Defino o tamanho para cada coluna
+        tblProduto.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+        tblProduto.getColumnModel().getColumn(0).setPreferredWidth(300);
+        tblProduto.getColumnModel().getColumn(1).setPreferredWidth(100);
+        tblProduto.getColumnModel().getColumn(2).setPreferredWidth(100);
+
+    }
+
+    public void limparFormulario() {
 
         txtNomeProduto.setText("");
         txtQuantidadeProduto.setText("");
@@ -30,7 +67,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
     }
 
-    public void desabilitarFormulario(){
+    public void desabilitarFormulario() {
 
         txtNomeProduto.setEditable(false);
         txtQuantidadeProduto.setEditable(false);
@@ -38,7 +75,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
     }
 
-    public void habitarFormulario(){
+    public void habitarFormulario() {
 
         txtNomeProduto.setEditable(true);
         txtQuantidadeProduto.setEditable(true);
@@ -73,7 +110,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btnBuscarProduto = new javax.swing.JButton();
         btnAdicionar = new javax.swing.JButton();
         Tabela = new javax.swing.JScrollPane();
-        tblAdicionar = new javax.swing.JTable();
+        tblProduto = new javax.swing.JTable();
+        lblPID = new javax.swing.JLabel();
 
         jPanel9.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
 
@@ -270,8 +308,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tblAdicionar.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        tblAdicionar.setModel(new javax.swing.table.DefaultTableModel(
+        tblProduto.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        tblProduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -308,7 +346,9 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 "Nome:", "CPF:", "Data de cadastro:"
             }
         ));
-        Tabela.setViewportView(tblAdicionar);
+        Tabela.setViewportView(tblProduto);
+
+        lblPID.setText("PID");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -316,25 +356,31 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Botoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Tabela, javax.swing.GroupLayout.PREFERRED_SIZE, 1054, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(189, 189, 189)
+                        .addComponent(lblPID, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(53, 53, 53)
+                .addComponent(Tabela, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Tabela, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Tabela, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)))
+                        .addGap(71, 71, 71)
+                        .addComponent(lblPID)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Botoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -347,15 +393,101 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtNomeProdutoActionPerformed
 
     private void btnSalvarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarProdutoActionPerformed
-        // TODO add your handling code here:
+        Validador objValidador = new Validador(); //Cria objeto do validador importando de outra classe
+        objValidador.ValidarNumero(txtQuantidadeProduto); //Valida se o campo está vazio ou se o formato é correto
+        objValidador.ValidarFloat(txtValorUnitario); //Valida se o campo está vazio ou se o formato é correto
+
+        if (objValidador.hasErro()) {
+
+            JOptionPane.showMessageDialog(this, objValidador.getMensagensErro());
+            objValidador.limparMensagens(); //Limpa as mensagens para não aparecer infinito
+        }
+
+        if (ValidarFormulário()) {
+
+            if (modoTela.equals("Criar")) {
+
+                if (ProdutoController.salvar(txtNomeProduto.getText(), Integer.parseInt(txtQuantidadeProduto.getText()), Double.parseDouble(txtValorUnitario.getText()))) {
+
+                    this.LoadTable();
+
+                    JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
+                    limparFormulario();
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Falha ao cadastrar o produto!");
+                }
+
+            } else {
+
+                if (ProdutoController.atualizar(Integer.parseInt(lblPID.getText()), txtNomeProduto.getText(), Integer.parseInt(txtQuantidadeProduto.getText()), Double.parseDouble(txtValorUnitario.getText()))) {
+
+                    this.LoadTable();
+                    JOptionPane.showMessageDialog(this, "Produto atualizado com sucesso!");
+
+                } else {
+
+                    JOptionPane.showMessageDialog(this, "Falha ao atualizar o produto!");
+                }
+
+            }
+
+            limparFormulario();
+            desabilitarFormulario();
+        }
     }//GEN-LAST:event_btnSalvarProdutoActionPerformed
 
     private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProdutoActionPerformed
-        // TODO add your handling code here:
+        if (tblProduto.getRowCount() > 0) {
+
+            //Resgata o numero da linha pelo JTable
+            int numeroLinha = tblProduto.getSelectedRow();
+
+            //Resgata o ID (oculto) do produto JTableModel
+            int IDProd = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha, 0).toString());
+
+            //Realiza a exclusão do cliente pelo ID
+            if (ProdutoController.excluir(IDProd)) {
+
+                this.LoadTable();
+                JOptionPane.showMessageDialog(this, "Produto excluido da base de dados");
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "Falha ao excluir o produto!");
+
+            }
+        } else {
+
+            JOptionPane.showMessageDialog(this, "Não há clientes para excluir na base de dados!");
+
+        }
     }//GEN-LAST:event_btnExcluirProdutoActionPerformed
 
     private void btnEditarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarProdutoActionPerformed
-        // TODO add your handling code here:
+        if (tblProduto.getRowCount() > 0) {
+
+            if (tblProduto.getSelectedRow() >= 0) {
+
+                habitarFormulario();
+
+                modoTela = "Editar";
+
+                lblPID.setText(tblProduto.getModel().getValueAt(tblProduto.getSelectedRow(), 0).toString());
+                txtNomeProduto.setText(tblProduto.getModel().getValueAt(tblProduto.getSelectedRow(), 1).toString());
+                txtQuantidadeProduto.setText(tblProduto.getModel().getValueAt(tblProduto.getSelectedRow(), 2).toString());
+                txtValorUnitario.setText(tblProduto.getModel().getValueAt(tblProduto.getSelectedRow(), 3).toString());
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "Selecione um produto para editar!");
+
+            }
+        } else {
+
+            JOptionPane.showMessageDialog(this, "Não há produtos para editar!");
+
+        }
     }//GEN-LAST:event_btnEditarProdutoActionPerformed
 
     private void TextFieldProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldProcurarActionPerformed
@@ -379,6 +511,31 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValorUnitarioActionPerformed
 
+    private boolean ValidarFormulário() {
+
+        if (this.txtNomeProduto.getText().equalsIgnoreCase("")) {
+
+            JOptionPane.showMessageDialog(this, "Defina um nome para o produto!");
+
+            return false;
+        }
+
+        if (this.txtQuantidadeProduto.getText().equalsIgnoreCase("")) {
+
+            JOptionPane.showMessageDialog(this, "Defina uma quantidade para o produto!");
+
+            return false;
+        }
+
+        if (this.txtValorUnitario.getText().equalsIgnoreCase("")) {
+
+            JOptionPane.showMessageDialog(this, "Defina um valor para o produto!");
+
+            return false;
+        }
+
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Botoes;
@@ -394,11 +551,13 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lblNomeProduto;
+    private javax.swing.JLabel lblPID;
     private javax.swing.JLabel lblQuantidadeProduto;
     private javax.swing.JLabel lblValorUnitario;
-    private javax.swing.JTable tblAdicionar;
+    private javax.swing.JTable tblProduto;
     private javax.swing.JTextField txtNomeProduto;
     private javax.swing.JTextField txtQuantidadeProduto;
     private javax.swing.JTextField txtValorUnitario;
     // End of variables declaration//GEN-END:variables
 }
+

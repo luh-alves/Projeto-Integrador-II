@@ -17,7 +17,20 @@ public class Produto {
     private double valor;
     private int quantidade;
 
-    public Produto() {
+
+    //construtor de salvar
+    public Produto(String nome, int qtd, double valor) {
+        this.nome = nome;
+        this.quantidade = qtd;
+        this.valor = valor;
+    }
+
+    //Construtor de atualizar o produto
+
+    public Produto(int id, String nome, int qtd, double valor) {
+        this.nome = nome;
+        this.quantidade = qtd;
+        this.valor = valor;
     }
 
     public Produto(Produto copia) {
