@@ -81,12 +81,14 @@ public class VendaController {
     }
     
     public void adicionarQuantidade(String text) {
+        int quantidadeDigitada;
         try {
-            quantidadeProduto = Integer.parseInt(text);
-            if (quantidadeProduto > produtoSelecionado.getQuantidade()) {
+            quantidadeDigitada = Integer.parseInt(text);           
+            if (quantidadeDigitada > produtoSelecionado.getQuantidade()) {
                 vendaView.mostrarErro("Estoque Insuficiente");
                 return;
             }
+            quantidadeProduto = quantidadeDigitada;          
             totalProdutoAtual = produtoSelecionado.getValor() * quantidadeProduto;
             vendaView.atualizarTotalProdutoAtual(totalProdutoAtual);
         } catch (Exception e) {

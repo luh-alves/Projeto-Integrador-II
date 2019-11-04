@@ -605,6 +605,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         }
 
         vendaController.salvarVenda();
+        JOptionPane.showMessageDialog(this, "Venda Realizada com sucesso!");
     }//GEN-LAST:event_btnFinalizarVendaActionPerformed
 
     private void btnExcluirVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirVendaActionPerformed
@@ -629,6 +630,7 @@ public class VendaView extends javax.swing.JInternalFrame {
             return;
         }
         vendaController.adicionarProdutoNaVenda();
+        
 
     }//GEN-LAST:event_btnAdicionarVendaActionPerformed
 
