@@ -5,7 +5,9 @@
  */
 package projetoIntegrador.model.dao;
 
+import java.util.ArrayList;
 import java.util.List;
+import projetoIntegrador.model.entity.Cliente;
 import projetoIntegrador.model.entity.Produto;
 import projetoIntegrador.model.entity.Venda;
 
@@ -31,5 +33,10 @@ public class VendaDAO {
             encontrado.setQuantidade(encontrado.getQuantidade() - produto.getQuantidadeNaVenda());
         }
     }
+    
+     //aqui é busca uma arrayList do tipo Venda obtida do simulaBanco que manda para o controler passar para a view
+       public static ArrayList<Venda> consultarVendas() {
+        return SimulaBancoDados.getInstance().consultarVendas();
+   }
 
 }

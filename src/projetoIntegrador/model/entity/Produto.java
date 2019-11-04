@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Produto {
 
     //só para a aplicação
-    private int quantidadeNaVenda;
+    private static int quantidadeNaVenda;
 
     private int id;
     private String nome;
@@ -20,6 +20,7 @@ public class Produto {
 
     //construtor de salvar
     public Produto(String nome, int qtd, double valor) {
+        this.id = quantidadeNaVenda++;
         this.nome = nome;
         this.quantidade = qtd;
         this.valor = valor;
