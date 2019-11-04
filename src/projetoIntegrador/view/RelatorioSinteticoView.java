@@ -317,9 +317,8 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGerarRelatorioSinteticoActionPerformed
 
     private void btnGerarRelatorioAnaliticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioAnaliticoActionPerformed
-        //criando modelo da tabela 
-        DefaultTableModel relatorioSintetico = (DefaultTableModel)jTable3.getModel();
 
+<<<<<<< HEAD
 
 
 
@@ -348,6 +347,8 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
 //        {
 //            JOptionPane.showMessageDialog(this,"Não há clientes para editar!");
 //        }
+=======
+>>>>>>> 6c49131eee55eea96b34b8de56b5044cd7921e21
     }//GEN-LAST:event_btnGerarRelatorioAnaliticoActionPerformed
 
 

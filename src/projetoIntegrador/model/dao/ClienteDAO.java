@@ -46,32 +46,10 @@ public class ClienteDAO {
     private static final String TABLE_NAME = "cliente";
 //    private Statement statement = Database.getInstance();
 
-    List<Cliente> clientes = new ArrayList<>();
-
-    public ClienteDAO() {
-        Cliente cliente1 = new Cliente();
-        cliente1.setNome("Luiz");
-        Cliente cliente2 = new Cliente();
-        cliente2.setNome("Andre");
-        Cliente cliente3 = new Cliente();
-        cliente3.setNome("Joana");
-        Cliente cliente4 = new Cliente();
-        cliente4.setNome("João");
-        Cliente cliente5 = new Cliente();
-        cliente5.setNome("Sabá");
-
-        clientes.add(cliente1);
-        clientes.add(cliente2);
-        clientes.add(cliente3);
-        clientes.add(cliente4);
-        clientes.add(cliente5);
-
-    }
-
     public List<Cliente> pesquisarClientePorNome(String name) {
 
         List<Cliente> resultado = new ArrayList<>();
-        for (Cliente cliente : clientes) {
+        for (Cliente cliente : SimulaBancoDados.getInstance().consultarCliente()) {
             if (cliente.getNome().toLowerCase().contains(name.toLowerCase())) {
                 resultado.add(cliente);
             }
