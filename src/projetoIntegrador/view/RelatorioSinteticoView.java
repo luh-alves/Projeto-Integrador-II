@@ -5,6 +5,9 @@
  */
 package projetoIntegrador.view;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -313,7 +316,50 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGerarRelatorioSinteticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioSinteticoActionPerformed
-        // TODO add your handling code here:
+              
+       //Criar vaáriaveis pra receber data de inicio e de fim.     
+       Date inicio;
+       Date fim;
+       
+       // resgata datas do jcalendar
+       inicio = jDateChooser1.getDate();
+       fim = jDateChooser2.getDate();
+       
+       //verifico se os campos foram preeenchidos
+       if(inicio == null){
+            JOptionPane.showMessageDialog(this,"Data de inicio obrigatória!.");
+            return;
+        }
+        
+        if(fim == null){
+            JOptionPane.showMessageDialog(this,"Data de término obrigatória!.");
+            return;
+        }
+        // calcula a quantidade de dias que deve ser menor a 30 
+        long diferencaMillisegundos = fim.getTime() - inicio.getTime();
+        long dias = TimeUnit.DAYS.convert(diferencaMillisegundos, TimeUnit.MILLISECONDS);
+        
+        //Crio um objeto formatador para mudar o formato de apresentação da variável data
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+        
+         if(inicio.after(fim)){
+            JOptionPane.showMessageDialog(this,"Data de inicio maior que a data fim. \n"
+                                                + "Favor utilizar data de inicio inferior ao término!");
+        }else{
+            
+            if(dias>30){
+                JOptionPane.showMessageDialog(this,"Período superior a 30 dias");
+            }else{
+                
+                
+                
+                JOptionPane.showMessageDialog(this,"Seleção correta!\n" 
+                                        + "Dias Selecionados: " + dias + "\n" 
+                                        + "Data inicio: " + formatador.format(inicio) + "\n"
+                                        + "Data Fim: " + formatador.format(fim));
+            }
+        }             
+        
     }//GEN-LAST:event_btnGerarRelatorioSinteticoActionPerformed
 
     private void btnGerarRelatorioAnaliticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioAnaliticoActionPerformed
