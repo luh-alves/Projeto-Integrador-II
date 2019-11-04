@@ -65,9 +65,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
         lblEndereco = new javax.swing.JLabel();
         Sexo = new javax.swing.JPanel();
         lblSexo = new javax.swing.JLabel();
-        cmbSexo = new javax.swing.JComboBox<String>();
+        cmbSexo = new javax.swing.JComboBox<>();
         lblEstadoCivil = new javax.swing.JLabel();
-        cmbEstadoCivil = new javax.swing.JComboBox<String>();
+        cmbEstadoCivil = new javax.swing.JComboBox<>();
         txtNumero = new javax.swing.JTextField();
         lblNumero = new javax.swing.JLabel();
         txtCidade = new javax.swing.JTextField();
@@ -88,8 +88,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
         txtProcurar = new javax.swing.JTextField();
         btnBuscarCliente = new javax.swing.JButton();
         btnAdicionarCliente = new javax.swing.JButton();
-        BuscaNome = new javax.swing.JRadioButton();
-        BuscaCPF = new javax.swing.JRadioButton();
+        BuscarNome = new javax.swing.JRadioButton();
+        BuscarCPF = new javax.swing.JRadioButton();
         Tabela = new javax.swing.JScrollPane();
         tblCadastroCliente = new javax.swing.JTable();
         lblClienteID = new javax.swing.JLabel();
@@ -136,7 +136,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
         txtNomeCliente.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
         txtNomeCliente.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtNomeCliente.setText("fdfds");
         txtNomeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeClienteActionPerformed(evt);
@@ -192,13 +191,13 @@ public class ClienteView extends javax.swing.JInternalFrame {
         lblSexo.setText("Sexo:");
 
         cmbSexo.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        cmbSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Feminino", "Masculino", "Indefinido", " ", " " }));
+        cmbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Feminino", "Masculino", "Indefinido", " ", " " }));
 
         lblEstadoCivil.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         lblEstadoCivil.setText("Estado Civil:");
 
         cmbEstadoCivil.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        cmbEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Solteiro", "Casado", "Divorciado", "", "" }));
+        cmbEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Divorciado", "", "" }));
         cmbEstadoCivil.setLightWeightPopupEnabled(false);
         cmbEstadoCivil.setOpaque(false);
 
@@ -468,21 +467,23 @@ public class ClienteView extends javax.swing.JInternalFrame {
             }
         });
 
-        TipoBuscaCliente.add(BuscaNome);
-        BuscaNome.setText("NOME");
-        BuscaNome.setBorder(null);
-        BuscaNome.addActionListener(new java.awt.event.ActionListener() {
+        TipoBuscaCliente.add(BuscarNome);
+        BuscarNome.setText("NOME");
+        BuscarNome.setActionCommand("BuscarNome");
+        BuscarNome.setBorder(null);
+        BuscarNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscaNomeActionPerformed(evt);
+                BuscarNomeActionPerformed(evt);
             }
         });
 
-        TipoBuscaCliente.add(BuscaCPF);
-        BuscaCPF.setText("CPF");
-        BuscaCPF.setBorder(null);
-        BuscaCPF.addActionListener(new java.awt.event.ActionListener() {
+        TipoBuscaCliente.add(BuscarCPF);
+        BuscarCPF.setText("CPF");
+        BuscarCPF.setActionCommand("BuscarCPF");
+        BuscarCPF.setBorder(null);
+        BuscarCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscaCPFActionPerformed(evt);
+                BuscarCPFActionPerformed(evt);
             }
         });
 
@@ -500,9 +501,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(231, 231, 231)
-                .addComponent(BuscaCPF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BuscarCPF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BuscarNome, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -512,20 +513,20 @@ public class ClienteView extends javax.swing.JInternalFrame {
         BotoesLayout.setVerticalGroup(
             BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BotoesLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSalvarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(BuscaCPF)
-                        .addComponent(BuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnEditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BuscarCPF)
+                            .addComponent(BuscarNome, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tblCadastroCliente.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
@@ -571,7 +572,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
                     .addComponent(Tabela))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Botoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(327, 327, 327)
@@ -584,8 +585,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
     public void carregarTabela() {
         //Controlador resgata os clientes do banco de dados
-        ArrayList<String[]> listaClientes = ClienteController.consultarClientes();
-        ArrayList<String[]> BuscarClientes = ClienteController.consultarClientes();
+        ArrayList<String[]> listaClientes = ClienteController.consultarClientes(modoTela,txtProcurar.getText());
+//        ArrayList<String[]> BuscarClientes = ClienteController.buscarClientes(txtProcurar.getText(), modoTela);
 
         //criar manualmente uma tabela para listar os clientes e gerencia-los
         DefaultTableModel tabelaClientes = new DefaultTableModel() {
@@ -622,15 +623,15 @@ public class ClienteView extends javax.swing.JInternalFrame {
         }
         JOptionPane.showMessageDialog(this, modoTela);
         //para cada cliente novo, atualizado ou excluido, atualizo a tabela
-        if (modoTela.equals("Buscar")) {
-            for (String[] clientes : BuscarClientes) {
-                tabelaClientes.addRow(clientes);
-            }
-        } else {
+//        if (modoTela.contains("Buscar")) {
+//            for (String[] clientes : BuscarClientes) {
+//                tabelaClientes.addRow(clientes);
+//            }
+//        } else {
             for (String[] clientes : listaClientes) {
                 tabelaClientes.addRow(clientes);
             }
-        }
+//        }
         //definindo um tamanho para cada coluna
         tblCadastroCliente.getColumnModel().getColumn(0).setPreferredWidth(200);
         tblCadastroCliente.getColumnModel().getColumn(1).setPreferredWidth(200);
@@ -671,9 +672,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
         txtTelefone1.setEnabled(true);
         txtTelefone2.setEnabled(true);
         btnSalvarCliente.setEnabled(true);
-        btnEditarCliente.setEnabled(true);
-        btnExcluirCliente.setEnabled(true);
-        btnBuscarCliente.setVisible(true);
     }
 
     public void desabilitarFormulario() {
@@ -693,9 +691,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
         txtTelefone2.setEnabled(false);
         lblClienteID.setVisible(false);
         btnSalvarCliente.setEnabled(false);
-        btnEditarCliente.setEnabled(false);
-        btnExcluirCliente.setEnabled(false);
-        btnBuscarCliente.setVisible(false);
     }
 
     public boolean validator() {
@@ -827,8 +822,14 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
     private void btnAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarClienteActionPerformed
         modoTela = "Criar";
+        int n=0;
+        if(validator()){
+            n = JOptionPane.showConfirmDialog(this, "Será perdido tudo que foi preenchido no formulário, deseja continuar?");
+        }
+        if(n == 0){
         limparFormulario();
         habilitarFormulario();
+        }
     }//GEN-LAST:event_btnAdicionarClienteActionPerformed
 
     private void txtProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProcurarActionPerformed
@@ -852,28 +853,22 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtCPFClienteActionPerformed
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-        modoTela = "Buscar";
-//       String buscar = 
-//        ArrayList<String[]> busca = ClienteController.buscarClientes(buscar, modo);
-
-
+     modoTela = TipoBuscaCliente.getSelection().getActionCommand();
+        carregarTabela();
+       
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
-    private void BuscaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaNomeActionPerformed
-        modoTela = "BuscarNome";
-        carregarTabela();
-    }//GEN-LAST:event_BuscaNomeActionPerformed
+    private void BuscarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarNomeActionPerformed
+    }//GEN-LAST:event_BuscarNomeActionPerformed
 
-    private void BuscaCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaCPFActionPerformed
-        modoTela = "BuscarCPF";
-        carregarTabela();
-    }//GEN-LAST:event_BuscaCPFActionPerformed
+    private void BuscarCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarCPFActionPerformed
+    }//GEN-LAST:event_BuscarCPFActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Botoes;
-    private javax.swing.JRadioButton BuscaCPF;
-    private javax.swing.JRadioButton BuscaNome;
+    private javax.swing.JRadioButton BuscarCPF;
+    private javax.swing.JRadioButton BuscarNome;
     private javax.swing.JLabel CadastroCliente4;
     private javax.swing.JPanel Sexo;
     private javax.swing.JScrollPane Tabela;

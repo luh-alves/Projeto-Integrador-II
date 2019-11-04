@@ -5,15 +5,8 @@
  */
 package projetoIntegrador.model.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import projetoIntegrador.model.database.Database;
 import projetoIntegrador.model.entity.Cliente;
 
 /**
@@ -28,7 +21,7 @@ public class ClienteDAO {
         return SimulaBancoDados.getInstance().salvarCliente(objCliente);
     }
      
-     //aqui é busca uma arrayList do tipo string do simulaBanco e manda para a view passar para a tabela
+     //aqui busca uma arrayList do tipo Cliente do simulaBanco e manda para o controler passar para a view
        public static ArrayList<Cliente> ConsultarClientes() {
         return SimulaBancoDados.getInstance().consultarCliente();
    }
@@ -42,10 +35,6 @@ public class ClienteDAO {
        return SimulaBancoDados.getInstance().excluirCliente(id);
      }
 
-     
-    private static final String TABLE_NAME = "cliente";
-//    private Statement statement = Database.getInstance();
-
     public List<Cliente> pesquisarClientePorNome(String name) {
 
         List<Cliente> resultado = new ArrayList<>();
@@ -55,22 +44,5 @@ public class ClienteDAO {
             }
         }
         return resultado;
-
-//        String query = "SELECT * FROM " + TABLE_NAME + " WHERE nome LIKE '%" + name + "%'";
-//        List<Cliente> customers = new ArrayList<>();
-//        try {
-//            ResultSet rs = statement.executeQuery(query);
-//
-//            while (rs.next()) {
-//                String nome = rs.getString("nome");
-//               
-//                Cliente customer = new Cliente();              
-//                customer.setNome(nome);
-//                customers.add(customer);
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        //return customers;
     }
 }

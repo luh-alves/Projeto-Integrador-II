@@ -6,10 +6,13 @@
 package projetoIntegrador.view;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import projetoIntegrador.controller.ClienteController;
+import projetoIntegrador.controller.RelatorioSinteticoController;
 
 /**
  *
@@ -38,7 +41,7 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
         lblRelatorioSintetico = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         Tabela = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tblSintetico = new javax.swing.JTable();
         lblValorTotal = new javax.swing.JLabel();
         txtValorTotal = new javax.swing.JTextField();
         btnGerarRelatorioAnalitico = new javax.swing.JButton();
@@ -88,8 +91,8 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
             .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jTable3.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblSintetico.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        tblSintetico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -126,7 +129,7 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
                 "Data:", "Produto:", "Valor de Venda:"
             }
         ));
-        Tabela.setViewportView(jTable3);
+        Tabela.setViewportView(tblSintetico);
 
         lblValorTotal.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         lblValorTotal.setText("Valor Total:");
@@ -214,7 +217,7 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
                         .addComponent(lblDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,7 +238,7 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(cmbTipoExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,6 +318,32 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void carregarTabela() {
+        //Controlador resgata as vendas do banco de dados
+        ArrayList<String[]> listaVendas = RelatorioSinteticoController.buscaPorPeriodo(jDateChooser1.getDate(),jDateChooser2.getDate());
+        //criar manualmente uma tabela para listar as vendas
+        DefaultTableModel tabelaSintetico = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int linha, int coluna) {
+                return false;
+            }
+        };
+        tabelaSintetico.addColumn("DATA");//0
+        tabelaSintetico.addColumn("PRODUTO");//1
+        tabelaSintetico.addColumn("VALOR");//2
+       
+        tblSintetico.setModel(tabelaSintetico);
+            for (String[] vendas : listaVendas) {
+                tabelaSintetico.addRow(vendas);
+            }
+//        }
+        //definindo um tamanho para cada coluna
+        tblSintetico.getColumnModel().getColumn(0).setPreferredWidth(200);
+        tblSintetico.getColumnModel().getColumn(1).setPreferredWidth(200);
+        tblSintetico.getColumnModel().getColumn(2).setPreferredWidth(200);
+    }
+    
+    
     private void btnGerarRelatorioSinteticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioSinteticoActionPerformed
               
        //Criar vaáriaveis pra receber data de inicio e de fim.     
@@ -350,8 +379,7 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
             if(dias>30){
                 JOptionPane.showMessageDialog(this,"Período superior a 30 dias");
             }else{
-                
-                
+                 carregarTabela();
                 
                 JOptionPane.showMessageDialog(this,"Seleção correta!\n" 
                                         + "Dias Selecionados: " + dias + "\n" 
@@ -380,12 +408,12 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JTable jTable3;
     private javax.swing.JLabel lblDataFinal;
     private javax.swing.JLabel lblDataInicial;
     private javax.swing.JLabel lblRelatorioSintetico;
     private javax.swing.JLabel lblTipoExtrato;
     private javax.swing.JLabel lblValorTotal;
+    private javax.swing.JTable tblSintetico;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JTextField txtValorTotal;
     // End of variables declaration//GEN-END:variables

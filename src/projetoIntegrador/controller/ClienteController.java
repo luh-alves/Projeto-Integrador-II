@@ -23,10 +23,11 @@ public class ClienteController {
         return ClienteDAO.salvarCliente(cliente);
     }
 
-    public static ArrayList<String[]> consultarClientes() {
+    public static ArrayList<String[]> consultarClientes(String modo, String buscar) {
         ArrayList<String[]> ListarClientesString = new ArrayList<String[]>();
-
+        
         for (Cliente ListarCliente : ConsultarClientes()) {
+//           if(ListarCliente.getCpf().equals(buscar) && modo.equals("BuscarCPF") || ListarCliente.getNome().toLowerCase().contains(buscar.toLowerCase()) && modo.equals("BuscarNome")){
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
             SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM/yyyy | HH:mm:ss");
             ListarClientesString.add(new String[]{
@@ -48,14 +49,16 @@ public class ClienteController {
                formato2.format(ListarCliente.getDataCadastro()),
                formato2.format(ListarCliente.getUltimaAtualizacao())});
         }
+//        }
         return ListarClientesString;
     }
     
     public static ArrayList<String[]> buscarClientes(String buscar, String modo) {
-        ArrayList<String[]> buscarClientesString = new ArrayList<String[]>();
-
+         ArrayList<String[]> buscarClientesString = new ArrayList<>();
         for (Cliente ListarCliente : ConsultarClientes()) {
-            if(ListarCliente.getCpf().equals(buscar) && modo.equals("BuscarCPF") || ListarCliente.getNome().equals(buscar) && modo.equals("BuscarNOME")){
+            
+          
+            if(ListarCliente.getCpf().equals(buscar) && modo.equals("BuscarCPF") || ListarCliente.getNome().toLowerCase().contains(buscar.toLowerCase()) && modo.equals("BuscarNome")){
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
             SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM/yyyy | HH:mm:ss");
             buscarClientesString.add(new String[]{

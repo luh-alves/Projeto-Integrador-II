@@ -12,8 +12,9 @@ import java.util.Date;
  * @author geovane.saraujo
  */
 public class Cliente {
+    //variavel para autoincrementar o id
     private static int qtdClientes;
-    
+    //atributos
     private int id;
     private String cpf;
     private String nome;
@@ -36,7 +37,7 @@ public class Cliente {
         qtdClientes++;
         this.id = qtdClientes;
     }
-    
+    //Contrutor de salvar, ao chama o construto a variavel qtd recebe mais 1 e atribui o id para o novo cliente e os demais elementos são armazenados de acordo com a variavel
     public Cliente(String cpf, String nome,int sexo, Date dataNascimento,int estadoCivil,String endereco, String bairro, String cep, String numero, String cidade, String nacionalidade, String email, String telefone,String telefone2,Date dataCadastro, Date ultimaAtualizacao){
         qtdClientes++;
         this.id = qtdClientes;
@@ -58,6 +59,7 @@ public class Cliente {
         this.ultimaAtualizacao = ultimaAtualizacao;
     }
 
+    //Contrutor de atualizar o cliente 
     public Cliente(int id, String nome,int sexo, Date dataNascimento,int estadoCivil,String endereco, String bairro, String cep, String numero,String cidade, String nacionalidade, String email, String telefone,String telefone2,Date ultimaAtualizacao){
         this.id = id;
         this.nome = nome;
@@ -75,7 +77,7 @@ public class Cliente {
         this.telefone2 = telefone2;
         this.ultimaAtualizacao = ultimaAtualizacao;
     }
-    
+    // abaixo os getters e setters dos atributos Clientes
     public int getId() {
         return id;
     }
