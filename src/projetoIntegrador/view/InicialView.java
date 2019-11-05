@@ -8,6 +8,10 @@ package projetoIntegrador.view;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import projetoIntegrador.view.ClienteView;
+import projetoIntegrador.view.ProdutoView;
+import projetoIntegrador.view.RelatorioSinteticoView;
+import projetoIntegrador.view.VendaView;
 
 /**
  *
