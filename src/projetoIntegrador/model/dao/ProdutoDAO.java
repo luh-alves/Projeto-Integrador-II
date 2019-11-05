@@ -46,4 +46,5 @@ public class ProdutoDAO {
         return SimulaBancoDados.getInstance().consultarProduto();
 
     }
+
 }

@@ -5,20 +5,25 @@
  */
 package projetoIntegrador.view;
 
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-import projetoIntegrador.controller.ClienteController;
 import projetoIntegrador.controller.RelatorioSinteticoController;
+import projetoIntegrador.model.entity.Venda;
 
 /**
  *
  * @author fabiana.vsilva6
  */
 public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
+
+    private Venda vendaSelecionada;
 
     /**
      * Creates new form RelatorioSinteticoView1
@@ -43,8 +48,8 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
         Tabela = new javax.swing.JScrollPane();
         tblSintetico = new javax.swing.JTable();
         lblValorTotal = new javax.swing.JLabel();
-        txtValorTotal = new javax.swing.JTextField();
         btnGerarRelatorioAnalitico = new javax.swing.JButton();
+        lblValorTotalTotal = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblDataInicial = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
@@ -101,13 +106,6 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
         lblValorTotal.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         lblValorTotal.setText("Valor Total:");
 
-        txtValorTotal.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtValorTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtValorTotalActionPerformed(evt);
-            }
-        });
-
         btnGerarRelatorioAnalitico.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         btnGerarRelatorioAnalitico.setText("Relatório Analítico");
         btnGerarRelatorioAnalitico.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +113,9 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
                 btnGerarRelatorioAnaliticoActionPerformed(evt);
             }
         });
+
+        lblValorTotalTotal.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        lblValorTotalTotal.setText("Valor Total");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -124,28 +125,28 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(Tabela)
+                        .addComponent(Tabela, javax.swing.GroupLayout.DEFAULT_SIZE, 1204, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnGerarRelatorioAnalitico)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24))))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblValorTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblValorTotalTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(50, 50, 50))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Tabela, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                .addComponent(Tabela, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
                 .addGap(33, 33, 33)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGerarRelatorioAnalitico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnGerarRelatorioAnalitico, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(lblValorTotal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblValorTotalTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -246,8 +247,10 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void carregarTabela() {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
         //Controlador resgata as vendas do banco de dados
-        ArrayList<String[]> listaVendas = RelatorioSinteticoController.buscaPorPeriodo(jDateChooser1.getDate(),jDateChooser2.getDate());
+        ArrayList<Venda> listaVendas = RelatorioSinteticoController.buscaPorPeriodo(jDateChooser1.getDate(), jDateChooser2.getDate());
         //criar manualmente uma tabela para listar as vendas
         DefaultTableModel tabelaSintetico = new DefaultTableModel() {
             @Override
@@ -258,72 +261,85 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
         tabelaSintetico.addColumn("DATA");//0
         tabelaSintetico.addColumn("PRODUTO");//1
         tabelaSintetico.addColumn("VALOR");//2
-       
+
         tblSintetico.setModel(tabelaSintetico);
-            for (String[] vendas : listaVendas) {
-                tabelaSintetico.addRow(vendas);
+        for (Venda venda : listaVendas) {
+            tabelaSintetico.addRow(new String[]{formato.format(venda.getDataVenda()), venda.getProdutos().get(0).getNome(), String.valueOf(venda.getTotal())});
+        }
+        tblSintetico.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+
+            public void valueChanged(ListSelectionEvent event) {
+                final int selectedRow = tblSintetico.getSelectedRow();
+                System.out.println("Selected Row " + selectedRow);
+                if (selectedRow < 0 || selectedRow >= listaVendas.size()) {
+                    return;
+                }
+                vendaSelecionada = listaVendas.get(selectedRow);
             }
-//        }
+
+        });
         //definindo um tamanho para cada coluna
         tblSintetico.getColumnModel().getColumn(0).setPreferredWidth(200);
         tblSintetico.getColumnModel().getColumn(1).setPreferredWidth(200);
         tblSintetico.getColumnModel().getColumn(2).setPreferredWidth(200);
     }
-    
-    
+
+
     private void btnGerarRelatorioSinteticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioSinteticoActionPerformed
-              
-       //Criar vaáriaveis pra receber data de inicio e de fim.     
-       Date inicio;
-       Date fim;
-       
-       // resgata datas do jcalendar
-       inicio = jDateChooser1.getDate();
-       fim = jDateChooser2.getDate();
-       
-       //verifico se os campos foram preeenchidos
-       if(inicio == null){
-            JOptionPane.showMessageDialog(this,"Data de inicio obrigatória!.");
+
+        //Criar vaáriaveis pra receber data de inicio e de fim.     
+        Date inicio;
+        Date fim;
+
+        // resgata datas do jcalendar
+        inicio = jDateChooser1.getDate();
+        fim = jDateChooser2.getDate();
+
+        //verifico se os campos foram preeenchidos
+        if (inicio == null) {
+            JOptionPane.showMessageDialog(this, "Data de inicio obrigatória!.");
             return;
         }
-        
-        if(fim == null){
-            JOptionPane.showMessageDialog(this,"Data de término obrigatória!.");
+
+        if (fim == null) {
+            JOptionPane.showMessageDialog(this, "Data de término obrigatória!.");
             return;
         }
         // calcula a quantidade de dias que deve ser menor a 30 
         long diferencaMillisegundos = fim.getTime() - inicio.getTime();
         long dias = TimeUnit.DAYS.convert(diferencaMillisegundos, TimeUnit.MILLISECONDS);
-        
+
         //Crio um objeto formatador para mudar o formato de apresentação da variável data
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-        
-         if(inicio.after(fim)){
-            JOptionPane.showMessageDialog(this,"Data de inicio maior que a data fim. \n"
-                                                + "Favor utilizar data de inicio inferior ao término!");
-        }else{
-            
-            if(dias>30){
-                JOptionPane.showMessageDialog(this,"Período superior a 30 dias");
-            }else{
-                 carregarTabela();
-                
-                JOptionPane.showMessageDialog(this,"Seleção correta!\n" 
-                                        + "Dias Selecionados: " + dias + "\n" 
-                                        + "Data inicio: " + formatador.format(inicio) + "\n"
-                                        + "Data Fim: " + formatador.format(fim));
+
+        if (inicio.after(fim)) {
+            JOptionPane.showMessageDialog(this, "Data de inicio maior que a data fim. \n"
+                    + "Favor utilizar data de inicio inferior ao término!");
+        } else {
+
+            if (dias > 30) {
+                JOptionPane.showMessageDialog(this, "Período superior a 30 dias");
+            } else {
+                carregarTabela();
+
+                JOptionPane.showMessageDialog(this, "Seleção correta!\n"
+                        + "Dias Selecionados: " + dias + "\n"
+                        + "Data inicio: " + formatador.format(inicio) + "\n"
+                        + "Data Fim: " + formatador.format(fim));
             }
-        }             
-        
+        }
+
     }//GEN-LAST:event_btnGerarRelatorioSinteticoActionPerformed
 
+    public void atualizarTotalVenda(double total) {
+        lblValorTotalTotal.setText(String.valueOf(total));
+    }
     private void btnGerarRelatorioAnaliticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioAnaliticoActionPerformed
+        RelatorioAnaliticoView analiticoView = new RelatorioAnaliticoView(vendaSelecionada);
+        analiticoView.setExtendedState(6);
 
+        analiticoView.setVisible(true);
     }//GEN-LAST:event_btnGerarRelatorioAnaliticoActionPerformed
-
-    private void txtValorTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorTotalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -341,7 +357,7 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblDataInicial;
     private javax.swing.JLabel lblRelatorioSintetico;
     private javax.swing.JLabel lblValorTotal;
+    private javax.swing.JLabel lblValorTotalTotal;
     private javax.swing.JTable tblSintetico;
-    private javax.swing.JTextField txtValorTotal;
     // End of variables declaration//GEN-END:variables
 }

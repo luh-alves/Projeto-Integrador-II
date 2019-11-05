@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Produto {
 
     //só para a aplicação
-    private static int quantidadeNaVenda;
+    private  int quantidadeNaVenda;
 
     private int id;
     private String nome;

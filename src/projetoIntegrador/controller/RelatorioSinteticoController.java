@@ -8,6 +8,7 @@ package projetoIntegrador.controller;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import projetoIntegrador.model.dao.VendaDAO;
 import projetoIntegrador.model.entity.Venda;
 
@@ -16,17 +17,19 @@ import projetoIntegrador.model.entity.Venda;
  * @author Luciana Alves
  */
 public class RelatorioSinteticoController {
-    
-    public static ArrayList<String []> buscaPorPeriodo(Date inicio, Date fim){
-        ArrayList<String []> vendasString = new ArrayList<>();
-          SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-          for(Venda v: VendaDAO.consultarVendas()){
-            
-          if(v.getDataVenda().after(inicio) && v.getDataVenda().before(fim)){
-          vendasString.add(new String[]{formato.format(v.getDataVenda()),v.getProdutos().get(0).getNome(),String.valueOf(v.getTotal())});
-      }
-      
-       }
-          return vendasString;
+
+    public static ArrayList<Venda> buscaPorPeriodo(Date inicio, Date fim) {
+        ArrayList<Venda> vendas = new ArrayList<>();
+        for (Venda v : VendaDAO.consultarVendas()) {
+
+            if (v.getDataVenda().after(inicio) && v.getDataVenda().before(fim)) {
+                vendas.add(v);
+            }
+        }
+        return vendas;
+    }
+
+    public static List<Venda> buscarVendas(Date date, Date date0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

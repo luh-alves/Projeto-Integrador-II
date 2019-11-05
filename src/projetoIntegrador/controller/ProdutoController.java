@@ -6,10 +6,14 @@
 package projetoIntegrador.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 import projetoIntegrador.model.dao.ProdutoDAO;
 import projetoIntegrador.model.entity.Produto;
+import projetoIntegrador.view.VendaView;
 
 public class ProdutoController {
+
+    ProdutoDAO produtoDao = new ProdutoDAO();
 
 //    public static void salvarProduto(String nome, String quantidade, String valor) {
 //        final Produto produto = new Produto();
@@ -17,11 +21,7 @@ public class ProdutoController {
 //        produto.setQuantidade(Integer.parseInt(quantidade));
 //        produto.setValor(Double.parseDouble(valor));
 //    }
- 
-
-
     //daqui p baixo codigo wellington 
-
     public static boolean salvar(String NomeProduto, int Quantidade, double Valor) {
 
         Produto p = new Produto(NomeProduto, Quantidade, Valor);
@@ -54,5 +54,6 @@ public class ProdutoController {
         }
         return listaProdutos;
     }
+
 
 }

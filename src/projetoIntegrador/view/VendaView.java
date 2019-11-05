@@ -20,6 +20,7 @@ import projetoIntegrador.controller.ProdutoController;
 import projetoIntegrador.controller.VendaController;
 import projetoIntegrador.model.entity.Cliente;
 import projetoIntegrador.model.entity.Produto;
+import projetoIntegrador.model.entity.Venda;
 
 /**
  *
@@ -29,8 +30,8 @@ public class VendaView extends javax.swing.JInternalFrame {
 
     private VendaController vendaController;
     private final InicialView inicialView;
-    private ProdutoController produtoController;
     private Produto produtoSelecionado;
+   
 
     public VendaView(InicialView inicialView) {
         initComponents();
@@ -222,6 +223,9 @@ public class VendaView extends javax.swing.JInternalFrame {
         lblValorUnidadeMostrar.setText("");
         lblValorTotalMostrar.setText("");
     }
+    public void limparNomeCliente(){
+        txtNomeClienteVenda.setText("");
+    }
 
     public void atualizarTotalVenda(double total) {
         lblValorTotalVenda.setText(String.valueOf(total));
@@ -393,6 +397,11 @@ public class VendaView extends javax.swing.JInternalFrame {
 
         btnExcluirProdutoDaVenda.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         btnExcluirProdutoDaVenda.setText("Excluir produto do carrinho");
+        btnExcluirProdutoDaVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirProdutoDaVendaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -401,7 +410,7 @@ public class VendaView extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Tabela, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
+                    .addComponent(Tabela, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -590,6 +599,7 @@ public class VendaView extends javax.swing.JInternalFrame {
 
         vendaController.salvarVenda();
         JOptionPane.showMessageDialog(this, "Venda Realizada com sucesso!");
+        limparNomeCliente();
     }//GEN-LAST:event_btnFinalizarVendaActionPerformed
 
     private void btnExcluirVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirVendaActionPerformed
@@ -617,6 +627,10 @@ public class VendaView extends javax.swing.JInternalFrame {
         
 
     }//GEN-LAST:event_btnAdicionarVendaActionPerformed
+
+    private void btnExcluirProdutoDaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProdutoDaVendaActionPerformed
+        vendaController.excluirProdutoDoCarrinho(produtoSelecionado);
+    }//GEN-LAST:event_btnExcluirProdutoDaVendaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

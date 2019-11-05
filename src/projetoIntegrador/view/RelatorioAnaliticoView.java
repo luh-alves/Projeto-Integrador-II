@@ -15,14 +15,16 @@ import projetoIntegrador.model.entity.Venda;
  *
  * @author fabiana.vsilva6
  */
-public class RelatorioAnaliticoView extends javax.swing.JInternalFrame {
+public class RelatorioAnaliticoView extends javax.swing.JFrame {
+    
+
+
 
     /**
      * Creates new form RelatorioAnaliticoView
      */
     public RelatorioAnaliticoView(Venda venda) {
         initComponents();
-
         atualizarListaDeProdutos(venda.getProdutos());
 
     }
