@@ -15,7 +15,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import projetoIntegrador.controller.RelatorioSinteticoController;
-import projetoIntegrador.model.entity.Venda;
+import projetoIntegrador.model.Venda;
 
 /**
  *
@@ -335,9 +335,8 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
         lblValorTotalTotal.setText(String.valueOf(total));
     }
     private void btnGerarRelatorioAnaliticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioAnaliticoActionPerformed
-        RelatorioAnaliticoView analiticoView = new RelatorioAnaliticoView(vendaSelecionada);
+        RelatorioAnaliticoView analiticoView = new RelatorioAnaliticoView();
         analiticoView.setExtendedState(6);
-
         analiticoView.setVisible(true);
     }//GEN-LAST:event_btnGerarRelatorioAnaliticoActionPerformed
 

@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import projetoIntegrador.controller.ClienteController;
+import projetoIntegrador.utils.Validador;
 
 /**
  *
@@ -24,16 +25,13 @@ public class ClienteView extends javax.swing.JInternalFrame {
     /**
      * Creates new form ClientesView1
      */
-    private final InicialView inicialView;
-
     String modoTela = "Criar";
 
-    public ClienteView(InicialView InicialView) {
+    public ClienteView() {
         initComponents();
         carregarTabela();
         desabilitarFormulario();
         CadastroCliente4.setVisible(false);
-        this.inicialView = InicialView;
 
     }
 
@@ -784,6 +782,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnExcluirClienteActionPerformed
 
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
+        Validador Validador = new Validador();
+        Validador.ValidarNumero(txtCPFCliente);
+        
         if (validator()) {
             Date date = new Date(System.currentTimeMillis());
             if (modoTela.equals("Criar")) {

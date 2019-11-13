@@ -8,8 +8,8 @@ package projetoIntegrador.view;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import projetoIntegrador.model.entity.Produto;
-import projetoIntegrador.model.entity.Venda;
+import projetoIntegrador.model.Produto;
+import projetoIntegrador.model.Venda;
 
 /**
  *
@@ -18,15 +18,11 @@ import projetoIntegrador.model.entity.Venda;
 public class RelatorioAnaliticoView extends javax.swing.JFrame {
     
 
-
-
     /**
      * Creates new form RelatorioAnaliticoView
      */
-    public RelatorioAnaliticoView(Venda venda) {
+    public RelatorioAnaliticoView() {
         initComponents();
-        atualizarListaDeProdutos(venda.getProdutos());
-
     }
 
     private void atualizarListaDeProdutos(List<Produto> produtos) {

@@ -8,8 +8,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import projetoIntegrador.controller.ClienteController;
-import static projetoIntegrador.model.dao.ClienteDAO.ConsultarClientes;
-import projetoIntegrador.model.entity.Cliente;
+import static projetoIntegrador.dao.ClienteDAO.ConsultarClientes;
+import projetoIntegrador.model.Cliente;
 /**
  *
  * @author Avell B154 PLUS

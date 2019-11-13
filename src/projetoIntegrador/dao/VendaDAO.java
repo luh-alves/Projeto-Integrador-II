@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetoIntegrador.model.dao;
+package projetoIntegrador.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-import projetoIntegrador.model.entity.Cliente;
-import projetoIntegrador.model.entity.Produto;
-import projetoIntegrador.model.entity.Venda;
+import projetoIntegrador.model.Cliente;
+import projetoIntegrador.model.Produto;
+import projetoIntegrador.model.Venda;
 
 /**
  *

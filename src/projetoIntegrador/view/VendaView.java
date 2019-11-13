@@ -18,9 +18,9 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import projetoIntegrador.controller.ProdutoController;
 import projetoIntegrador.controller.VendaController;
-import projetoIntegrador.model.entity.Cliente;
-import projetoIntegrador.model.entity.Produto;
-import projetoIntegrador.model.entity.Venda;
+import projetoIntegrador.model.Cliente;
+import projetoIntegrador.model.Produto;
+import projetoIntegrador.model.Venda;
 
 /**
  *
@@ -29,18 +29,15 @@ import projetoIntegrador.model.entity.Venda;
 public class VendaView extends javax.swing.JInternalFrame {
 
     private VendaController vendaController;
-    private final InicialView inicialView;
     private Produto produtoSelecionado;
    
 
-    public VendaView(InicialView inicialView) {
+    public VendaView() {
         initComponents();
         setupTxtNomeCliente();
         setupTxtNomeProduto();
         setupTxtQuantidade();
         this.vendaController = new VendaController(this);
-        this.inicialView = inicialView;
-
     }
 
     public JMenuItem criarItem(Cliente cliente, Runnable acao) {
@@ -611,7 +608,8 @@ public class VendaView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtNomeClienteVendaActionPerformed
 
     private void btnCadastrarClienteVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteVendaActionPerformed
-        inicialView.mostrarTelaCliente();
+       InicialView motrarTela = new InicialView();
+        motrarTela.mostrarTelas("Clientes");
     }//GEN-LAST:event_btnCadastrarClienteVendaActionPerformed
 
     private void txtQuantidadeProdutoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantidadeProdutoVendaActionPerformed

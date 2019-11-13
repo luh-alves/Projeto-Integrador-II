@@ -6,12 +6,6 @@
 package projetoIntegrador.view;
 
 import java.beans.PropertyVetoException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import projetoIntegrador.view.ClienteView;
-import projetoIntegrador.view.ProdutoView;
-import projetoIntegrador.view.RelatorioSinteticoView;
-import projetoIntegrador.view.VendaView;
 
 /**
  *
@@ -19,11 +13,19 @@ import projetoIntegrador.view.VendaView;
  */
 public class InicialView extends javax.swing.JFrame {
 
+    private final ClienteView telaCliente = new ClienteView();
+    private final ProdutoView telaProdutos = new ProdutoView();
+    private final VendaView telaVendas = new VendaView();
+    private final RelatorioSinteticoView telaSintetica = new RelatorioSinteticoView();
+    private final RelatorioAnaliticoView telaAnalitica = new RelatorioAnaliticoView();
+
     /**
      * Creates new form TelaInicialView
      */
     public InicialView() {
+
         initComponents();
+
         jPanel6.setVisible(false);
     }
 
@@ -50,7 +52,7 @@ public class InicialView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblSaudacao = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jDeskAreaTelas = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Inicial");
@@ -235,14 +237,14 @@ public class InicialView extends javax.swing.JFrame {
             .addGap(0, 92, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jDeskAreaTelasLayout = new javax.swing.GroupLayout(jDeskAreaTelas);
+        jDeskAreaTelas.setLayout(jDeskAreaTelasLayout);
+        jDeskAreaTelasLayout.setHorizontalGroup(
+            jDeskAreaTelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jDeskAreaTelasLayout.setVerticalGroup(
+            jDeskAreaTelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -257,7 +259,7 @@ public class InicialView extends javax.swing.JFrame {
                         .addGap(9, 9, 9)
                         .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jDesktopPane1)))
+                            .addComponent(jDeskAreaTelas)))
                     .addGroup(FundoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 366, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -271,7 +273,7 @@ public class InicialView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDesktopPane1)
+                .addComponent(jDeskAreaTelas)
                 .addContainerGap())
         );
 
@@ -289,59 +291,75 @@ public class InicialView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void mostrarTelaCliente(){
-        ClienteView novaJanela = new ClienteView(this);
-
-        jDesktopPane1.add(novaJanela);
-        novaJanela.setVisible(true);
-        try {
-            novaJanela.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
+    public void mostrarTelas(String tela) {
+        //verifica se tem algum frameInterno adicionado no JdeskAreaTela, se não tiver nenhum frame interno adicionando adiciona todos
+        if (jDeskAreaTelas.getAllFrames().length == 0) {
+            jDeskAreaTelas.add(telaCliente);
+            jDeskAreaTelas.add(telaProdutos);
+            jDeskAreaTelas.add(telaVendas);
+            jDeskAreaTelas.add(telaSintetica);
+            
+         //fazer a tela interna inicializar no tamanho maximo
+            try {
+                telaVendas.setMaximum(true);
+                telaCliente.setMaximum(true);
+                telaProdutos.setMaximum(true);
+                telaVendas.setMaximum(true);
+                telaSintetica.setMaximum(true);
+                telaAnalitica.setExtendedState(6);
+            } catch (PropertyVetoException ex) {
+            }
         }
+        //switch que verifica qual tela foi chamada, e seta a tela chamada para visivil ou trás ela para frente caso tenha alguma tela atrapalhando
+        switch (tela) {
+            case "Clientes":
+                telaCliente.toFront();
+                telaCliente.setVisible(true);
+                break;
+
+            case "Produtos":
+                telaProdutos.setVisible(true);
+                telaProdutos.toFront();
+                break;
+
+            case "Vendas":
+                telaVendas.setVisible(true);
+                telaVendas.toFront();
+                break;
+
+            case "Sintetica":
+                telaCliente.setVisible(false);
+                telaProdutos.setVisible(false);
+                telaVendas.setVisible(false);
+                telaSintetica.setVisible(true);
+                telaSintetica.toFront();
+                break;
+
+            case "Analitica":
+                this.telaAnalitica.setVisible(true);
+                this.telaAnalitica.toFront();
+                break;
+        }
+
     }
-    
+
     private void lblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClientesMouseClicked
-        mostrarTelaCliente();
+        mostrarTelas("Clientes");
     }//GEN-LAST:event_lblClientesMouseClicked
 
-    private void lblProdutosMouseClicked(java.awt.event.MouseEvent evt) {                                     
-        ProdutoView novaJanela = new ProdutoView();
+    private void lblProdutosMouseClicked(java.awt.event.MouseEvent evt) {
+        mostrarTelas("Produtos");
 
-        jDesktopPane1.add(novaJanela);
-        novaJanela.setVisible(true);
-        try {
-            novaJanela.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    }
 
-    }                                        
+    private void lblVendasMouseClicked(java.awt.event.MouseEvent evt) {
+        mostrarTelas("Vendas");
+    }
 
-    private void lblVendasMouseClicked(java.awt.event.MouseEvent evt) {                                     
-        VendaView novaJanela = new VendaView(this);
+    private void lblRelatoriosMouseClicked(java.awt.event.MouseEvent evt) {
+        mostrarTelas("Sintetica"); //Relatorios sintetico e analitico
 
-        jDesktopPane1.add(novaJanela);
-        novaJanela.setVisible(true);
-        try {
-            novaJanela.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }                                      
-
-    private void lblRelatoriosMouseClicked(java.awt.event.MouseEvent evt) {                                     
-        RelatorioSinteticoView novaJanela = new RelatorioSinteticoView();
-
-        jDesktopPane1.add(novaJanela);
-        novaJanela.setVisible(true);
-        try {
-            novaJanela.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(InicialView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }                                          
-
+    }
     /**
      * @param args the command line arguments
      */
@@ -371,6 +389,66 @@ public class InicialView extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -378,7 +456,6 @@ public class InicialView extends javax.swing.JFrame {
                 InicialView inicialView = new InicialView();
                 inicialView.setExtendedState(6);
                 inicialView.setVisible(true);
-                //new InicialView().setVisible(true);
 
             }
         });
@@ -386,7 +463,7 @@ public class InicialView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Fundo;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane jDeskAreaTelas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

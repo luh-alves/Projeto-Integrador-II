@@ -7,12 +7,12 @@ package projetoIntegrador.controller;
 
 import java.util.Date;
 import java.util.List;
-import projetoIntegrador.model.dao.ClienteDAO;
-import projetoIntegrador.model.dao.ProdutoDAO;
-import projetoIntegrador.model.dao.VendaDAO;
-import projetoIntegrador.model.entity.Cliente;
-import projetoIntegrador.model.entity.Produto;
-import projetoIntegrador.model.entity.Venda;
+import projetoIntegrador.dao.ClienteDAO;
+import projetoIntegrador.dao.ProdutoDAO;
+import projetoIntegrador.dao.VendaDAO;
+import projetoIntegrador.model.Cliente;
+import projetoIntegrador.model.Produto;
+import projetoIntegrador.model.Venda;
 import projetoIntegrador.view.VendaView;
 
 /**

@@ -8,9 +8,9 @@ package projetoIntegrador.controller;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import projetoIntegrador.model.dao.ClienteDAO;
-import static projetoIntegrador.model.dao.ClienteDAO.ConsultarClientes;
-import projetoIntegrador.model.entity.Cliente;
+import projetoIntegrador.dao.ClienteDAO;
+import static projetoIntegrador.dao.ClienteDAO.ConsultarClientes;
+import projetoIntegrador.model.Cliente;
 
 /**
  *

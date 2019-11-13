@@ -9,8 +9,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import projetoIntegrador.model.dao.VendaDAO;
-import projetoIntegrador.model.entity.Venda;
+import projetoIntegrador.dao.VendaDAO;
+import projetoIntegrador.model.Venda;
 
 /**
  *

@@ -7,8 +7,8 @@ package projetoIntegrador.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import projetoIntegrador.model.dao.ProdutoDAO;
-import projetoIntegrador.model.entity.Produto;
+import projetoIntegrador.dao.ProdutoDAO;
+import projetoIntegrador.model.Produto;
 import projetoIntegrador.view.VendaView;
 
 public class ProdutoController {
