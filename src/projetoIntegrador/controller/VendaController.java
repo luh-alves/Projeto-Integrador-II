@@ -118,5 +118,9 @@ public class VendaController {
         vendaView.atualizarTotalVenda(venda.getTotal());
 
     }
+    
+    public void limparVenda(){
+        venda = new Venda();
+    }
 
 }

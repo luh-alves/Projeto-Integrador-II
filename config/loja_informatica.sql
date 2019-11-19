@@ -34,6 +34,7 @@ create table venda
 
 create table venda_produto
 (
+    id_venda_produto
     quantidade_produto int,
     id_produto int,
     id_venda int,

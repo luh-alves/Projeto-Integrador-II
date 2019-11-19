@@ -7,6 +7,7 @@ package projetoIntegrador.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collections;
 import java.util.List;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -222,7 +223,9 @@ public class VendaView extends javax.swing.JInternalFrame {
     }
     public void limparNomeCliente(){
         txtNomeClienteVenda.setText("");
+        lblNomeClienteSelecionado.setText("");
     }
+
 
     public void atualizarTotalVenda(double total) {
         lblValorTotalVenda.setText(String.valueOf(total));
@@ -597,6 +600,8 @@ public class VendaView extends javax.swing.JInternalFrame {
         vendaController.salvarVenda();
         JOptionPane.showMessageDialog(this, "Venda Realizada com sucesso!");
         limparNomeCliente();
+        atualizarListaDeProdutos(Collections.EMPTY_LIST);
+        vendaController.limparVenda();
     }//GEN-LAST:event_btnFinalizarVendaActionPerformed
 
     private void btnExcluirVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirVendaActionPerformed

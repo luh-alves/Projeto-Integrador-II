@@ -98,7 +98,7 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Data:", "Produto:", "Valor de Venda:"
+                "Data:", "Cliente:", "Valor de Venda:"
             }
         ));
         Tabela.setViewportView(tblSintetico);
