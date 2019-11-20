@@ -36,19 +36,19 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         ArrayList<String[]> linhasProdutos = ProdutoController.getProdutos();
 
         //Opção 1 - Crio manualmente um modelo para a tabela e defino as colunas
-        DefaultTableModel tmCarros = new DefaultTableModel();
-        tmCarros.addColumn("ID");
-        tmCarros.addColumn("Nome do produto");
-        tmCarros.addColumn("Quantidade");
-        tmCarros.addColumn("Valor");
+        DefaultTableModel tmProdutos = new DefaultTableModel();
+        tmProdutos.addColumn("ID");
+        tmProdutos.addColumn("Nome do produto");
+        tmProdutos.addColumn("Quantidade");
+        tmProdutos.addColumn("Valor");
 
-        tblProduto.setModel(tmCarros);
+        tblProduto.setModel(tmProdutos);
 
         //Removo a coluna da View (JTable) mas mantenho na model para armazenar o ID
         tblProduto.removeColumn(tblProduto.getColumnModel().getColumn(0));
 
         for (String[] c : linhasProdutos) {
-            tmCarros.addRow(c);
+            tmProdutos.addRow(c);
         }
 
         //Defino o tamanho para cada coluna
@@ -70,16 +70,30 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     public void desabilitarFormulario() {
 
         txtNomeProduto.setEditable(false);
+        txtNomeProduto.setEnabled(false);
+        
         txtQuantidadeProduto.setEditable(false);
+        txtQuantidadeProduto.setEnabled(false);
+        
         txtValorUnitario.setEditable(false);
+        txtValorUnitario.setEnabled(false);
+        
+        btnSalvarProduto.setEnabled(false);
 
     }
 
     public void habitarFormulario() {
 
         txtNomeProduto.setEditable(true);
+        txtNomeProduto.setEnabled(true);
+
         txtQuantidadeProduto.setEditable(true);
+        txtQuantidadeProduto.setEnabled(true);
+
         txtValorUnitario.setEditable(true);
+        txtValorUnitario.setEnabled(true);
+        
+        btnSalvarProduto.setEnabled(true);
 
     }
 
@@ -303,7 +317,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                         .addComponent(TextFieldProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnBuscarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tblProduto.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
@@ -441,7 +455,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 habitarFormulario();
 
                 modoTela = "Editar";
-
+                
                 lblPID.setText(tblProduto.getModel().getValueAt(tblProduto.getSelectedRow(), 0).toString());
                 txtNomeProduto.setText(tblProduto.getModel().getValueAt(tblProduto.getSelectedRow(), 1).toString());
                 txtQuantidadeProduto.setText(tblProduto.getModel().getValueAt(tblProduto.getSelectedRow(), 2).toString());
@@ -529,4 +543,3 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtValorUnitario;
     // End of variables declaration//GEN-END:variables
 }
-

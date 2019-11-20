@@ -25,25 +25,25 @@ public class ProdutoController {
     public static boolean salvar(String NomeProduto, int Quantidade, double Valor) {
 
         Produto p = new Produto(NomeProduto, Quantidade, Valor);
-        return ProdutoDAO.salvarP(p);
+        return ProdutoDAO.salvar(p);
     }
 
     public static boolean excluir(int pID) {
 
-        return ProdutoDAO.excluirP(pID);
+        return ProdutoDAO.excluir(pID);
 
     }
 
     public static boolean atualizar(int pID, String NomeProduto, int Quantidade, Double Valor) {
 
         Produto p = new Produto(pID, NomeProduto, Quantidade, Valor);
-        return ProdutoDAO.atualizarP(p);
+        return ProdutoDAO.atualizar(p);
 
     }
 
     public static ArrayList<String[]> getProdutos() {
 
-        ArrayList<Produto> produtos = ProdutoDAO.getProdutos();
+        ArrayList<Produto> produtos = ProdutoDAO.consultarProdutos();
         ArrayList<String[]> listaProdutos = new ArrayList<>();
 
         for (int i = 0; i < produtos.size(); i++) {

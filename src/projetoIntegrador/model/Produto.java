@@ -10,13 +10,18 @@ import java.util.Objects;
 public class Produto {
 
     //só para a aplicação
-    private  int quantidadeNaVenda;
+    private int quantidadeNaVenda;
 
     private int id;
     private String nome;
     private double valor;
     private int quantidade;
 
+    public Produto() {
+        //TODO:Ao conectar-se ao banco, remover incremento pelo código
+        quantidadeNaVenda++;
+        this.id = quantidadeNaVenda;
+    }
 
     //construtor de salvar
     public Produto(String nome, int qtd, double valor) {
@@ -27,8 +32,8 @@ public class Produto {
     }
 
     //Construtor de atualizar o produto
-
     public Produto(int id, String nome, int qtd, double valor) {
+        this.id = id;
         this.nome = nome;
         this.quantidade = qtd;
         this.valor = valor;

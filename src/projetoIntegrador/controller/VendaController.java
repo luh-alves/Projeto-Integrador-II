@@ -63,16 +63,16 @@ public class VendaController {
         this.venda.setCliente(cliente);
     }
 
-    public void pesquisarProduto(String nome) {
-        if (nome.length() > 2) {
-            List<Produto> resultadoProduto = produtoDAO.pesquisarProdutoPorNome(nome);
-            if (resultadoProduto.size() > 0) {
-                vendaView.mostrarResultadosProdutos(resultadoProduto);
-            }
-
-        }
-
-    }
+//    public void pesquisarProduto(String nome) {
+//        if (nome.length() > 2) {
+//            List<Produto> resultadoProduto = produtoDAO.pesquisarProdutoPorNome(nome);
+//            if (resultadoProduto.size() > 0) {
+//                vendaView.mostrarResultadosProdutos(resultadoProduto);
+//            }
+//
+//        }
+//
+//    }
 
     public void selecionarProduto(Produto produto) {
         this.produtoSelecionado = produto;
