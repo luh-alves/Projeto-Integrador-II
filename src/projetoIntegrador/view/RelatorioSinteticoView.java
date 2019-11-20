@@ -98,7 +98,7 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Data:", "Cliente:", "Valor de Venda:"
+                "Data:", "Produto:", "Valor de Venda:"
             }
         ));
         Tabela.setViewportView(tblSintetico);
@@ -250,7 +250,10 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
         //Controlador resgata as vendas do banco de dados
-        ArrayList<Venda> listaVendas = RelatorioSinteticoController.buscaPorPeriodo(jDateChooser1.getDate(), jDateChooser2.getDate());
+        
+        Venda obj = new Venda();
+        
+        ArrayList<Venda> listaVendas = RelatorioSinteticoController.consultarVendas(jDateChooser1.getDate(), jDateChooser2.getDate(), obj);
         //criar manualmente uma tabela para listar as vendas
         DefaultTableModel tabelaSintetico = new DefaultTableModel() {
             @Override
@@ -337,6 +340,7 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
     private void btnGerarRelatorioAnaliticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioAnaliticoActionPerformed
         RelatorioAnaliticoView analiticoView = new RelatorioAnaliticoView();
         analiticoView.setExtendedState(6);
+
         analiticoView.setVisible(true);
     }//GEN-LAST:event_btnGerarRelatorioAnaliticoActionPerformed
 
