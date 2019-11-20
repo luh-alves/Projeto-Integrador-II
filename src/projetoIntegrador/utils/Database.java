@@ -14,25 +14,84 @@ import java.util.logging.Logger;
 
 public class Database {
 
-    private static final String DATABASE_NAME = "loja_informatica";
-    private static final String DATABASE_USER = "root";
-    private static final String DATABASE_PASS = "";
-    private static final String DATABASE_PORT = "3306";
+    public static String STATUS = "Não conectado";
+    public static String DRIVER = "com.mysql.cj.jdbc.Driver";  //A partir da versao 8.0, mudou para com.mysql.cj.jdbc.Driver (Connector/J)                   
 
-    private static Connection connection;
-    private static Statement statement;
-    
+    public static String SERVER = "localhost";
+    public static String DATABASE = "loja_informatica";              //nome do seu banco de dados
 
-    public static Statement getInstance() {
-        if (statement == null) {
+    public static String LOGIN = "root";                     //nome de um usuário de seu BD      
+    public static String SENHA = "";                         //sua senha de acesso
+
+    public static String URL = "";
+
+    public static Connection CONEXAO;
+
+    public Database() {
+    }
+
+    public static Connection abrirConexao() throws ClassNotFoundException, SQLException {
+
+        URL = "jdbc:mysql://" + SERVER + ":3307/" + DATABASE + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
+
+        if (CONEXAO == null) {
             try {
-                final String connectionString = "jdbc:mysql://localhost:" + DATABASE_PORT + "/" + DATABASE_NAME;
-                connection = DriverManager.getConnection(connectionString, DATABASE_USER, DATABASE_PASS);
-                statement = connection.createStatement();
+
+                //Carrega a classe responsável pelo driver
+                Class.forName(DRIVER);
+                CONEXAO = DriverManager.getConnection(URL, LOGIN, SENHA);
+
+                if (CONEXAO != null) {
+                    STATUS = "Conexão realizada com sucesso!";
+                } else {
+                    STATUS = "Não foi possivel realizar a conexão";
+                }
+
+            } catch (ClassNotFoundException e) {  //Driver não encontrado
+
+                throw new ClassNotFoundException("O driver expecificado nao foi encontrado.");
+
+            } catch (SQLException e) {  //Erro ao estabelecer a conexão (Ex: login ou senha errados)
+
+                //Outra falha de conexão
+                throw new SQLException("Erro ao estabelecer a conexão (Ex: login ou senha errados).");
+            }
+
+        } else {
+            try {
+                //Se a conexão estiver fechada, reabro a conexão
+                if (CONEXAO.isClosed()) {
+                    CONEXAO = DriverManager.getConnection(URL, LOGIN, SENHA);
+                }
             } catch (SQLException ex) {
-                Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+                throw new SQLException("Falha ao fechar a conexão.");
             }
         }
-        return statement;
+        return CONEXAO;
+    }
+
+    public static String getStatusConexao() {
+        return STATUS;
+    }
+
+    public static boolean fecharConexao() throws SQLException {
+
+        boolean retorno = false;
+
+        try {
+            if (CONEXAO != null) {
+                if (!CONEXAO.isClosed()) {
+                    CONEXAO.close();
+                }
+            }
+
+            STATUS = "Não conectado";
+            retorno = true;
+
+        } catch (SQLException e) {
+            retorno = false;
+        }
+
+        return retorno;
     }
 }
