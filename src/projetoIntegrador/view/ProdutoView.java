@@ -22,6 +22,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
      */
     private String modoTela;
 
+    private ProdutoController controller = new ProdutoController();
+
     public ProdutoView() {
         initComponents();
         desabilitarFormulario();
@@ -33,7 +35,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
     public void LoadTable() {
 
-        ArrayList<String[]> linhasProdutos = ProdutoController.getProdutos();
+        ArrayList<String[]> linhasProdutos = controller.getProdutos();
 
         //Opção 1 - Crio manualmente um modelo para a tabela e defino as colunas
         DefaultTableModel tmProdutos = new DefaultTableModel();
@@ -71,13 +73,13 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         txtNomeProduto.setEditable(false);
         txtNomeProduto.setEnabled(false);
-        
+
         txtQuantidadeProduto.setEditable(false);
         txtQuantidadeProduto.setEnabled(false);
-        
+
         txtValorUnitario.setEditable(false);
         txtValorUnitario.setEnabled(false);
-        
+
         btnSalvarProduto.setEnabled(false);
 
     }
@@ -92,7 +94,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         txtValorUnitario.setEditable(true);
         txtValorUnitario.setEnabled(true);
-        
+
         btnSalvarProduto.setEnabled(true);
 
     }
@@ -390,7 +392,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
             if (modoTela.equals("Criar")) {
 
-                if (ProdutoController.salvar(txtNomeProduto.getText(), Integer.parseInt(txtQuantidadeProduto.getText()), Double.parseDouble(txtValorUnitario.getText()))) {
+                if (controller.salvar(txtNomeProduto.getText(), Integer.parseInt(txtQuantidadeProduto.getText()), Double.parseDouble(txtValorUnitario.getText()))) {
 
                     this.LoadTable();
 
@@ -403,7 +405,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
             } else {
 
-                if (ProdutoController.atualizar(Integer.parseInt(lblPID.getText()), txtNomeProduto.getText(), Integer.parseInt(txtQuantidadeProduto.getText()), Double.parseDouble(txtValorUnitario.getText()))) {
+                if (controller.atualizar(Integer.parseInt(lblPID.getText()), txtNomeProduto.getText(), Integer.parseInt(txtQuantidadeProduto.getText()), Double.parseDouble(txtValorUnitario.getText()))) {
 
                     this.LoadTable();
                     JOptionPane.showMessageDialog(this, "Produto atualizado com sucesso!");
@@ -430,7 +432,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             int IDProd = Integer.parseInt(tblProduto.getModel().getValueAt(numeroLinha, 0).toString());
 
             //Realiza a exclusão do cliente pelo ID
-            if (ProdutoController.excluir(IDProd)) {
+            if (controller.excluir(IDProd)) {
 
                 this.LoadTable();
                 JOptionPane.showMessageDialog(this, "Produto excluido da base de dados");
@@ -455,7 +457,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 habitarFormulario();
 
                 modoTela = "Editar";
-                
+
                 lblPID.setText(tblProduto.getModel().getValueAt(tblProduto.getSelectedRow(), 0).toString());
                 txtNomeProduto.setText(tblProduto.getModel().getValueAt(tblProduto.getSelectedRow(), 1).toString());
                 txtQuantidadeProduto.setText(tblProduto.getModel().getValueAt(tblProduto.getSelectedRow(), 2).toString());

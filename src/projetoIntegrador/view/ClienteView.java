@@ -27,6 +27,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
      */
     String modoTela = "Criar";
 
+    private final ClienteController clienteController = new ClienteController();
+
     public ClienteView() {
         initComponents();
         carregarTabela();
@@ -63,9 +65,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
         lblEndereco = new javax.swing.JLabel();
         Sexo = new javax.swing.JPanel();
         lblSexo = new javax.swing.JLabel();
-        cmbSexo = new javax.swing.JComboBox<>();
+        cmbSexo = new javax.swing.JComboBox<String>();
         lblEstadoCivil = new javax.swing.JLabel();
-        cmbEstadoCivil = new javax.swing.JComboBox<>();
+        cmbEstadoCivil = new javax.swing.JComboBox<String>();
         txtNumero = new javax.swing.JTextField();
         lblNumero = new javax.swing.JLabel();
         txtCidade = new javax.swing.JTextField();
@@ -78,7 +80,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
         lblCEP = new javax.swing.JLabel();
         lblNacionalidade = new javax.swing.JLabel();
         txtNacionalidade = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         Botoes = new javax.swing.JPanel();
         btnSalvarCliente = new javax.swing.JButton();
         btnExcluirCliente = new javax.swing.JButton();
@@ -189,13 +190,13 @@ public class ClienteView extends javax.swing.JInternalFrame {
         lblSexo.setText("Sexo:");
 
         cmbSexo.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        cmbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Feminino", "Masculino", "Indefinido", " ", " " }));
+        cmbSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Feminino", "Masculino", "Indefinido", " ", " " }));
 
         lblEstadoCivil.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         lblEstadoCivil.setText("Estado Civil:");
 
         cmbEstadoCivil.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        cmbEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Divorciado", "", "" }));
+        cmbEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Solteiro", "Casado", "Divorciado", "", "" }));
         cmbEstadoCivil.setLightWeightPopupEnabled(false);
         cmbEstadoCivil.setOpaque(false);
 
@@ -408,10 +409,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetoIntegrador/view/img/Icone.Usuario.png"))); // NOI18N
-
         Botoes.setBackground(new java.awt.Color(153, 153, 153));
         Botoes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Botoes.setForeground(new java.awt.Color(204, 204, 204));
@@ -546,8 +543,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Botoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(181, 181, 181)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Tabela, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -566,8 +562,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Tabela))
+                    .addComponent(Tabela, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE))
                 .addGap(27, 27, 27)
                 .addComponent(Botoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -582,8 +577,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
     public void carregarTabela() {
         //Controlador resgata os clientes do banco de dados
-        ArrayList<String[]> listaClientes = ClienteController.consultarClientes(modoTela,txtProcurar.getText());
-//        ArrayList<String[]> BuscarClientes = ClienteController.buscarClientes(txtProcurar.getText(), modoTela);
+        ArrayList<String[]> listaClientes = clienteController.consultarClientes(modoTela, txtProcurar.getText());
 
         //criar manualmente uma tabela para listar os clientes e gerencia-los
         DefaultTableModel tabelaClientes = new DefaultTableModel() {
@@ -618,22 +612,15 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 tblCadastroCliente.removeColumn(tblCadastroCliente.getColumnModel().getColumn(i));
             }
         }
-        JOptionPane.showMessageDialog(this, modoTela);
-        //para cada cliente novo, atualizado ou excluido, atualizo a tabela
-//        if (modoTela.contains("Buscar")) {
-//            for (String[] clientes : BuscarClientes) {
-//                tabelaClientes.addRow(clientes);
-//            }
-//        } else {
-            for (String[] clientes : listaClientes) {
-                tabelaClientes.addRow(clientes);
-            }
+
+        for (String[] clientes : listaClientes) {
+            tabelaClientes.addRow(clientes);
+        }
 //        }
         //definindo um tamanho para cada coluna
         tblCadastroCliente.getColumnModel().getColumn(0).setPreferredWidth(200);
         tblCadastroCliente.getColumnModel().getColumn(1).setPreferredWidth(200);
         tblCadastroCliente.getColumnModel().getColumn(2).setPreferredWidth(200);
-
     }
 
     public void limparFormulario() {
@@ -717,13 +704,13 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 lblClienteID.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 0).toString());
                 txtNomeCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 1).toString());
                 txtCPFCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 2).toString());
-                cmbSexo.setSelectedIndex(Integer.parseInt(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 3).toString()));
+                cmbSexo.setSelectedIndex(clienteController.traduzirSexo(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 3).toString()));
                 try {
                     dateNascimento.setDate(formato.parse(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 4).toString()));
                 } catch (ParseException ex) {
                     Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                cmbEstadoCivil.setSelectedIndex(Integer.parseInt(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 5).toString()));
+                cmbEstadoCivil.setSelectedIndex(clienteController.traduzirEstadoCivil(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 5).toString()));
                 txtEndereco.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 6).toString());
                 txtBairro.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 7).toString());
                 txtCEP.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 8).toString());
@@ -733,23 +720,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 txtEmailCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 12).toString());
                 txtTelefone1.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 13).toString());
                 txtTelefone2.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 14).toString());
-//        tabelaClientes.addColumn("ID");//0
-//        tabelaClientes.addColumn("NOME");//1
-//        tabelaClientes.addColumn("CPF");//2
-//        tabelaClientes.addColumn("SEXO");//3
-//        tabelaClientes.addColumn("DATA DE NASCIMENTO");//4
-//        tabelaClientes.addColumn("ESTADO CIVIL");//5
-//        tabelaClientes.addColumn("ENDERECO");//6
-//        tabelaClientes.addColumn("BAIRRO");//7
-//        tabelaClientes.addColumn("CEP");//8
-//        tabelaClientes.addColumn("NUMERO");//9
-//        tabelaClientes.addColumn("CIDADE");//10
-//        tabelaClientes.addColumn("NACIONALIDADE");//11
-//        tabelaClientes.addColumn("EMAIL");//12
-//        tabelaClientes.addColumn("TELEFONE");//13
-//        tabelaClientes.addColumn("TELEFONE");//14
-//        tabelaClientes.addColumn("DATA DE CADASTRO");//15
-//        tabelaClientes.addColumn("ULTIMA ATUALIZAÇÃO");//16
             } else {
                 JOptionPane.showMessageDialog(this, "Selecione um cliente para editar!");
             }
@@ -767,7 +737,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 //resgata o id (oculto) pelo JtableModel
                 int IDCliente = Integer.parseInt(tblCadastroCliente.getModel().getValueAt(numeroLinha, 0).toString());
                 //Verifica se foi possivel escluir o cliente e informa para o usuario se foi possivel ou não
-                if (ClienteController.excluirCliente(IDCliente)) {
+                if (clienteController.excluirCliente(IDCliente)) {
                     JOptionPane.showMessageDialog(this, "Cliente excluido com sucesso");
                     carregarTabela();
                 } else {
@@ -784,12 +754,12 @@ public class ClienteView extends javax.swing.JInternalFrame {
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
         Validador Validador = new Validador();
         Validador.ValidarNumero(txtCPFCliente);
-        
+
         if (validator()) {
             Date date = new Date(System.currentTimeMillis());
             if (modoTela.equals("Criar")) {
 
-                if (ClienteController.salvarCliente(txtCPFCliente.getText(), txtNomeCliente.getText(), cmbSexo.getSelectedIndex(), dateNascimento.getDate(), cmbEstadoCivil.getSelectedIndex(), txtEndereco.getText(), txtBairro.getText(), txtCEP.getText(), txtNumero.getText(), txtCidade.getText(), txtNacionalidade.getText(), txtEmailCliente.getText(), txtTelefone1.getText(), txtTelefone2.getText(), date, date)) {
+                if (clienteController.salvarCliente(txtCPFCliente.getText(), txtNomeCliente.getText(), cmbSexo.getSelectedIndex(), dateNascimento.getDate(), cmbEstadoCivil.getSelectedIndex(), txtEndereco.getText(), txtBairro.getText(), txtCEP.getText(), txtNumero.getText(), txtCidade.getText(), txtNacionalidade.getText(), txtEmailCliente.getText(), txtTelefone1.getText(), txtTelefone2.getText(), date, date)) {
 
                     //carregar a tabela depois de salvo no banco
                     carregarTabela();
@@ -799,7 +769,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(this, "Erro ao salvar o cliente ");
                 }
             } else {
-                if (ClienteController.atualizarCliente(Integer.parseInt(lblClienteID.getText()), txtNomeCliente.getText(), cmbSexo.getSelectedIndex(), dateNascimento.getDate(), cmbEstadoCivil.getSelectedIndex(), txtEndereco.getText(), txtBairro.getText(), txtCEP.getText(), txtNumero.getText(), txtCidade.getText(), txtNacionalidade.getText(), txtEmailCliente.getText(), txtTelefone1.getText(), txtTelefone2.getText(), date)) {
+                if (clienteController.atualizarCliente(Integer.parseInt(lblClienteID.getText()), txtNomeCliente.getText(), cmbSexo.getSelectedIndex(), dateNascimento.getDate(), cmbEstadoCivil.getSelectedIndex(), txtEndereco.getText(), txtBairro.getText(), txtCEP.getText(), txtNumero.getText(), txtCidade.getText(), txtNacionalidade.getText(), txtEmailCliente.getText(), txtTelefone1.getText(), txtTelefone2.getText(), date)) {
                     carregarTabela();
                     limparFormulario();
                     desabilitarFormulario();
@@ -808,11 +778,11 @@ public class ClienteView extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(this, "Não foi possivel atualizar o cliente!");
                 }
             }
-            
+
         } else {
             JOptionPane.showMessageDialog(this, "Não é permitido campos em brancos");
         }
-        
+
         modoTela = "Criar";
     }//GEN-LAST:event_btnSalvarClienteActionPerformed
 
@@ -822,13 +792,13 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
     private void btnAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarClienteActionPerformed
         modoTela = "Criar";
-        int n=0;
-        if(validator()){
+        int n = 0;
+        if (validator()) {
             n = JOptionPane.showConfirmDialog(this, "Será perdido tudo que foi preenchido no formulário, deseja continuar?");
         }
-        if(n == 0){
-        limparFormulario();
-        habilitarFormulario();
+        if (n == 0) {
+            limparFormulario();
+            habilitarFormulario();
         }
     }//GEN-LAST:event_btnAdicionarClienteActionPerformed
 
@@ -853,9 +823,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtCPFClienteActionPerformed
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-     modoTela = TipoBuscaCliente.getSelection().getActionCommand();
+        modoTela = TipoBuscaCliente.getSelection().getActionCommand();
         carregarTabela();
-       
+
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
     private void BuscarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarNomeActionPerformed
@@ -881,7 +851,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cmbEstadoCivil;
     private javax.swing.JComboBox<String> cmbSexo;
     private com.toedter.calendar.JDateChooser dateNascimento;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel9;

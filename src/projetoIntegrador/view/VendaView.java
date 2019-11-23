@@ -36,7 +36,7 @@ public class VendaView extends javax.swing.JInternalFrame {
     public VendaView() {
         initComponents();
         setupTxtNomeCliente();
-//        setupTxtNomeProduto();
+        setupTxtNomeProduto();
         setupTxtQuantidade();
         this.vendaController = new VendaController(this);
     }
@@ -154,28 +154,28 @@ public class VendaView extends javax.swing.JInternalFrame {
         txtNomeClienteVenda.setText(nome);
     }
 
-//    public void setupTxtNomeProduto() {
-//        txtProdutoVenda.getDocument().addDocumentListener(new DocumentListener() {
-//            public void changedUpdate(DocumentEvent e) {
-//                pesquisarProduto();
-//
-//            }
-//
-//            public void removeUpdate(DocumentEvent e) {
-//                pesquisarProduto();
-//
-//            }
-//
-//            public void insertUpdate(DocumentEvent e) {
-//                pesquisarProduto();
-//
-//            }
-//
-//            public void pesquisarProduto() {
-//                vendaController.pesquisarProduto(txtProdutoVenda.getText());
-//            }
-//        });
-//    }
+    public void setupTxtNomeProduto() {
+        txtProdutoVenda.getDocument().addDocumentListener(new DocumentListener() {
+            public void changedUpdate(DocumentEvent e) {
+                pesquisarProduto();
+
+            }
+
+            public void removeUpdate(DocumentEvent e) {
+                pesquisarProduto();
+
+            }
+
+            public void insertUpdate(DocumentEvent e) {
+                pesquisarProduto();
+
+            }
+
+            public void pesquisarProduto() {
+                vendaController.pesquisarProduto(txtProdutoVenda.getText());
+            }
+        });
+    }
 
     public void atualizarProduto(Produto produto) {
         txtProdutoVenda.setText(produto.getNome());

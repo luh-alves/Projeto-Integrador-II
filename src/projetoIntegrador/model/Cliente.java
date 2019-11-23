@@ -12,15 +12,14 @@ import java.util.Date;
  * @author geovane.saraujo
  */
 public class Cliente {
-    //variavel para autoincrementar o id
-    private static int qtdClientes;
+
     //atributos
     private int id;
     private String cpf;
     private String nome;
-    private int sexo;
+    private String sexo;
     private Date dataNascimento;
-    private int estadoCivil;
+    private String estadoCivil;
     private String endereco;
     private String bairro;
     private String cep;
@@ -32,15 +31,15 @@ public class Cliente {
     private String telefone2;
     private Date dataCadastro;
     private Date ultimaAtualizacao;
-    
-    public Cliente(){
-        qtdClientes++;
-        this.id = qtdClientes;
+
+    public Cliente() {
     }
-    //Contrutor de salvar, ao chama o construto a variavel qtd recebe mais 1 e atribui o id para o novo cliente e os demais elementos são armazenados de acordo com a variavel
-    public Cliente(String cpf, String nome,int sexo, Date dataNascimento,int estadoCivil,String endereco, String bairro, String cep, String numero, String cidade, String nacionalidade, String email, String telefone,String telefone2,Date dataCadastro, Date ultimaAtualizacao){
-        qtdClientes++;
-        this.id = qtdClientes;
+
+    public Cliente(String cpf, String nome, String sexo, Date dataNascimento,
+            String estadoCivil, String endereco, String bairro, String cep,
+            String numero, String cidade, String nacionalidade, String email,
+            String telefone, String telefone2, Date dataCadastro,
+            Date ultimaAtualizacao) {
         this.cpf = cpf;
         this.nome = nome;
         this.sexo = sexo;
@@ -51,7 +50,7 @@ public class Cliente {
         this.numero = numero;
         this.cidade = cidade;
         this.cep = cep;
-        this.nacionalidade = nacionalidade; 
+        this.nacionalidade = nacionalidade;
         this.email = email;
         this.telefone = telefone;
         this.telefone2 = telefone2;
@@ -60,7 +59,10 @@ public class Cliente {
     }
 
     //Contrutor de atualizar o cliente 
-    public Cliente(int id, String nome,int sexo, Date dataNascimento,int estadoCivil,String endereco, String bairro, String cep, String numero,String cidade, String nacionalidade, String email, String telefone,String telefone2,Date ultimaAtualizacao){
+    public Cliente(int id, String nome, String sexo, Date dataNascimento,
+            String estadoCivil, String endereco, String bairro, String cep,
+            String numero, String cidade, String nacionalidade, String email,
+            String telefone, String telefone2, Date ultimaAtualizacao) {
         this.id = id;
         this.nome = nome;
         this.sexo = sexo;
@@ -71,12 +73,13 @@ public class Cliente {
         this.cep = cep;
         this.numero = numero;
         this.cidade = cidade;
-        this.nacionalidade = nacionalidade; 
+        this.nacionalidade = nacionalidade;
         this.email = email;
         this.telefone = telefone;
         this.telefone2 = telefone2;
         this.ultimaAtualizacao = ultimaAtualizacao;
     }
+
     // abaixo os getters e setters dos atributos Clientes
     public int getId() {
         return id;
@@ -102,11 +105,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public int getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(int sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
@@ -118,11 +121,11 @@ public class Cliente {
         this.dataNascimento = dataNascimento;
     }
 
-    public int getEstadoCivil() {
+    public String getEstadoCivil() {
         return estadoCivil;
     }
 
-    public void setEstadoCivil(int estadoCivil) {
+    public void setEstadoCivil(String estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
 

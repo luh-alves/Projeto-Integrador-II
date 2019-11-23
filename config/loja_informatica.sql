@@ -16,10 +16,18 @@ create table cliente
     sexo varchar(45) not null,
     email varchar(45) not null,
     telefone varchar(30),
+    telefone2 varchar(30),
     data_nascimento date,
     estado_civil varchar(45),
-    endereco int,
-    foreign key(endereco) references endereco(id)
+    rua varchar(45),
+    numero varchar(10),
+    bairro varchar(45),
+    cidade varchar(45),
+    cep varchar(15),
+    nacionalidade varchar(45),
+    data_cadastro datetime,
+    ultima_atualizacao datetime
+    
 );
 
 
@@ -34,7 +42,7 @@ create table venda
 
 create table venda_produto
 (
-    id_venda_produto
+    id_venda_produto int auto_increment primary key,
     quantidade_produto int,
     id_produto int,
     id_venda int,
