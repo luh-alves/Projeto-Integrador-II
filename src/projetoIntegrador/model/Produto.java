@@ -18,14 +18,10 @@ public class Produto {
     private int quantidade;
 
     public Produto() {
-        //TODO:Ao conectar-se ao banco, remover incremento pelo código
-        quantidadeNaVenda++;
-        this.id = quantidadeNaVenda;
     }
 
     //construtor de salvar
     public Produto(String nome, int qtd, double valor) {
-        this.id = quantidadeNaVenda++;
         this.nome = nome;
         this.quantidade = qtd;
         this.valor = valor;

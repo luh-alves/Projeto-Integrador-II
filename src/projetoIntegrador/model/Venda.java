@@ -8,7 +8,6 @@ package projetoIntegrador.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import projetoIntegrador.dao.SimulaBancoDados;
 
 /**
  *
@@ -71,9 +70,6 @@ public class Venda {
             Produto encontrado = produtos.get(index);
             int quantidadeAtual = encontrado.getQuantidadeNaVenda();
             int quantidadeAtualizada = quantidadeAtual + produto.getQuantidadeNaVenda();
-            System.out.println("Quantidade Atual "
-                    +encontrado.getQuantidadeNaVenda()+" Nova quantidade "
-                    +produto.getQuantidadeNaVenda()+" Quantidade Atualizada "+ quantidadeAtualizada);
             encontrado.setQuantidadeNaVenda(quantidadeAtualizada);
         }
         total = calculaTotal();

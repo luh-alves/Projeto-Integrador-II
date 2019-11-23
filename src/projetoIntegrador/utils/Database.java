@@ -8,14 +8,11 @@ package projetoIntegrador.utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Database {
 
     public static String STATUS = "Não conectado";
-    public static String DRIVER = "com.mysql.cj.jdbc.Driver";  //A partir da versao 8.0, mudou para com.mysql.cj.jdbc.Driver (Connector/J)                   
+    public static String DRIVER = "com.mysql.jdbc.Driver";  //A partir da versao 8.0, mudou para com.mysql.cj.jdbc.Driver (Connector/J)                   
 
     public static String SERVER = "localhost";
     public static String DATABASE = "loja_informatica";              //nome do seu banco de dados
@@ -32,7 +29,7 @@ public class Database {
 
     public static Connection abrirConexao() throws ClassNotFoundException, SQLException {
 
-        URL = "jdbc:mysql://" + SERVER + ":3307/" + DATABASE + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
+        URL = "jdbc:mysql://" + SERVER + ":3306/" + DATABASE + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
 
         if (CONEXAO == null) {
             try {

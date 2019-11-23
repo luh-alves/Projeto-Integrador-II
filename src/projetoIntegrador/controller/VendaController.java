@@ -21,10 +21,10 @@ import projetoIntegrador.view.VendaView;
  */
 public class VendaController {
 
-    private ClienteDAO clienteDAO = new ClienteDAO();
-    private ProdutoDAO produtoDAO = new ProdutoDAO();
-    private VendaDAO vendaDAO = new VendaDAO();
-    private VendaView vendaView;
+    private final ClienteDAO clienteDAO = new ClienteDAO();
+    private final ProdutoDAO produtoDAO = new ProdutoDAO();
+    private final VendaDAO vendaDAO = new VendaDAO();
+    private final VendaView vendaView;
     private Cliente clienteSelecionado;
     private Produto produtoSelecionado;
     private Venda venda = new Venda();
@@ -63,16 +63,16 @@ public class VendaController {
         this.venda.setCliente(cliente);
     }
 
-//    public void pesquisarProduto(String nome) {
-//        if (nome.length() > 2) {
-//            List<Produto> resultadoProduto = produtoDAO.pesquisarProdutoPorNome(nome);
-//            if (resultadoProduto.size() > 0) {
-//                vendaView.mostrarResultadosProdutos(resultadoProduto);
-//            }
-//
-//        }
-//
-//    }
+    public void pesquisarProduto(String nome) {
+       if (nome.length() > 2) {
+            List<Produto> resultadoProduto = produtoDAO.pesquisarProdutoPorNome(nome);
+            if (resultadoProduto.size() > 0) {
+                vendaView.mostrarResultadosProdutos(resultadoProduto);
+            }
+
+        }
+
+    }
 
     public void selecionarProduto(Produto produto) {
         this.produtoSelecionado = produto;

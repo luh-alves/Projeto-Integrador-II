@@ -17,7 +17,6 @@ public class InicialView extends javax.swing.JFrame {
     private final ProdutoView telaProdutos = new ProdutoView();
     private final VendaView telaVendas = new VendaView();
     private final RelatorioSinteticoView telaSintetica = new RelatorioSinteticoView();
-    private final RelatorioAnaliticoView telaAnalitica = new RelatorioAnaliticoView();
 
     /**
      * Creates new form TelaInicialView
@@ -48,7 +47,6 @@ public class InicialView extends javax.swing.JFrame {
         lblVendas = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         lblRelatorios = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblSaudacao = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -78,7 +76,7 @@ public class InicialView extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,8 +170,6 @@ public class InicialView extends javax.swing.JFrame {
                 .addComponent(lblRelatorios, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetoIntegrador/view/img/startech.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanelEsquerdaLayout = new javax.swing.GroupLayout(jPanelEsquerda);
         jPanelEsquerda.setLayout(jPanelEsquerdaLayout);
         jPanelEsquerdaLayout.setHorizontalGroup(
@@ -182,17 +178,11 @@ public class InicialView extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanelEsquerdaLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
         );
         jPanelEsquerdaLayout.setVerticalGroup(
             jPanelEsquerdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelEsquerdaLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(154, 154, 154)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -261,7 +251,7 @@ public class InicialView extends javax.swing.JFrame {
                             .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jDeskAreaTelas)))
                     .addGroup(FundoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 366, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 430, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         FundoLayout.setVerticalGroup(
@@ -298,15 +288,14 @@ public class InicialView extends javax.swing.JFrame {
             jDeskAreaTelas.add(telaProdutos);
             jDeskAreaTelas.add(telaVendas);
             jDeskAreaTelas.add(telaSintetica);
-            
-         //fazer a tela interna inicializar no tamanho maximo
+
+            //fazer a tela interna inicializar no tamanho maximo
             try {
                 telaVendas.setMaximum(true);
                 telaCliente.setMaximum(true);
                 telaProdutos.setMaximum(true);
                 telaVendas.setMaximum(true);
                 telaSintetica.setMaximum(true);
-                telaAnalitica.setExtendedState(6);
             } catch (PropertyVetoException ex) {
             }
         }
@@ -334,11 +323,6 @@ public class InicialView extends javax.swing.JFrame {
                 telaSintetica.setVisible(true);
                 telaSintetica.toFront();
                 break;
-
-            case "Analitica":
-                this.telaAnalitica.setVisible(true);
-                this.telaAnalitica.toFront();
-                break;
         }
 
     }
@@ -360,6 +344,7 @@ public class InicialView extends javax.swing.JFrame {
         mostrarTelas("Sintetica"); //Relatorios sintetico e analitico
 
     }
+
     /**
      * @param args the command line arguments
      */
@@ -464,7 +449,6 @@ public class InicialView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Fundo;
     private javax.swing.JDesktopPane jDeskAreaTelas;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

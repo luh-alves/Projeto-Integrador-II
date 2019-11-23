@@ -5,10 +5,10 @@
  */
 package projetoIntegrador.view;
 
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
@@ -24,6 +24,8 @@ import projetoIntegrador.model.Venda;
 public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
 
     private Venda vendaSelecionada;
+
+    private RelatorioSinteticoController controller = new RelatorioSinteticoController();
 
     /**
      * Creates new form RelatorioSinteticoView1
@@ -250,10 +252,9 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
         //Controlador resgata as vendas do banco de dados
-        
         Venda obj = new Venda();
-        
-        ArrayList<Venda> listaVendas = RelatorioSinteticoController.consultarVendas(jDateChooser1.getDate(), jDateChooser2.getDate(), obj);
+
+        List<Venda> listaVendas = controller.consultarVendas(jDateChooser1.getDate(), jDateChooser2.getDate());
         //criar manualmente uma tabela para listar as vendas
         DefaultTableModel tabelaSintetico = new DefaultTableModel() {
             @Override
@@ -262,12 +263,12 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
             }
         };
         tabelaSintetico.addColumn("DATA");//0
-        tabelaSintetico.addColumn("PRODUTO");//1
+        tabelaSintetico.addColumn("CLIENTE");//1
         tabelaSintetico.addColumn("VALOR");//2
 
         tblSintetico.setModel(tabelaSintetico);
         for (Venda venda : listaVendas) {
-            tabelaSintetico.addRow(new String[]{formato.format(venda.getDataVenda()), venda.getProdutos().get(0).getNome(), String.valueOf(venda.getTotal())});
+            tabelaSintetico.addRow(new String[]{formato.format(venda.getDataVenda()), venda.getCliente().getNome(), String.valueOf(venda.getTotal())});
         }
         tblSintetico.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 
@@ -338,7 +339,8 @@ public class RelatorioSinteticoView extends javax.swing.JInternalFrame {
         lblValorTotalTotal.setText(String.valueOf(total));
     }
     private void btnGerarRelatorioAnaliticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioAnaliticoActionPerformed
-        RelatorioAnaliticoView analiticoView = new RelatorioAnaliticoView();
+        if(vendaSelecionada == null) return;
+        RelatorioAnaliticoView analiticoView = new RelatorioAnaliticoView(vendaSelecionada);
         analiticoView.setExtendedState(6);
 
         analiticoView.setVisible(true);

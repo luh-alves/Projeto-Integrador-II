@@ -5,7 +5,6 @@
  */
 package projetoIntegrador.view;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import projetoIntegrador.model.Produto;
@@ -21,8 +20,9 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
     /**
      * Creates new form RelatorioAnaliticoView
      */
-    public RelatorioAnaliticoView() {
+    public RelatorioAnaliticoView(Venda venda) {
         initComponents();
+        atualizarListaDeProdutos(venda.getProdutos());
     }
 
     private void atualizarListaDeProdutos(List<Produto> produtos) {
