@@ -847,13 +847,15 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 lblClienteID.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 0).toString());
                 txtNomeCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 1).toString());
                 txtCPFCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 2).toString());
-                cmbSexo.setSelectedIndex(Integer.parseInt(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 3).toString()));
+                String sexoIndice = tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 3).toString();
+                cmbSexo.setSelectedIndex(Integer.parseInt(sexoIndice));
                 try {
                     dateNascimento.setDate(formato.parse(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 4).toString()));
                 } catch (ParseException ex) {
                     Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                cmbEstadoCivil.setSelectedIndex(Integer.parseInt(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 5).toString()));
+                String estadoCivilIndice = tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 5).toString();
+                cmbEstadoCivil.setSelectedIndex(Integer.parseInt(estadoCivilIndice));
                 txtRua.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 6).toString());
                 txtBairro.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 7).toString());
                 txtCEP.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 8).toString());
