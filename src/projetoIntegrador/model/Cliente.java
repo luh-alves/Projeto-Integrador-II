@@ -35,7 +35,7 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String cpf, String nome, String sexo, Date dataNascimento,
+    public Cliente(String cpf, String nome, String sexo, Date dataNascimento, 
             String estadoCivil, String endereco, String bairro, String cep,
             String numero, String cidade, String nacionalidade, String email,
             String telefone, String telefone2, Date dataCadastro,
@@ -59,11 +59,12 @@ public class Cliente {
     }
 
     //Contrutor de atualizar o cliente 
-    public Cliente(int id, String nome, String sexo, Date dataNascimento,
+    public Cliente(int id,String cpf, String nome, String sexo, Date dataNascimento,
             String estadoCivil, String endereco, String bairro, String cep,
             String numero, String cidade, String nacionalidade, String email,
             String telefone, String telefone2, Date ultimaAtualizacao) {
         this.id = id;
+        this.cpf = cpf;
         this.nome = nome;
         this.sexo = sexo;
         this.dataNascimento = dataNascimento;

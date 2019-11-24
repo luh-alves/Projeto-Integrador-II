@@ -34,7 +34,7 @@ public class ClienteDAO {
             conexao = Database.abrirConexao();
 
             instrucaoSQL = conexao.prepareStatement("INSERT INTO cliente (cpf, nome, sexo, email, telefone, telefone2, data_nascimento, estado_civil, rua, numero,"
-                    + "bairro, cidade, cep, nacionalidade, data_cadastro, ultima_atualizacao) VALUES(?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)",
+                    + "bairro, cidade, cep, nacionalidade, data_cadastro, ultima_atualizacao) VALUES(?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS);  //Caso queira retornar o ID do cliente
 
             //Adiciono os parâmetros ao meu comando SQL
@@ -144,27 +144,28 @@ public class ClienteDAO {
             //Obs: A classe GerenciadorConexao já carrega o Driver e define os parâmetros de conexão
             conexao = Database.abrirConexao();
 
-            instrucaoSQL = conexao.prepareStatement("UPDATE cliente SET nome = ?, sexo = ?,"
+            instrucaoSQL = conexao.prepareStatement("UPDATE cliente SET cpf = ?, nome = ?, sexo = ?,"
                     + "email = ?, telefone = ?, telefone2 = ?, data_nascimento = ?, estado_civil = ?, rua = ?,"
                     + "numero = ?, bairro = ?, cidade = ?, cep = ?, nacionalidade = ?, ultima_atualizacao = ? WHERE id = ?",
                     Statement.RETURN_GENERATED_KEYS);  //Caso queira retornar o ID do cliente
 
             //Adiciono os parâmetros ao meu comando SQL
-            instrucaoSQL.setString(1, objCliente.getNome());
-            instrucaoSQL.setString(2, objCliente.getSexo());
-            instrucaoSQL.setString(3, objCliente.getEmail());
-            instrucaoSQL.setString(4, objCliente.getTelefone());
-            instrucaoSQL.setString(5, objCliente.getTelefone2());
-            instrucaoSQL.setDate(6, new Date(objCliente.getDataNascimento().getTime()));
-            instrucaoSQL.setString(7, objCliente.getEstadoCivil());
-            instrucaoSQL.setString(8, objCliente.getEndereco());
-            instrucaoSQL.setString(9, objCliente.getNumero());
-            instrucaoSQL.setString(10, objCliente.getBairro());
-            instrucaoSQL.setString(11, objCliente.getCidade());
-            instrucaoSQL.setString(12, objCliente.getCep());
-            instrucaoSQL.setString(13, objCliente.getNacionalidade());
-            instrucaoSQL.setDate(14, new Date(objCliente.getUltimaAtualizacao().getTime()));
-            instrucaoSQL.setInt(15, objCliente.getId());
+            instrucaoSQL.setString(1, objCliente.getCpf());
+            instrucaoSQL.setString(2, objCliente.getNome());
+            instrucaoSQL.setString(3, objCliente.getSexo());
+            instrucaoSQL.setString(4, objCliente.getEmail());
+            instrucaoSQL.setString(5, objCliente.getTelefone());
+            instrucaoSQL.setString(6, objCliente.getTelefone2());
+            instrucaoSQL.setDate(7, new Date(objCliente.getDataNascimento().getTime()));
+            instrucaoSQL.setString(8, objCliente.getEstadoCivil());
+            instrucaoSQL.setString(9, objCliente.getEndereco());
+            instrucaoSQL.setString(10, objCliente.getNumero());
+            instrucaoSQL.setString(11, objCliente.getBairro());
+            instrucaoSQL.setString(12, objCliente.getCidade());
+            instrucaoSQL.setString(13, objCliente.getCep());
+            instrucaoSQL.setString(14, objCliente.getNacionalidade());
+            instrucaoSQL.setDate(15, new Date(objCliente.getUltimaAtualizacao().getTime()));
+            instrucaoSQL.setInt(16, objCliente.getId());
 
             int linhasAfetadas = instrucaoSQL.executeUpdate();
 

@@ -21,14 +21,15 @@ public class ClienteController {
 
     private final String[] tradutorSexo = new String[]{"Feminino", "Masculino", "Indefinido"};
     private final String[] tradutorEstadoCivil = new String[]{"Solteiro", "Casado", "Divorciado"};
-    
-    public int traduzirSexo(String sexoSelecionado){
+
+    public int traduzirSexo(String sexoSelecionado) {
         return java.util.Arrays.asList(tradutorSexo).indexOf(sexoSelecionado);
     }
-    
-    public int traduzirEstadoCivil(String estadoCivilSelecionado){
+
+    public int traduzirEstadoCivil(String estadoCivilSelecionado) {
         return java.util.Arrays.asList(tradutorEstadoCivil).indexOf(estadoCivilSelecionado);
     }
+    
 
     public boolean salvarCliente(String cpf, String nome, int sexo,
             Date dataNascimento, int estadoCivil, String endereco,
@@ -43,8 +44,8 @@ public class ClienteController {
 
         return clienteDAO.salvarCliente(cliente);
     }
-
-    public ArrayList<String[]> consultarClientes(String modo, String buscar) {
+    
+    public ArrayList<String[]> consultarClientes() {
         ArrayList<String[]> listarClientesString = new ArrayList<>();
 
         for (Cliente cliente : clienteDAO.consultarClientes()) {
@@ -53,9 +54,9 @@ public class ClienteController {
                 String.valueOf(cliente.getId()),
                 cliente.getNome(),
                 cliente.getCpf(),
-                String.valueOf(cliente.getSexo()),
+                String.valueOf(traduzirSexo(cliente.getSexo())),
                 formato.format(cliente.getDataNascimento()),
-                String.valueOf(cliente.getEstadoCivil()),
+                String.valueOf(traduzirEstadoCivil(cliente.getEstadoCivil())),
                 cliente.getEndereco(),
                 cliente.getBairro(),
                 cliente.getCep(),
@@ -75,7 +76,7 @@ public class ClienteController {
         ArrayList<String[]> buscarClientesString = new ArrayList<>();
         for (Cliente ListarCliente : clienteDAO.consultarClientes()) {
 
-            if (ListarCliente.getCpf().equals(buscar) && modo.equals("BuscarCPF") || ListarCliente.getNome().toLowerCase().contains(buscar.toLowerCase()) && modo.equals("BuscarNome")) {
+            if (ListarCliente.getCpf().equals(buscar) && modo.equals("BuscarCPF") || ListarCliente.getNome().toLowerCase().equals(buscar.toLowerCase()) && modo.equals("BuscarNome")||buscar.equals("")) {
                 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
                 buscarClientesString.add(new String[]{
                     String.valueOf(ListarCliente.getId()),
@@ -100,14 +101,14 @@ public class ClienteController {
         return buscarClientesString;
     }
 
-    public boolean atualizarCliente(int id, String nome, int sexo, Date dataNascimento,
+    public boolean atualizarCliente(int id,String cpf, String nome, int sexo, Date dataNascimento,
             int estadoCivil, String endereco, String bairro, String cep,
             String numero, String cidade, String nacionalidade, String email,
             String telefone, String telefone2, Date ultimaAtualizacao) {
 
-        Cliente clienteAtualizar = new Cliente(id, nome, tradutorSexo[sexo],
+        Cliente clienteAtualizar = new Cliente(id, cpf, nome, tradutorSexo[sexo],
                 dataNascimento, tradutorEstadoCivil[estadoCivil], endereco, bairro,
-                cep, numero, cidade, nacionalidade, email, telefone, telefone2, 
+                cep, numero, cidade, nacionalidade, email, telefone, telefone2,
                 ultimaAtualizacao);
 
         return clienteDAO.atualizarCliente(clienteAtualizar);
