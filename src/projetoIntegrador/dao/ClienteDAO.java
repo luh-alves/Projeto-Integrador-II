@@ -34,7 +34,7 @@ public class ClienteDAO {
             conexao = Database.abrirConexao();
 
             instrucaoSQL = conexao.prepareStatement("INSERT INTO cliente (cpf, nome, sexo, email, telefone, telefone2, data_nascimento, estado_civil, rua, numero,"
-                    + "bairro, cidade, cep, nacionalidade, data_cadastro, ultima_atualizacao) VALUES(?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                    + "bairro, cidade, cep, nacionalidade, data_cadastro, ultima_atualizacao) VALUES(?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)",
                     Statement.RETURN_GENERATED_KEYS);  //Caso queira retornar o ID do cliente
 
             //Adiciono os parâmetros ao meu comando SQL
