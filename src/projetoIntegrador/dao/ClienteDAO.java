@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 import projetoIntegrador.model.Cliente;
 import projetoIntegrador.utils.Database;
 
@@ -75,7 +74,7 @@ public class ClienteDAO {
         }
     }
 
-    //aqui busca uma arrayList do tipo Cliente do simulaBanco e manda para o controler passar para a view
+    //aqui cria uma arrayList do tipo Cliente onde é adicionado os cliente e manda para o controler passar para a view
     public ArrayList<Cliente> consultarClientes() {
         ResultSet rs = null;
         Connection conexao = null;
@@ -133,7 +132,7 @@ public class ClienteDAO {
         return listaClientes;
     }
 
-//atulliza o cliente enviando o objeto para o simula banco
+//atualiza o cliente enviando os dados para o banco de dados
     public boolean atualizarCliente(Cliente objCliente) {
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
@@ -189,7 +188,7 @@ public class ClienteDAO {
         }
     }
 
-    //exclui o cliente passando o cpf(codigo de identificação) para o bancoSimulado procurar e excluir o cliente desejado 
+    //exclui o cliente passando o cpf(codigo de identificação) por um comando ao banco de dados excluir o cliente desejado 
     public boolean excluirCliente(int id) {
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
@@ -227,8 +226,9 @@ public class ClienteDAO {
             }
         }
     }
-
-    public List<Cliente> pesquisarClientePorNome(String name) {
+    
+    //pesquisa cliente por nome, através de um comando select o banco de dados retorna todos os dados do cliente que é adicionado no arrayList
+    public ArrayList<Cliente> pesquisarClientePorNome(String name) {
 
         ResultSet rs = null;
         Connection conexao = null;
@@ -287,7 +287,8 @@ public class ClienteDAO {
 
         return listaClientes;
     }
-
+    
+ //pesquisa cliente por id, através de um comando select o banco de dados retorna todos os dados do cliente que é adicionado no arrayList o cliente
     public Cliente pesquisarClientePorId(int id) {
 
         ResultSet rs = null;
@@ -344,8 +345,9 @@ public class ClienteDAO {
             }
         }
     }
-
-    public Cliente pesquisarClientePorId(int id, Connection conexao) {
+    
+    //metodo usado no VendaDAO que passa por parãmetro o id do cliente e a conexao 
+ public Cliente pesquisarClientePorId(int id, Connection conexao) {
 
         ResultSet rs = null;
         PreparedStatement instrucaoSQL = null;
@@ -384,4 +386,5 @@ public class ClienteDAO {
             return null;
         }
     }
+   
 }

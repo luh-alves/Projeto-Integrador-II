@@ -32,9 +32,11 @@ public class Cliente {
     private Date dataCadastro;
     private Date ultimaAtualizacao;
 
+    //construtor vazio
     public Cliente() {
     }
 
+    //construtor para cadastrado novo cliente
     public Cliente(String cpf, String nome, String sexo, Date dataNascimento, 
             String estadoCivil, String endereco, String bairro, String cep,
             String numero, String cidade, String nacionalidade, String email,

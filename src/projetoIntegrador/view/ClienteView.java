@@ -624,6 +624,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             procurar="";
             System.out.println("Buscar");
         }
+        //array usado para armazerar e passar para a tabela o cliente que foi buscado
         ArrayList<String[]> BuscarClientes = clienteController.buscarClientes(procurar, modoTela);
 
         //criar manualmente uma tabela para listar os clientes e gerencia-los
@@ -661,6 +662,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
         }
 
         //para cada cliente novo, atualizado ou excluido, atualizo a tabela
+        //se foi clicado no botão busca entra no if pois assim atualiza a tabela com os dados de busca
+        //se não entra no else e atualiza a lista clientes, caso clique no botão busca, mas não foi informado nada carrega a tablea com todo os clientes
         if (modoTela.contains("Buscar")) {
             for (String[] clientes : BuscarClientes) {
                 tabelaClientes.addRow(clientes);
@@ -669,7 +672,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             for (String[] clientes : listaClientes) {
                 tabelaClientes.addRow(clientes);
             }
-//        }
+            
             //definindo um tamanho para cada coluna
             tblCadastroCliente.getColumnModel().getColumn(0).setPreferredWidth(200);
             tblCadastroCliente.getColumnModel().getColumn(1).setPreferredWidth(200);
@@ -735,6 +738,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         btnCancelar.setEnabled(false);
     }
 
+    //usado no botão cancelar
     public void camposBrancos() {
         txtNomeCliente.setBackground(Color.white);
         txtCPFCliente.setBackground(Color.white);
@@ -748,6 +752,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         txtTelefone1.setBackground(Color.white);
     }
 
+    //caso tenha alguma cliente com o mesmo cpf o sistema não avisa o usuario e nem chama a classe controle
     public boolean validadarCPFDupli(String id) {
         ArrayList<String[]> BuscarClientes = clienteController.consultarClientes();
         for (String[] clientes : BuscarClientes) {
@@ -760,8 +765,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
         txtCPFCliente.setBackground(Color.white);
         return true;
     }
-
-    public boolean validarCampo() {
+        
+    //valida os campos obrigátorios em brancos
+    public boolean validarCampoObrigatorio() {
         String campos = "Campos obrigatórios * em brancos\n";
         if (txtNomeCliente.getText().equals("")) {
             txtNomeCliente.setBackground(Color.RED);
@@ -843,7 +849,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
             //verifica se o usuario selecionou uma linha, selecionado é = a 0, quando não tem nada selecionado é = -1
             if (tblCadastroCliente.getSelectedRow() >= 0) {
                 habilitarFormulario();
-                //passando o valores da linha selecionada
+                //passando o valores da linha selecionada para o formulário
                 lblClienteID.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 0).toString());
                 txtNomeCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 1).toString());
                 txtCPFCliente.setText(tblCadastroCliente.getModel().getValueAt(tblCadastroCliente.getSelectedRow(), 2).toString());
@@ -875,6 +881,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEditarClienteActionPerformed
 
     private void btnExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirClienteActionPerformed
+        //verifica se tem pelo menos 1 cliente na tabela 
         if (tblCadastroCliente.getSelectedRowCount() > 0) {
             //verifica se tem alguma linha selecionada
             if (tblCadastroCliente.getSelectedRow() >= 0) {
@@ -898,13 +905,17 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnExcluirClienteActionPerformed
 
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
-        if (validarCampo()) {
+     //valida o campo obrigatorio e caso tenha algum em branco é informado para o usuário
+        if (validarCampoObrigatorio()) {
             if (validadarCPFDupli(lblClienteID.getText())) {
                 Date date = new Date(System.currentTimeMillis());
+                //se o modo tela for igual a criar entrar no if
                 if (modoTela.equals("Criar")) {
+                    
+                    //passa para o cliente os dados para cadastrado o novo cliente o cliente foi salvo com sucesso, é retornado true, caso contraio retorna false
                     if (clienteController.salvarCliente(txtCPFCliente.getText(), txtNomeCliente.getText(), cmbSexo.getSelectedIndex(), dateNascimento.getDate(), cmbEstadoCivil.getSelectedIndex(), txtRua.getText(), txtBairro.getText(), txtCEP.getText(), txtNumero.getText(), txtCidade.getText(), txtNacionalidade.getText(), txtEmailCliente.getText(), txtTelefone1.getText(), txtTelefone2.getText(), date, date)) {
 
-                        //carregar a tabela depois de salvo no banco
+                        //carregar a tabela depois de salvo no banco e limpa o formulário
                         carregarTabela();
                         limparFormulario();
                         JOptionPane.showMessageDialog(this, "Novo cliente adicionado com  sucesso");
@@ -913,10 +924,12 @@ public class ClienteView extends javax.swing.JInternalFrame {
                     }
                     
                 } else {
+                    //se o usuário deseja editar um cliente envia para o controle os dados a serem atualizados e se foi possivel atulizar retorna true caso contrario retorna false
                     if (clienteController.atualizarCliente(Integer.parseInt(lblClienteID.getText()), txtCPFCliente.getText(), txtNomeCliente.getText(), cmbSexo.getSelectedIndex(), dateNascimento.getDate(), cmbEstadoCivil.getSelectedIndex(), txtRua.getText(), txtBairro.getText(), txtCEP.getText(), txtNumero.getText(), txtCidade.getText(), txtNacionalidade.getText(), txtEmailCliente.getText(), txtTelefone1.getText(), txtTelefone2.getText(), date)) {
                         carregarTabela();
                         limparFormulario();
                         desabilitarFormulario();
+                        
                         JOptionPane.showMessageDialog(this, "O cliente foi atualizado com sucesso");
                     } else {
                         JOptionPane.showMessageDialog(this, "Não foi possivel atualizar o cliente!");
@@ -942,7 +955,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtEmailClienteActionPerformed
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-        modoTela = TipoBuscaCliente.getSelection().getActionCommand();
+        modoTela = TipoBuscaCliente.getSelection().getActionCommand();//obtem o tipo de busca cpf ou nome
         carregarTabela();
 
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
@@ -980,6 +993,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtNumeroKeyPressed
 
     private void txtBuscaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBuscaFocusLost
+      //Ao perder o foco o campo busca estiver em branco é setado o texto busca
         if (txtBusca.getText().replace(" ", "").replace(".", "").replace("-", "").equals("")) {
             txtBusca.setFormatterFactory(new DefaultFormatterFactory());
             txtBusca.setText("Buscar...");
@@ -988,14 +1002,17 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtBuscaFocusLost
 
     private void txtNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroKeyTyped
+      //impede o usuario de digitar numero no campo numero
         char c = evt.getKeyChar();
+        //entra no if caso o usuario digite qualquer coisa que não seja numero 
         if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+            //apaga apenas o que o usuario não devia digitar
             evt.consume();
         }
     }//GEN-LAST:event_txtNumeroKeyTyped
 
     private void txtBuscaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBuscaFocusGained
-
+        //quando o usuario clica no campo busca é 
         if (txtBusca.getText().replace(" ", "").contains("Buscar...") && TipoBuscaCliente.getSelection().getActionCommand().contains("BuscarNome")) {
             txtBusca.setFormatterFactory(new DefaultFormatterFactory());
             txtBusca.setText("");
