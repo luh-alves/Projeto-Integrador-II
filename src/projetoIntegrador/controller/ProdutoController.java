@@ -8,6 +8,10 @@ package projetoIntegrador.controller;
 import java.util.ArrayList;
 import projetoIntegrador.dao.ProdutoDAO;
 import projetoIntegrador.model.Produto;
+/**
+ * Classe que representa a classe Produto Controler
+ * 
+ */
 
 public class ProdutoController {
 

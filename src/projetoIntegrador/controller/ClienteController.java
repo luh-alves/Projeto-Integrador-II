@@ -12,7 +12,7 @@ import projetoIntegrador.dao.ClienteDAO;
 import projetoIntegrador.model.Cliente;
 
 /**
- *
+ *  Classe que representa a classe ClienteController
  * @author geovane.saraujo
  */
 public class ClienteController {
@@ -22,15 +22,44 @@ public class ClienteController {
     private final String[] tradutorSexo = new String[]{"Feminino", "Masculino", "Indefinido"};
     private final String[] tradutorEstadoCivil = new String[]{"Solteiro", "Casado", "Divorciado"};
 
+    /**
+     * Traduzir sexo
+     * @param sexoSelecionado recebe uma String com o sexo do cliente
+     * @return o indice referente ao sexo do cliente
+     */
     public int traduzirSexo(String sexoSelecionado) {
         return java.util.Arrays.asList(tradutorSexo).indexOf(sexoSelecionado);
     }
-
+    /**
+     * Traduzir o estado civil 
+     * @param estadoCivilSelecionado recebe uma String 
+     * @return o indice referente ao estado civil do cliente
+     */
+    
     public int traduzirEstadoCivil(String estadoCivilSelecionado) {
         return java.util.Arrays.asList(tradutorEstadoCivil).indexOf(estadoCivilSelecionado);
     }
     
-
+ /**
+  * Salvar cliente
+  * @param cpf do cliente
+  * @param nome do cliente
+  * @param sexo do cliente
+  * @param dataNascimento do cliente
+  * @param estadoCivil do cliente
+  * @param endereco do cliente
+  * @param bairro do cliente
+  * @param cep do cliente
+  * @param numero do cliente
+  * @param cidade do cliente
+  * @param nacionalidade do cliente
+  * @param email do cliente
+  * @param telefone do cliente
+  * @param telefone2 do cliente
+  * @param dataCadastro do cliente
+  * @param ultimaAtualizacao do cliente
+  * @return true caso o cliente seja salvo com sucesso e false caso de erro ao salvar cliente
+  */
     public boolean salvarCliente(String cpf, String nome, int sexo,
             Date dataNascimento, int estadoCivil, String endereco,
             String bairro, String cep, String numero, String cidade,
@@ -45,6 +74,10 @@ public class ClienteController {
         return clienteDAO.salvarCliente(cliente);
     }
     
+    /**
+     * Consultar Clientes
+     * @return um ArrayList do tipo String contendo todo os clientes cadastrados
+     */
     public ArrayList<String[]> consultarClientes() {
         ArrayList<String[]> listarClientesString = new ArrayList<>();
 
@@ -78,7 +111,6 @@ public class ClienteController {
      * @param modo rebe uma String com o tipo de busca CPF ou NOME
      * @return retorna o cliente de acordo com o que foi buscado
      */
-
     public ArrayList<String[]> buscarClientes(String buscar, String modo) {
         ArrayList<String[]> buscarClientesString = new ArrayList<>();
         for (Cliente ListarCliente : clienteDAO.consultarClientes()) {
@@ -107,7 +139,27 @@ public class ClienteController {
         }
         return buscarClientesString;
     }
-
+        
+/**
+ * Atualizar dados de um determinado cliente
+ * @param id recebe o id do cliente a ser atualizado
+  * @param cpf do cliente
+  * @param nome do cliente
+  * @param sexo do cliente
+  * @param dataNascimento do cliente
+  * @param estadoCivil do cliente
+  * @param endereco do cliente
+  * @param bairro do cliente
+  * @param cep do cliente
+  * @param numero do cliente
+  * @param cidade do cliente
+  * @param nacionalidade do cliente
+  * @param email do cliente
+  * @param telefone do cliente
+  * @param telefone2 do cliente
+  * @param ultimaAtualizacao do cliente
+ * @return true caso seja possivel atualiza o cliente e false caso de erro ao salvar o cliente
+ */
     public boolean atualizarCliente(int id,String cpf, String nome, int sexo, Date dataNascimento,
             int estadoCivil, String endereco, String bairro, String cep,
             String numero, String cidade, String nacionalidade, String email,
@@ -121,6 +173,11 @@ public class ClienteController {
         return clienteDAO.atualizarCliente(clienteAtualizar);
     }
 
+    /**
+     * Excluir um cliente
+     * @param id recebe o di do cliente a ser excluido
+     * @return true caso o cliente seja excluido com sucesso e false caso de erro ao excluir o cliente
+     */
     public boolean excluirCliente(int id) {
         return clienteDAO.excluirCliente(id);
     }
