@@ -30,7 +30,6 @@ create table cliente
     
 );
 
-select * from cliente;
 
 create table venda
 (

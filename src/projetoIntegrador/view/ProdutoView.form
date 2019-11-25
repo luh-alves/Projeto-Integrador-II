@@ -32,7 +32,7 @@
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-              <Component id="Tabela" max="32767" attributes="0"/>
+              <Component id="Tabela" pref="695" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Component id="jPanel9" alignment="1" max="32767" attributes="0"/>
@@ -272,11 +272,7 @@
                   <Component id="btnEditarProduto" min="-2" pref="136" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnExcluirProduto" min="-2" pref="128" max="-2" attributes="0"/>
-                  <EmptySpace pref="319" max="32767" attributes="0"/>
-                  <Component id="TextFieldProcurar" min="-2" pref="199" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnBuscarProduto" min="-2" pref="123" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace pref="660" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -291,8 +287,6 @@
                       </Group>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="btnEditarProduto" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                          <Component id="TextFieldProcurar" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="btnBuscarProduto" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="btnExcluirProduto" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -334,26 +328,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarProdutoActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="TextFieldProcurar">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Georgia" size="14" style="0"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="2"/>
-            <Property name="text" type="java.lang.String" value="Procurar..."/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextFieldProcurarActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnBuscarProduto">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Georgia" size="14" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Buscar"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAdicionar">
           <Properties>

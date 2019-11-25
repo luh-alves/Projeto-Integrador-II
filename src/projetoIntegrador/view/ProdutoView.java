@@ -122,8 +122,6 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btnSalvarProduto = new javax.swing.JButton();
         btnExcluirProduto = new javax.swing.JButton();
         btnEditarProduto = new javax.swing.JButton();
-        TextFieldProcurar = new javax.swing.JTextField();
-        btnBuscarProduto = new javax.swing.JButton();
         btnAdicionar = new javax.swing.JButton();
         Tabela = new javax.swing.JScrollPane();
         tblProduto = new javax.swing.JTable();
@@ -269,18 +267,6 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        TextFieldProcurar.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        TextFieldProcurar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TextFieldProcurar.setText("Procurar...");
-        TextFieldProcurar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFieldProcurarActionPerformed(evt);
-            }
-        });
-
-        btnBuscarProduto.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        btnBuscarProduto.setText("Buscar");
-
         btnAdicionar.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         btnAdicionar.setText("Adicionar");
         btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
@@ -302,11 +288,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addComponent(btnEditarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 319, Short.MAX_VALUE)
-                .addComponent(TextFieldProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBuscarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(660, Short.MAX_VALUE))
         );
         BotoesLayout.setVerticalGroup(
             BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,8 +300,6 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                         .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnEditarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(TextFieldProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBuscarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -351,7 +331,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                         .addGap(36, 36, 36)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(39, 39, 39)
-                .addComponent(Tabela)
+                .addComponent(Tabela, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -477,10 +457,6 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnEditarProdutoActionPerformed
 
-    private void TextFieldProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldProcurarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextFieldProcurarActionPerformed
-
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         // TODO add your handling code here:
 
@@ -528,9 +504,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel Botoes;
     private javax.swing.JLabel CadastroCliente4;
     private javax.swing.JScrollPane Tabela;
-    private javax.swing.JTextField TextFieldProcurar;
     private javax.swing.JButton btnAdicionar;
-    private javax.swing.JButton btnBuscarProduto;
     private javax.swing.JButton btnEditarProduto;
     private javax.swing.JButton btnExcluirProduto;
     private javax.swing.JButton btnSalvarProduto;
