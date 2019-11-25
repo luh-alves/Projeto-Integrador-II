@@ -30,8 +30,6 @@ create table cliente
     
 );
 
-select * from cliente;
-
 create table venda
 (
     id int auto_increment primary key ,
