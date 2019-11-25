@@ -32,6 +32,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         //Oculta o ID
         lblPID.setVisible(false);
     }
+    
+    /**
+     * Carrega a tabela produtos
+     */
 
     public void LoadTable() {
 
@@ -61,6 +65,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
     }
 
+    /**
+     * limpa o formulario de produtos
+     */
+    
     public void limparFormulario() {
 
         txtNomeProduto.setText("");
@@ -68,6 +76,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtValorUnitario.setText("");
 
     }
+    
+    /**
+     * Desabilita o formulario de produtos
+     */
 
     public void desabilitarFormulario() {
 
@@ -84,6 +96,9 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
     }
 
+    /**
+     * habilita o formulario de produtos
+     */
     public void habitarFormulario() {
 
         txtNomeProduto.setEditable(true);
@@ -474,6 +489,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValorUnitarioActionPerformed
 
+    /**
+     * valida o formulario de produtos, verifica se tem campos em brancos
+     * @return retorna false caso algum campo esteja em branco
+     */
     private boolean ValidarFormulário() {
 
         if (this.txtNomeProduto.getText().equalsIgnoreCase("")) {

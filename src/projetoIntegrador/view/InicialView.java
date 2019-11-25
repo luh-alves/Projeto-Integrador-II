@@ -304,9 +304,11 @@ public class InicialView extends javax.swing.JFrame {
             case "Clientes":
                 telaCliente.toFront();
                 telaCliente.setVisible(true);
+                telaCliente.carregarTabela();
                 break;
 
             case "Produtos":
+                telaProdutos.LoadTable();
                 telaProdutos.setVisible(true);
                 telaProdutos.toFront();
                 break;

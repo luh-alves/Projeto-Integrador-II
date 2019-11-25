@@ -20,17 +20,18 @@ import javax.swing.text.MaskFormatter;
 import projetoIntegrador.controller.ClienteController;
 
 /**
+ * classe que representa a tela de cadastro cliente
  *
  * @author fabiana.vsilva6
  */
 public class ClienteView extends javax.swing.JInternalFrame {
 
     /**
+     *
      * Creates new form ClientesView1
      */
     private final ClienteController clienteController = new ClienteController();
     private String modoTela = "Criar";
-    private String cpfDupli;
 
     public ClienteView() {
         initComponents();
@@ -616,13 +617,17 @@ public class ClienteView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * carrega a tabela de clientes, seja ao adicionar, excluir, atualizar
+     * cliente ou ao busca um cliente
+     */
     public void carregarTabela() {
-        String procurar=txtBusca.getText();
+
+        String procurar = txtBusca.getText();
         //Controlador resgata os clientes do banco de dados
         ArrayList<String[]> listaClientes = clienteController.consultarClientes();
-        if(txtBusca.getText().equals("Buscar...")){
-            procurar="";
-            System.out.println("Buscar");
+        if (txtBusca.getText().equals("Buscar...")) {
+            procurar = "";
         }
         ArrayList<String[]> BuscarClientes = clienteController.buscarClientes(procurar, modoTela);
 
@@ -669,7 +674,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
             for (String[] clientes : listaClientes) {
                 tabelaClientes.addRow(clientes);
             }
-//        }
             //definindo um tamanho para cada coluna
             tblCadastroCliente.getColumnModel().getColumn(0).setPreferredWidth(200);
             tblCadastroCliente.getColumnModel().getColumn(1).setPreferredWidth(200);
@@ -679,6 +683,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
     }
 
+    /**
+     * limpa o formulario usado para cadastrar cliente
+     */
     public void limparFormulario() {
         txtNomeCliente.setText("");
         txtCPFCliente.setText("");
@@ -696,6 +703,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
         txtTelefone2.setText("");
     }
 
+    /**
+     * habilita o formulario de cadastro cliente
+     */
     public void habilitarFormulario() {
         txtNomeCliente.setEnabled(true);
         txtCPFCliente.setEnabled(true);
@@ -715,6 +725,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
         btnCancelar.setEnabled(true);
     }
 
+    /**
+     * Desabilita o formulario de casdatro cliente
+     */
     public void desabilitarFormulario() {
         txtNomeCliente.setEnabled(false);
         txtCPFCliente.setEnabled(false);
@@ -735,6 +748,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
         btnCancelar.setEnabled(false);
     }
 
+    /**
+     * seta todo os campos do formulario cliente em brancos
+     */
     public void camposBrancos() {
         txtNomeCliente.setBackground(Color.white);
         txtCPFCliente.setBackground(Color.white);
@@ -748,10 +764,17 @@ public class ClienteView extends javax.swing.JInternalFrame {
         txtTelefone1.setBackground(Color.white);
     }
 
+    /**
+     * Validar CPF duplicado ignora o cpf do cliente que está sendo editado
+     *
+     * @param id recebe o id do cliente que está sendo editado
+     * @return retorna true se se o cpf ainda não está cadastrado no sistema e
+     * false se o cpf ja está cadastrado no sistema
+     */
     public boolean validadarCPFDupli(String id) {
         ArrayList<String[]> BuscarClientes = clienteController.consultarClientes();
         for (String[] clientes : BuscarClientes) {
-            if (clientes[2].equals(txtCPFCliente.getText()) &&!clientes[0].equals(id)){
+            if (clientes[2].equals(txtCPFCliente.getText()) && !clientes[0].equals(id)) {
                 JOptionPane.showMessageDialog(this, "o CPF já está cadastrado no sistema");
                 txtCPFCliente.setBackground(Color.red);
                 return false;
@@ -761,7 +784,13 @@ public class ClienteView extends javax.swing.JInternalFrame {
         return true;
     }
 
-    public boolean validarCampo() {
+    /**
+     * Validar campos obrigatórios em brancos
+     *
+     * @return false caso tenha campos obrigatórios em brancos e true se os
+     * campos obrigatórios estiver preenchido
+     */
+    public boolean validarCampoBranco() {
         String campos = "Campos obrigatórios * em brancos\n";
         if (txtNomeCliente.getText().equals("")) {
             txtNomeCliente.setBackground(Color.RED);
@@ -898,7 +927,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnExcluirClienteActionPerformed
 
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
-        if (validarCampo()) {
+        if (validarCampoBranco()) {
             if (validadarCPFDupli(lblClienteID.getText())) {
                 Date date = new Date(System.currentTimeMillis());
                 if (modoTela.equals("Criar")) {
@@ -911,7 +940,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
                     } else {
                         JOptionPane.showMessageDialog(this, "Erro ao salvar o cliente ");
                     }
-                    
+
                 } else {
                     if (clienteController.atualizarCliente(Integer.parseInt(lblClienteID.getText()), txtCPFCliente.getText(), txtNomeCliente.getText(), cmbSexo.getSelectedIndex(), dateNascimento.getDate(), cmbEstadoCivil.getSelectedIndex(), txtRua.getText(), txtBairro.getText(), txtCEP.getText(), txtNumero.getText(), txtCidade.getText(), txtNacionalidade.getText(), txtEmailCliente.getText(), txtTelefone1.getText(), txtTelefone2.getText(), date)) {
                         carregarTabela();
@@ -924,7 +953,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
                 }
             }
-            }
+        }
     }//GEN-LAST:event_btnSalvarClienteActionPerformed
 
     private void btnAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarClienteActionPerformed

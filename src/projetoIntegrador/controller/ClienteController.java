@@ -71,12 +71,19 @@ public class ClienteController {
         }
         return listarClientesString;
     }
+    
+    /**
+     * Busca Cliente
+     * @param buscar recebe uma String com os dados da busca CPF ou NOME
+     * @param modo rebe uma String com o tipo de busca CPF ou NOME
+     * @return retorna o cliente de acordo com o que foi buscado
+     */
 
     public ArrayList<String[]> buscarClientes(String buscar, String modo) {
         ArrayList<String[]> buscarClientesString = new ArrayList<>();
         for (Cliente ListarCliente : clienteDAO.consultarClientes()) {
 
-            if (ListarCliente.getCpf().equals(buscar) && modo.equals("BuscarCPF") || ListarCliente.getNome().toLowerCase().equals(buscar.toLowerCase()) && modo.equals("BuscarNome")||buscar.equals("")) {
+            if (ListarCliente.getCpf().equals(buscar) && modo.equals("BuscarCPF") || ListarCliente.getNome().toLowerCase().contains(buscar.toLowerCase()) && modo.equals("BuscarNome")||buscar.equals("")) {
                 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
                 buscarClientesString.add(new String[]{
                     String.valueOf(ListarCliente.getId()),

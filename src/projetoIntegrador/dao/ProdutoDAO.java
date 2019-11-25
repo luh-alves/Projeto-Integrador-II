@@ -15,8 +15,19 @@ import java.util.List;
 import projetoIntegrador.utils.Database;
 import projetoIntegrador.model.Produto;
 
+/**
+ * classe que representa a classe produtoDAO
+ * 
+ */
 public class ProdutoDAO {
 
+    
+    /**
+     * Salvar produto
+     * @param p recebe um objeto produto com o dados produtos a ser salvado
+     * @return true o produto seja salvo com sucesso e false se der erro ao salvar o produto
+     */
+    
     public boolean salvar(Produto p) {
         boolean retorno = false;
         Connection conexao = null;
@@ -71,6 +82,11 @@ public class ProdutoDAO {
         return retorno;
     }
 
+    /**
+     * Atualizar produto
+     * @param p recebe um objeto produto com o dados a ser atualizado
+     * @return true caso seja possivel atualizar o produto e false caso de erro ao atualizar
+     */
     public boolean atualizar(Produto p) {
         boolean retorno = false;
         Connection conexao = null;
@@ -115,6 +131,12 @@ public class ProdutoDAO {
         return retorno;
     }
 
+    /**
+     * Atualizar produto
+     * @param p recebe um objeto produto com o dados a ser atualizado
+     * @param conexao recebe a conexao de vendaDAO
+     * @return true caso seja possivel atualizar o produto e false caso de erro ao atualizar
+     */
     public boolean atualizar(Produto p, Connection conexao) {
         boolean retorno = false;
         PreparedStatement instrucaoSQL = null;
@@ -142,6 +164,11 @@ public class ProdutoDAO {
         return retorno;
     }
 
+    /**
+     * Excluir cliente
+     * @param pID Recebe por parametro o id do produto a ser excluido
+     * @return true caso o produto seja excluido com sucesso e false caso de erro ao excluir o produto
+     */
     public boolean excluir(int pID) {
         boolean retorno = false;
         Connection conexao = null;
@@ -182,13 +209,19 @@ public class ProdutoDAO {
 
         return retorno;
     }
+    
+    /**
+     * Pesquisar produto por nome
+     * @param name recebe o nome do produto por parametro
+     * @return um List do tipo produto com os dados do produto pesquisado
+     */
 
     public List<Produto> pesquisarProdutoPorNome(String name) {
         ResultSet rs = null;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
 
-        ArrayList<Produto> listaClientes = new ArrayList<Produto>();
+        ArrayList<Produto> listaProduto = new ArrayList<Produto>();
 
         try {
 
@@ -204,12 +237,12 @@ public class ProdutoDAO {
                 c.setNome(rs.getString("nome"));
                 c.setQuantidade(rs.getInt("quantidade"));
                 c.setValor(rs.getDouble("valor"));
-                listaClientes.add(c);
+                listaProduto.add(c);
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
-            listaClientes = null;
+            listaProduto = null;
         } finally {
             //Libero os recursos da memória
             try {
@@ -226,15 +259,19 @@ public class ProdutoDAO {
             }
         }
 
-        return listaClientes;
+        return listaProduto;
     }
 
+    /**
+     * Consultar produtos
+     * @return arrayList do tipo Produto com todos os produto encontrados no banco  
+     */
     public ArrayList<Produto> consultarProdutos() {
         ResultSet rs = null;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
 
-        ArrayList<Produto> listaClientes = new ArrayList<Produto>();
+        ArrayList<Produto> listaProduto = new ArrayList<Produto>();
 
         try {
 
@@ -249,7 +286,7 @@ public class ProdutoDAO {
                 c.setNome(rs.getString("nome"));
                 c.setQuantidade(rs.getInt("quantidade"));
                 c.setValor(rs.getDouble("valor"));
-                listaClientes.add(c);
+                listaProduto.add(c);
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
@@ -270,7 +307,7 @@ public class ProdutoDAO {
             }
         }
 
-        return listaClientes;
+        return listaProduto;
     }
 
 }
