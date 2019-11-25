@@ -13,23 +13,24 @@ create table cliente
     id int auto_increment primary key,
     cpf varchar(14) unique not null,
     nome varchar(45) not null,
-    sexo varchar(45) not null,
+    sexo varchar(15) not null,
     email varchar(45) not null,
-    telefone varchar(30),
-    telefone2 varchar(30),
-    data_nascimento date,
-    estado_civil varchar(45),
-    rua varchar(45),
-    numero varchar(10),
-    bairro varchar(45),
-    cidade varchar(45),
-    cep varchar(15),
-    nacionalidade varchar(45),
-    data_cadastro datetime,
+    telefone varchar(16) not null,
+    telefone2 varchar(16),
+    data_nascimento date not null,
+    estado_civil varchar(15) not null,
+    rua varchar(20) not null,
+    numero varchar(10) not null,
+    bairro varchar(45) not null,
+    cidade varchar(45) not null,
+    cep varchar(12) not null,
+    nacionalidade varchar(20) not null,
+    data_cadastro datetime not null,
     ultima_atualizacao datetime
     
 );
 
+select * from cliente;
 
 create table venda
 (

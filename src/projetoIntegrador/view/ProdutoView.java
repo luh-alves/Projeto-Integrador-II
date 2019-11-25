@@ -182,6 +182,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         txtQuantidadeProduto.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
         txtQuantidadeProduto.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtQuantidadeProduto.setName("quantidade"); // NOI18N
         txtQuantidadeProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtQuantidadeProdutoActionPerformed(evt);
@@ -193,6 +194,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         txtValorUnitario.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
         txtValorUnitario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtValorUnitario.setName("valor"); // NOI18N
         txtValorUnitario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtValorUnitarioActionPerformed(evt);
