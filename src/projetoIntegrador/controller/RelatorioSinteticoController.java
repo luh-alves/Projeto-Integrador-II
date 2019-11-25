@@ -5,28 +5,35 @@
  */
 package projetoIntegrador.controller;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import projetoIntegrador.dao.VendaDAO;
 import projetoIntegrador.model.Venda;
-import projetoIntegrador.model.Cliente;
-import projetoIntegrador.utils.Database;
+import projetoIntegrador.view.RelatorioSinteticoView;
+import projetoIntegrador.view.VendaView;
 
 /**
  *
  * @author Luciana Alves
  */
 public class RelatorioSinteticoController {
-    
-    private final VendaDAO vendaDAO = new VendaDAO();
 
-    public List<Venda> consultarVendas(Date inicio, Date fim) {
-        return vendaDAO.consultarVendas(inicio, fim);
+    private final VendaDAO vendaDAO = new VendaDAO();
+    private final RelatorioSinteticoView relatorioSinteticoView;
+
+    public RelatorioSinteticoController(RelatorioSinteticoView relatorioSinteticoView) {
+        this.relatorioSinteticoView = relatorioSinteticoView;
     }
+    public List<Venda> consultarVendas(Date inicio, Date fim) {
+        List<Venda> resultadoVenda = vendaDAO.consultarVendas(inicio, fim);
+        double valor = 0;
+        for (Venda venda : resultadoVenda) {
+            valor = valor + venda.getTotal();
+        }
+        relatorioSinteticoView.atualizarTotalVenda(valor);
+        return resultadoVenda;
+    }
+    
+    
+    
 }
