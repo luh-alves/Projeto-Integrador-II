@@ -30,7 +30,6 @@ create table cliente
     
 );
 
-
 create table venda
 (
     id int auto_increment primary key ,
