@@ -230,6 +230,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         lblNomeClienteSelecionado.setText("");
         lblValorTotalVenda.setText("");
     }
+   
 
     public void atualizarTotalVenda(double total) {
         lblValorTotalVenda.setText(String.valueOf(total));
@@ -610,6 +611,8 @@ public class VendaView extends javax.swing.JInternalFrame {
     private void btnCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarVendaActionPerformed
         limparCamposProduto();
         limparNomeCliente();
+        atualizarListaDeProdutos(Collections.EMPTY_LIST);
+       
 
     }//GEN-LAST:event_btnCancelarVendaActionPerformed
 
