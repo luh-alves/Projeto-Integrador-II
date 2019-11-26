@@ -74,7 +74,7 @@ public class Venda {
         }
         total = calculaTotal();
     }
-    
+
     private double calculaTotal() {
         double soma = 0;
         for (int i = 0; i < produtos.size(); i++) {
@@ -86,6 +86,7 @@ public class Venda {
 
     public void removerProduto(Produto produto) {
         produtos.remove(produto);
+        total = calculaTotal();
     }
 
 }

@@ -16,7 +16,7 @@ public class InicialView extends javax.swing.JFrame {
 
     private final ClienteView telaCliente = new ClienteView();
     private final ProdutoView telaProdutos = new ProdutoView();
-    private final VendaView telaVendas = new VendaView();
+    private final VendaView telaVendas;
     private final RelatorioSinteticoView telaSintetica = new RelatorioSinteticoView();
 
     /**
@@ -25,6 +25,7 @@ public class InicialView extends javax.swing.JFrame {
     public InicialView() {
 
         initComponents();
+        telaVendas = new VendaView(this);
     }
 
     /**
