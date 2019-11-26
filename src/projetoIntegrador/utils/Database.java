@@ -32,7 +32,7 @@ public class Database {
 
     public static Connection abrirConexao() throws ClassNotFoundException, SQLException {
 
-        URL = "jdbc:mysql://" + SERVER + ":3307/" + DATABASE + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
+        URL = "jdbc:mysql://" + SERVER + ":3306/" + DATABASE + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
 
         if (CONEXAO == null) {
             try {
