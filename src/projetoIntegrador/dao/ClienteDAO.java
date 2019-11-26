@@ -17,12 +17,17 @@ import projetoIntegrador.model.Cliente;
 import projetoIntegrador.utils.Database;
 
 /**
- *
+ * classe que representa a classe ClienteDAO
  * @author geovane.saraujo
  */
 public class ClienteDAO {
 
-    //Salvar cliente no banco de dados simulado, apenas o objeto e se for "salvo corretamento" retorna como true nesse banco sempre i´ra retorna como true
+    //Salvar cliente no banco de dados, apenas o objeto e se for "salvo corretamento" retorna como true nesse banco sempre i´ra retorna como true
+    /**
+     * Salvar cliente no banco de dados
+     * @param objCliente recebe um objeto cliente
+     * @return true caso o cliente seja salvo com sucesso e false se não for salve
+     */
     public boolean salvarCliente(Cliente objCliente) {
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
@@ -76,6 +81,10 @@ public class ClienteDAO {
     }
 
     //aqui busca uma arrayList do tipo Cliente do simulaBanco e manda para o controler passar para a view
+    /**
+     * Consultar clientes cadastrados no banco de dados
+     * @return uma lista de clientes do banco de dados 
+     */
     public ArrayList<Cliente> consultarClientes() {
         ResultSet rs = null;
         Connection conexao = null;
@@ -134,6 +143,11 @@ public class ClienteDAO {
     }
 
 //atulliza o cliente enviando o objeto para o simula banco
+    /**
+     * Atualizar dados do cliente
+     * @param objCliente recebe por parametro um objeto cliente criado na classe controle 
+     * @return true caso o cliente foi atulizado com sucesso e false caso de erro ao atualizar o cliente
+     */
     public boolean atualizarCliente(Cliente objCliente) {
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
@@ -188,7 +202,11 @@ public class ClienteDAO {
             }
         }
     }
-
+    /**
+     * Excluir cliente
+     * @param id recebe o id do cliente que o usuario deseja excluir
+     * @return true caso o cliente seja excluido com sucesso e false caso de erro ao excluir o cliente
+     */
     //exclui o cliente passando o cpf(codigo de identificação) para o bancoSimulado procurar e excluir o cliente desejado 
     public boolean excluirCliente(int id) {
         Connection conexao = null;
@@ -227,7 +245,12 @@ public class ClienteDAO {
             }
         }
     }
-
+    
+    /**
+     * Pesquisar cliente por nome
+     * @param name recebe por parametro o nome do cliente a ser pesquisado
+     * @return uma List do tipo cliente com os dados do cliente que foi pesquisado
+     */
     public List<Cliente> pesquisarClientePorNome(String name) {
 
         ResultSet rs = null;
@@ -287,64 +310,12 @@ public class ClienteDAO {
 
         return listaClientes;
     }
-
-    public Cliente pesquisarClientePorId(int id) {
-
-        ResultSet rs = null;
-        Connection conexao = null;
-        PreparedStatement instrucaoSQL = null;
-
-        try {
-
-            conexao = Database.abrirConexao();
-            instrucaoSQL = conexao.prepareStatement("SELECT * FROM cliente where id = ?;");
-            instrucaoSQL.setInt(1, id);
-
-            rs = instrucaoSQL.executeQuery();
-
-            if (rs.next()) {
-                Cliente cliente = new Cliente();
-                cliente.setId(rs.getInt("id"));
-                cliente.setCpf(rs.getString("cpf"));
-                cliente.setNome(rs.getString("nome"));
-                cliente.setSexo(rs.getString("sexo"));
-                cliente.setEmail(rs.getString("email"));
-                cliente.setTelefone(rs.getString("telefone"));
-                cliente.setTelefone2(rs.getString("telefone2"));
-                cliente.setDataNascimento(rs.getDate("data_nascimento"));
-                cliente.setEstadoCivil(rs.getString("estado_civil"));
-                cliente.setEndereco(rs.getString("rua"));
-                cliente.setNumero(rs.getString("numero"));
-                cliente.setBairro(rs.getString("bairro"));
-                cliente.setCidade(rs.getString("cidade"));
-                cliente.setCep(rs.getString("cep"));
-                cliente.setNacionalidade(rs.getString("nacionalidade"));
-                cliente.setDataCadastro(rs.getDate("data_cadastro"));
-                cliente.setUltimaAtualizacao(rs.getDate("ultima_atualizacao"));
-
-                return cliente;
-            }
-            return null;
-        } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println(ex.getMessage());
-            return null;
-        } finally {
-            //Libero os recursos da memória
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (instrucaoSQL != null) {
-                    instrucaoSQL.close();
-                }
-
-                Database.fecharConexao();
-
-            } catch (SQLException ex) {
-            }
-        }
-    }
-
+    /**
+     * Pesquisar cliente por id
+     * @param id recebe o id do cliente a ser pesquisado
+     * @param conexao recebe a conexao que esta em venda por parametro 
+     * @return um objeto cliente contendo todo os dados do cliente pesquisado, caso não encontra  retorna null
+     */
     public Cliente pesquisarClientePorId(int id, Connection conexao) {
 
         ResultSet rs = null;

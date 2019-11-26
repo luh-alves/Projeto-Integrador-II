@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
- *
+ * @param Classe que representa a classe validador
  * @author Wellington
  */
 public class Validador {
