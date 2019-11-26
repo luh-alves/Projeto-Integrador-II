@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 /**
- *Classe que representa a classe dataBase conexao do bando de dados
+ * @param Classe que representa a classe dataBase conexao do bando de dados
  */
 
 public class Database {
@@ -30,6 +30,15 @@ public class Database {
     public Database() {
     }
 
+    /**
+     * 
+     * Método para abrir a conexão e inicar os processos com o banco
+     * 
+     * @return
+     * @throws ClassNotFoundException
+     * @throws SQLException 
+     */
+    
     public static Connection abrirConexao() throws ClassNotFoundException, SQLException {
 
         URL = "jdbc:mysql://" + SERVER + ":3307/" + DATABASE + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
@@ -70,6 +79,13 @@ public class Database {
         return CONEXAO;
     }
 
+    /**
+     * 
+     * Método para gerar status com a conexão
+     * 
+     * @return 
+     */
+    
     public static String getStatusConexao() {
         return STATUS;
     }

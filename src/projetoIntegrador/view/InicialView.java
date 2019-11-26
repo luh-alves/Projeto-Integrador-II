@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 
 /**
  *
+ * Classe responsavel por puxar todas as telas em forma de desktop
+ *
  * @author fabi0
  */
 public class InicialView extends javax.swing.JFrame {
@@ -20,7 +22,7 @@ public class InicialView extends javax.swing.JFrame {
     private final RelatorioSinteticoView telaSintetica = new RelatorioSinteticoView();
 
     /**
-     * Creates new form TelaInicialView
+     * Cria um novo formulário na TelaInicialView
      */
     public InicialView() {
 
@@ -281,8 +283,15 @@ public class InicialView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     *
+     * Verifica se tem algum frameInterno adicionado no JdeskAreaTela, se não
+     * tiver nenhum frame interno adicionando adiciona todos
+     *
+     * @param tela
+     */
     public void mostrarTelas(String tela) {
-        //verifica se tem algum frameInterno adicionado no JdeskAreaTela, se não tiver nenhum frame interno adicionando adiciona todos
+
         if (jDeskAreaTelas.getAllFrames().length == 0) {
             jDeskAreaTelas.add(telaCliente);
             jDeskAreaTelas.add(telaProdutos);
@@ -329,19 +338,43 @@ public class InicialView extends javax.swing.JFrame {
 
     }
 
+    /**
+     *
+     * Quando clicado exibe a tela clientes
+     *
+     * @param evt
+     */
     private void lblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClientesMouseClicked
         mostrarTelas("Clientes");
     }//GEN-LAST:event_lblClientesMouseClicked
 
+    /**
+     *
+     * Quando clicado exibe a tela produtos
+     *
+     * @param evt
+     */
     private void lblProdutosMouseClicked(java.awt.event.MouseEvent evt) {
         mostrarTelas("Produtos");
 
     }
 
+    /**
+     *
+     * Quando clicado exibe a tela vendas
+     *
+     * @param evt
+     */
     private void lblVendasMouseClicked(java.awt.event.MouseEvent evt) {
         mostrarTelas("Vendas");
     }
 
+    /**
+     *
+     * Quando clicado exibe a tela de relatório sintético
+     *
+     * @param evt
+     */
     private void lblRelatoriosMouseClicked(java.awt.event.MouseEvent evt) {
         mostrarTelas("Sintetica"); //Relatorios sintetico e analitico
 

@@ -11,6 +11,8 @@ import java.util.List;
 
 /**
  *
+ * Classe que contem contrutores, getters e setters da venda
+ *
  * @author Luciana Alves
  */
 public class Venda {
@@ -21,47 +23,114 @@ public class Venda {
     private Cliente cliente;
     private List<Produto> produtos = new ArrayList<>();
 
+    /**
+     *
+     * Getter para pegar o ID
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *
+     * Setter para definir o ID
+     *
+     * @return
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     *
+     * Getter para pegar a data da venda
+     *
+     * @return
+     */
     public Date getDataVenda() {
         return dataVenda;
     }
 
+    /**
+     *
+     * Setter para definir a data da venda
+     *
+     * @return
+     */
     public void setDataVenda(Date dataVenda) {
         this.dataVenda = dataVenda;
     }
 
+    /**
+     *
+     * Getter para pegar o total da venda
+     *
+     * @return
+     */
     public double getTotal() {
         return total;
     }
 
+    /**
+     *
+     * Setter para defirnir o total da venda
+     *
+     * @return
+     */
     public void setTotal(double total) {
         this.total = total;
     }
 
+    /**
+     *
+     * Getter para pegar o clienta para qual a venda foi realizada
+     *
+     * @return
+     */
     public Cliente getCliente() {
         return cliente;
     }
 
+    /**
+     *
+     * Setter para definir o clienta para qual a venda foi realizada
+     *
+     * @return
+     */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
+    /**
+     *
+     * Getter para pegar o produto que foi vendido
+     *
+     * @return
+     */
     public List<Produto> getProdutos() {
         return produtos;
     }
 
+    /**
+     *
+     * Setter para definir o produto que foi vendido
+     *
+     * @return
+     */
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
 
     }
 
+    
+    /**
+     * 
+     * Método para atualizar a venda do produto
+     * 
+     * @param produto 
+     */
     public void addProduto(Produto produto) {
         int index = produtos.indexOf(produto);
         if (index == -1) {//Produto ainda não está na lista, então adiciona.
@@ -75,6 +144,12 @@ public class Venda {
         total = calculaTotal();
     }
 
+    /**
+     * 
+     * Método para calcular o total da venda
+     * 
+     * @return 
+     */
     private double calculaTotal() {
         double soma = 0;
         for (int i = 0; i < produtos.size(); i++) {
@@ -84,6 +159,12 @@ public class Venda {
         return soma;
     }
 
+    /**
+     * 
+     * Método para remover o produto após a venda
+     * 
+     * @param produto 
+     */
     public void removerProduto(Produto produto) {
         produtos.remove(produto);
         total = calculaTotal();

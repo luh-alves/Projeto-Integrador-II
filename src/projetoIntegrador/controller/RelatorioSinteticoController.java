@@ -10,9 +10,12 @@ import java.util.List;
 import projetoIntegrador.dao.VendaDAO;
 import projetoIntegrador.model.Venda;
 import projetoIntegrador.view.RelatorioSinteticoView;
+import projetoIntegrador.view.VendaView;
 
 /**
  *
+ * Classe responsavel por gerar o relatório sintético
+ * 
  * @author Luciana Alves
  */
 public class RelatorioSinteticoController {
@@ -20,9 +23,24 @@ public class RelatorioSinteticoController {
     private final VendaDAO vendaDAO = new VendaDAO();
     private final RelatorioSinteticoView relatorioSinteticoView;
 
+    /**
+     * 
+     * Método para visualizar o relatório na view
+     * 
+     * @param relatorioSinteticoView 
+     */
     public RelatorioSinteticoController(RelatorioSinteticoView relatorioSinteticoView) {
         this.relatorioSinteticoView = relatorioSinteticoView;
     }
+    
+    /**
+     * 
+     * Método para consultar as vendas em um periodo específico
+     * 
+     * @param inicio
+     * @param fim
+     * @return 
+     */
     public List<Venda> consultarVendas(Date inicio, Date fim) {
         List<Venda> resultadoVenda = vendaDAO.consultarVendas(inicio, fim);
         double valor = 0;
