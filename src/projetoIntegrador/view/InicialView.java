@@ -6,6 +6,7 @@
 package projetoIntegrador.view;
 
 import java.beans.PropertyVetoException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,7 +25,6 @@ public class InicialView extends javax.swing.JFrame {
     public InicialView() {
 
         initComponents();
-        jPanel6.setVisible(false);
         telaVendas = new VendaView(this);
     }
 

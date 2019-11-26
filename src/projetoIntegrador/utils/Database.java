@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class Database {
 
     public static String STATUS = "Não conectado";
-    public static String DRIVER = "com.mysql.jdbc.Driver";  //A partir da versao 8.0, mudou para com.mysql.cj.jdbc.Driver (Connector/J)                   
+    public static String DRIVER = "com.mysql.cj.jdbc.Driver";  //A partir da versao 8.0, mudou para com.mysql.cj.jdbc.Driver (Connector/J)                   
 
     public static String SERVER = "localhost";
     public static String DATABASE = "loja_informatica";              //nome do seu banco de dados
