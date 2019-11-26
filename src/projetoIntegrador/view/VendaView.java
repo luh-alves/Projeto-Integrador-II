@@ -31,14 +31,16 @@ public class VendaView extends javax.swing.JInternalFrame {
 
     private VendaController vendaController;
     private Produto produtoSelecionado;
-   
+    private final InicialView inicialView;
 
-    public VendaView() {
+    public VendaView(InicialView inicialView) {
         initComponents();
         setupTxtNomeCliente();
         setupTxtNomeProduto();
         setupTxtQuantidade();
         this.vendaController = new VendaController(this);
+        this.inicialView = inicialView;
+
     }
 
     public JMenuItem criarItem(Cliente cliente, Runnable acao) {
@@ -220,12 +222,14 @@ public class VendaView extends javax.swing.JInternalFrame {
         txtQuantidadeProdutoVenda.setText("");
         lblValorUnidadeMostrar.setText("");
         lblValorTotalMostrar.setText("");
-    }
-    public void limparNomeCliente(){
-        txtNomeClienteVenda.setText("");
-        lblNomeClienteSelecionado.setText("");
+
     }
 
+    public void limparNomeCliente() {
+        txtNomeClienteVenda.setText("");
+        lblNomeClienteSelecionado.setText("");
+        lblValorTotalVenda.setText("");
+    }
 
     public void atualizarTotalVenda(double total) {
         lblValorTotalVenda.setText(String.valueOf(total));
@@ -247,7 +251,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         Botoes = new javax.swing.JPanel();
         btnFinalizarVenda = new javax.swing.JButton();
-        btnExcluirVenda = new javax.swing.JButton();
+        btnCancelarVenda = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         txtProdutoVenda = new javax.swing.JTextField();
         lblProdutoVenda = new javax.swing.JLabel();
@@ -287,11 +291,11 @@ public class VendaView extends javax.swing.JInternalFrame {
             }
         });
 
-        btnExcluirVenda.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        btnExcluirVenda.setText("Cancelar Venda");
-        btnExcluirVenda.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelarVenda.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        btnCancelarVenda.setText("Cancelar Venda");
+        btnCancelarVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirVendaActionPerformed(evt);
+                btnCancelarVendaActionPerformed(evt);
             }
         });
 
@@ -303,7 +307,7 @@ public class VendaView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(btnFinalizarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnExcluirVenda)
+                .addComponent(btnCancelarVenda)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BotoesLayout.setVerticalGroup(
@@ -312,7 +316,7 @@ public class VendaView extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(BotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnFinalizarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExcluirVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancelarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -586,8 +590,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         JOptionPane.showConfirmDialog(this, menssagem, "ERROR", 0);
     }
     private void btnFinalizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarVendaActionPerformed
-        
-        
+
         if (!vendaController.temCliente()) {
             mostrarErro("Selecione um cliente");
             return;
@@ -604,17 +607,20 @@ public class VendaView extends javax.swing.JInternalFrame {
         vendaController.limparVenda();
     }//GEN-LAST:event_btnFinalizarVendaActionPerformed
 
-    private void btnExcluirVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirVendaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluirVendaActionPerformed
+    private void btnCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarVendaActionPerformed
+        limparCamposProduto();
+        limparNomeCliente();
+
+    }//GEN-LAST:event_btnCancelarVendaActionPerformed
 
     private void txtNomeClienteVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeClienteVendaActionPerformed
 
     }//GEN-LAST:event_txtNomeClienteVendaActionPerformed
 
     private void btnCadastrarClienteVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteVendaActionPerformed
-       InicialView motrarTela = new InicialView();
-        motrarTela.mostrarTelas("Clientes");
+        inicialView.mostrarTelas("Clientes");
+
+
     }//GEN-LAST:event_btnCadastrarClienteVendaActionPerformed
 
     private void txtQuantidadeProdutoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantidadeProdutoVendaActionPerformed
@@ -622,12 +628,12 @@ public class VendaView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtQuantidadeProdutoVendaActionPerformed
 
     private void btnAdicionarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarVendaActionPerformed
-        if(!vendaController.temProdutoSelecionado()){
+        if (!vendaController.temProdutoSelecionado()) {
             mostrarErro("Adicione um produto");
             return;
         }
         vendaController.adicionarProdutoNaVenda();
-        
+
 
     }//GEN-LAST:event_btnAdicionarVendaActionPerformed
 
@@ -642,8 +648,8 @@ public class VendaView extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane Tabela;
     private javax.swing.JButton btnAdicionarVenda;
     private javax.swing.JButton btnCadastrarClienteVenda;
+    private javax.swing.JButton btnCancelarVenda;
     private javax.swing.JButton btnExcluirProdutoDaVenda;
-    private javax.swing.JButton btnExcluirVenda;
     private javax.swing.JButton btnFinalizarVenda;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

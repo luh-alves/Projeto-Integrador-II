@@ -34,6 +34,7 @@ public class VendaController {
     public VendaController(VendaView vendaView) {
         this.vendaView = vendaView;
     }
+    
 
     public void adicionarProdutoNaVenda() {
         produtoSelecionado.setQuantidadeNaVenda(quantidadeProduto);
