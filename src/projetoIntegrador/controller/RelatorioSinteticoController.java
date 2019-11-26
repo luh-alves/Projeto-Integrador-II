@@ -10,7 +10,6 @@ import java.util.List;
 import projetoIntegrador.dao.VendaDAO;
 import projetoIntegrador.model.Venda;
 import projetoIntegrador.view.RelatorioSinteticoView;
-import projetoIntegrador.view.VendaView;
 
 /**
  *

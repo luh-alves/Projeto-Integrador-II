@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 /**
- * @param Classe que representa a classe dataBase conexao do bando de dados
+ *Classe que representa a classe dataBase conexao do bando de dados
  */
 
 public class Database {
